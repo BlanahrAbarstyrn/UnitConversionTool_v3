@@ -19,9 +19,11 @@ theme = ExtResource("1_vnck2")
 layout_mode = 1
 
 [node name="SettingsUI" parent="." unique_id=2029752945 instance=ExtResource("3_deq60")]
+visible = false
 layout_mode = 1
 
 [node name="AboutUI" parent="." unique_id=2086764371 instance=ExtResource("4_6sydh")]
+visible = false
 layout_mode = 1
 
 [node name="ChangelogUI" parent="." unique_id=32682368 instance=ExtResource("5_deq60")]
