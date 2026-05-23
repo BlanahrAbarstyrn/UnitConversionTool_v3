@@ -36,3 +36,10 @@ Thumbs.db
 *.svg
 *.ttf
 *.ogg
+*.jpg
+*.wav
+*.mp3
+*.glb
+*.gltf
+*.blend"
+*.fbx
