@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d4mwknhkwd6pa"]
+
+[node name="LengthOptions" type="Control" unique_id=1227267523]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LengthOptionButton" type="OptionButton" parent="." unique_id=2003179037]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fit_to_longest_item = false
+item_count = 6
+popup/item_0/text = "Architectural feet and inches"
+popup/item_0/id = 0
+popup/item_1/text = "Decimal feet"
+popup/item_1/id = 1
+popup/item_2/text = "Decimal inches"
+popup/item_2/id = 2
+popup/item_3/text = "Millimeters"
+popup/item_3/id = 3
+popup/item_4/text = "Centimeters"
+popup/item_4/id = 4
+popup/item_5/text = "Meters"
+popup/item_5/id = 5

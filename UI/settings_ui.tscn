@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://dhpbodfq877l5"]
+
+[ext_resource type="PackedScene" uid="uid://bikdyka3yayso" path="res://UI/InterfaceScenes/base_button.tscn" id="1_xirri"]
+[ext_resource type="PackedScene" uid="uid://dg8oaq6anfgkd" path="res://UI/InterfaceScenes/main_button.tscn" id="2_gqiv8"]
+[ext_resource type="PackedScene" uid="uid://c66jmavyb6kng" path="res://UI/InterfaceScenes/about_button.tscn" id="3_n3jyd"]
+
+[node name="SettingsUI" type="Control" unique_id=2029752945]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=457652825]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MCscreen" type="MarginContainer" parent="Panel" unique_id=30951795]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBscreen" type="VBoxContainer" parent="Panel/MCscreen" unique_id=1138727524]
+layout_mode = 2
+
+[node name="LabelTitle" type="Label" parent="Panel/MCscreen/VBscreen" unique_id=1002977984]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "THEME SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MCthemeButton" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1467160822]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 30
+
+[node name="DefaultThemeButton" parent="Panel/MCscreen/VBscreen/MCthemeButton" unique_id=568713739 instance=ExtResource("1_xirri")]
+layout_mode = 2
+
+[node name="MCthemeButton2" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=920844690]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="CoffeeThemeButton" parent="Panel/MCscreen/VBscreen/MCthemeButton2" unique_id=1924240982 instance=ExtResource("1_xirri")]
+layout_mode = 2
+
+[node name="MCthemeButton3" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=981917312]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="DarkThemeButton" parent="Panel/MCscreen/VBscreen/MCthemeButton3" unique_id=366846004 instance=ExtResource("1_xirri")]
+layout_mode = 2
+
+[node name="MCthemeButton4" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=271783464]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="HappyThemeButton" parent="Panel/MCscreen/VBscreen/MCthemeButton4" unique_id=1055208085 instance=ExtResource("1_xirri")]
+layout_mode = 2
+
+[node name="MCthemeButton5" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1755243726]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="NatureThemeButton" parent="Panel/MCscreen/VBscreen/MCthemeButton5" unique_id=63567244 instance=ExtResource("1_xirri")]
+layout_mode = 2
+
+[node name="MCthemeButton6" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1428144062]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 50
+
+[node name="OceanBreezeThemeButton" parent="Panel/MCscreen/VBscreen/MCthemeButton6" unique_id=343098148 instance=ExtResource("1_xirri")]
+layout_mode = 2
+
+[node name="MCnavigation" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=132401349]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="HBnavigation" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCnavigation" unique_id=8451338]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="MainButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1706418474 instance=ExtResource("2_gqiv8")]
+layout_mode = 2
+
+[node name="AboutButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=276046882 instance=ExtResource("3_n3jyd")]
+layout_mode = 2

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cxxfoi3uslpdn"]
+
+[ext_resource type="PackedScene" uid="uid://bikdyka3yayso" path="res://UI/InterfaceScenes/base_button.tscn" id="1_jym2i"]
+
+[node name="SubmitButton" unique_id=568713739 instance=ExtResource("1_jym2i")]
+text = "Submit"
