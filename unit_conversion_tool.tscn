@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://p6v5djy2jde4"]
+
+[ext_resource type="Theme" uid="uid://vrb8t8tcj57i" path="res://AppTheme/Themes/base_theme.tres" id="1_3plyr"]
+[ext_resource type="Script" uid="uid://coqy3ytm1kfw" path="res://UnitConversionTool.cs" id="2_wf4fr"]
+[ext_resource type="PackedScene" uid="uid://dm35rnntf46bh" path="res://UI/ScreenScenes/user_interface.tscn" id="3_vj7g4"]
+[ext_resource type="PackedScene" uid="uid://dhpbodfq877l5" path="res://UI/ScreenScenes/settings_ui.tscn" id="4_p0ybj"]
+[ext_resource type="PackedScene" uid="uid://pg4uqg7sl5i8" path="res://UI/ScreenScenes/about_ui.tscn" id="5_l4tpj"]
+[ext_resource type="PackedScene" uid="uid://fwmew5fb1t08" path="res://UI/ScreenScenes/changelog_ui.tscn" id="6_gqhlc"]
+
+[node name="UnitConversionTool" type="Control" unique_id=696273116 node_paths=PackedStringArray("_userInterface", "_settingsUi", "_aboutUi", "_changelogUi")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3plyr")
+script = ExtResource("2_wf4fr")
+_userInterface = NodePath("UserInterface")
+_settingsUi = NodePath("SettingsUI")
+_aboutUi = NodePath("AboutUI")
+_changelogUi = NodePath("ChangelogUI")
+
+[node name="UserInterface" parent="." unique_id=2107891430 instance=ExtResource("3_vj7g4")]
+layout_mode = 1
+
+[node name="SettingsUI" parent="." unique_id=2029752945 instance=ExtResource("4_p0ybj")]
+visible = false
+layout_mode = 1
+
+[node name="AboutUI" parent="." unique_id=2086764371 instance=ExtResource("5_l4tpj")]
+visible = false
+layout_mode = 1
+
+[node name="ChangelogUI" parent="." unique_id=32682368 instance=ExtResource("6_gqhlc")]
+visible = false
+layout_mode = 1

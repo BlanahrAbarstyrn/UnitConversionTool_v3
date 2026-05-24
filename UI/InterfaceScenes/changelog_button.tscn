@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://bptemveomyooe"]
-
-[ext_resource type="PackedScene" uid="uid://bikdyka3yayso" path="res://UI/InterfaceScenes/base_button.tscn" id="1_eyj0a"]
-
-[node name="ChangelogButton" unique_id=568713739 instance=ExtResource("1_eyj0a")]
-text = "Changelog
-"

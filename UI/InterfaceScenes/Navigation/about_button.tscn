@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c66jmavyb6kng"]
+
+[ext_resource type="PackedScene" uid="uid://bikdyka3yayso" path="res://UI/InterfaceScenes/base_button.tscn" id="1_x5veg"]
+[ext_resource type="Script" uid="uid://d0hyijy554kl5" path="res://UI/InterfaceScenes/Navigation/AboutButton.cs" id="2_c1obr"]
+
+[node name="AboutButton" unique_id=568713739 node_paths=PackedStringArray("_aboutButton") instance=ExtResource("1_x5veg")]
+text = "About"
+script = ExtResource("2_c1obr")
+_aboutButton = NodePath(".")

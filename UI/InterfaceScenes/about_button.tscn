@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://c66jmavyb6kng"]
-
-[ext_resource type="PackedScene" uid="uid://bikdyka3yayso" path="res://UI/InterfaceScenes/base_button.tscn" id="1_x5veg"]
-
-[node name="AboutButton" unique_id=568713739 instance=ExtResource("1_x5veg")]
-text = "About"
