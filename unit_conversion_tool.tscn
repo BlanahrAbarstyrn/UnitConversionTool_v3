@@ -26,6 +26,7 @@ _changelogUi = NodePath("ChangelogUI")
 layout_mode = 1
 
 [node name="SettingsUI" parent="." unique_id=2029752945 instance=ExtResource("4_p0ybj")]
+visible = false
 layout_mode = 1
 
 [node name="AboutUI" parent="." unique_id=2086764371 instance=ExtResource("5_l4tpj")]
