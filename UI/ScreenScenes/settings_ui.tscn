@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhpbodfq877l5"]
 
 [ext_resource type="Script" uid="uid://fe7x4egxmoon" path="res://UI/ScreenScenes/SettingsUi.cs" id="1_n3jyd"]
-[ext_resource type="PackedScene" uid="uid://bikdyka3yayso" path="res://UI/InterfaceScenes/base_button.tscn" id="1_xirri"]
+[ext_resource type="PackedScene" uid="uid://cvey5yes5riyr" path="res://UI/Settings/theme_options.tscn" id="2_ghya7"]
 [ext_resource type="PackedScene" uid="uid://dg8oaq6anfgkd" path="res://UI/InterfaceScenes/Navigation/main_button.tscn" id="2_gqiv8"]
 [ext_resource type="PackedScene" uid="uid://c66jmavyb6kng" path="res://UI/InterfaceScenes/Navigation/about_button.tscn" id="3_n3jyd"]
 [ext_resource type="PackedScene" uid="uid://7jbdls7nx0v6" path="res://UI/Settings/bgm_on_texture_button.tscn" id="3_oeim2"]
@@ -49,9 +49,30 @@ layout_mode = 2
 [node name="LabelTitle" type="Label" parent="Panel/MCscreen/VBscreen" unique_id=1002977984]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "THEME SETTINGS"
+text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MCthemeButtons2" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=271783464]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons2" unique_id=324603203]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButtons2/HBoxContainer" unique_id=1987260962]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Skin Theme Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThemeOptions" parent="Panel/MCscreen/VBscreen/MCthemeButtons2/HBoxContainer" unique_id=1227267523 instance=ExtResource("2_ghya7")]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="MCthemeButtons" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=981917312]
 layout_mode = 2
@@ -63,54 +84,12 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 alignment = 1
 
-[node name="DefaultThemeButton" parent="Panel/MCscreen/VBscreen/MCthemeButtons/HBoxContainer" unique_id=568713739 instance=ExtResource("1_xirri")]
-layout_mode = 2
-size_flags_horizontal = 6
-
-[node name="CoffeeThemeButton" parent="Panel/MCscreen/VBscreen/MCthemeButtons/HBoxContainer" unique_id=1924240982 instance=ExtResource("1_xirri")]
-layout_mode = 2
-size_flags_horizontal = 6
-
-[node name="MCthemeButtons2" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=271783464]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons2" unique_id=324603203]
-layout_mode = 2
-
-[node name="DarkThemeButton" parent="Panel/MCscreen/VBscreen/MCthemeButtons2/HBoxContainer" unique_id=366846004 instance=ExtResource("1_xirri")]
-layout_mode = 2
-size_flags_horizontal = 6
-
-[node name="HappyThemeButton" parent="Panel/MCscreen/VBscreen/MCthemeButtons2/HBoxContainer" unique_id=1055208085 instance=ExtResource("1_xirri")]
-layout_mode = 2
-size_flags_horizontal = 6
-
-[node name="MCthemeButton3" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1755243726]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton3" unique_id=772826654]
-layout_mode = 2
-
-[node name="NatureThemeButton" parent="Panel/MCscreen/VBscreen/MCthemeButton3/HBoxContainer" unique_id=63567244 instance=ExtResource("1_xirri")]
-layout_mode = 2
-size_flags_horizontal = 6
-
-[node name="OceanBreezeThemeButton" parent="Panel/MCscreen/VBscreen/MCthemeButton3/HBoxContainer" unique_id=343098148 instance=ExtResource("1_xirri")]
-layout_mode = 2
-size_flags_horizontal = 6
-
 [node name="MCthemeButton4" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1913721144]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton4" unique_id=779781620]
 layout_mode = 2
@@ -210,10 +189,19 @@ text = "Music Options"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="BgmOptions" parent="Panel/MCscreen/VBscreen/MCbgmSelection/HBbgmSelection" unique_id=1227267523 instance=ExtResource("7_wl25h")]
+[node name="BgmOptions" parent="Panel/MCscreen/VBscreen/MCbgmSelection/HBbgmSelection" unique_id=564184743 instance=ExtResource("7_wl25h")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+
+[node name="MCthemeButton3" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1755243726]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton3" unique_id=772826654]
+layout_mode = 2
 
 [node name="MCnavigation" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=132401349]
 layout_mode = 2

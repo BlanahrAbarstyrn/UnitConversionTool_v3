@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://p6v5djy2jde4"]
 
-[ext_resource type="Theme" uid="uid://vrb8t8tcj57i" path="res://AppTheme/Themes/base_theme.tres" id="1_3plyr"]
+[ext_resource type="Theme" uid="uid://vrb8t8tcj57i" path="res://AppTheme/Themes/base_theme.tres" id="1_0dcoo"]
 [ext_resource type="Script" uid="uid://coqy3ytm1kfw" path="res://UnitConversionTool.cs" id="2_wf4fr"]
 [ext_resource type="PackedScene" uid="uid://dm35rnntf46bh" path="res://UI/ScreenScenes/user_interface.tscn" id="3_vj7g4"]
 [ext_resource type="PackedScene" uid="uid://dhpbodfq877l5" path="res://UI/ScreenScenes/settings_ui.tscn" id="4_p0ybj"]
@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_3plyr")
+theme = ExtResource("1_0dcoo")
 script = ExtResource("2_wf4fr")
 _userInterface = NodePath("UserInterface")
 _settingsUi = NodePath("SettingsUI")

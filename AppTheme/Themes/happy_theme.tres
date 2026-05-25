@@ -1,12 +1,12 @@
-[gd_resource type="Theme" format=3 uid="uid://vrb8t8tcj57i"]
+[gd_resource type="Theme" format=3 uid="uid://bd8ijvuhkewrb"]
 
-[ext_resource type="FontFile" uid="uid://r84yye210qrr" path="res://AppTheme/Fonts/LuckiestGuy-Regular.ttf" id="1_bfvqa"]
-[ext_resource type="Texture2D" uid="uid://b3fbpx7pghlyv" path="res://AppTheme/Art/ButtonPanel.png" id="1_hxx7v"]
-[ext_resource type="FontFile" uid="uid://dy2ug5b7awxgo" path="res://AppTheme/Fonts/FuturaHand.ttf" id="1_y3e1p"]
-[ext_resource type="Texture2D" uid="uid://ctqdj27m0abui" path="res://AppTheme/Art/Btn_V04.png" id="2_wbvvc"]
-[ext_resource type="Texture2D" uid="uid://i2h4v3wkv2ta" path="res://AppTheme/Art/Btn_V03.png" id="3_bfvqa"]
-[ext_resource type="Texture2D" uid="uid://4fmeobc8ybx2" path="res://AppTheme/Art/Btn_V08.png" id="3_ensyb"]
-[ext_resource type="Texture2D" uid="uid://lucv22c5e4sb" path="res://AppTheme/Art/Btn_V15.png" id="4_ensyb"]
+[ext_resource type="FontFile" uid="uid://r84yye210qrr" path="res://AppTheme/Fonts/LuckiestGuy-Regular.ttf" id="1_u0alr"]
+[ext_resource type="Texture2D" uid="uid://b3fbpx7pghlyv" path="res://AppTheme/Art/ButtonPanel.png" id="2_j3bol"]
+[ext_resource type="Texture2D" uid="uid://sbm2j8nq12et" path="res://AppTheme/Art/Btn_V09.png" id="3_u0alr"]
+[ext_resource type="Texture2D" uid="uid://cwmh74pa2x2bi" path="res://AppTheme/Art/Btn_V06.png" id="4_j3bol"]
+[ext_resource type="Texture2D" uid="uid://dcru5k3nvl8nj" path="res://AppTheme/Art/Btn_V02.png" id="5_j4x8q"]
+[ext_resource type="Texture2D" uid="uid://4octu6xt3rve" path="res://AppTheme/Art/Btn_V14.png" id="6_w8ar3"]
+[ext_resource type="FontFile" uid="uid://dy2ug5b7awxgo" path="res://AppTheme/Fonts/FuturaHand.ttf" id="7_yg4uy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfvqa"]
 content_margin_left = 8.0
@@ -21,35 +21,35 @@ content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
 content_margin_bottom = 5.0
-texture = ExtResource("1_hxx7v")
+texture = ExtResource("2_j3bol")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbvvc"]
 content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
 content_margin_bottom = 5.0
-texture = ExtResource("3_ensyb")
+texture = ExtResource("3_u0alr")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l1plk"]
 content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
 content_margin_bottom = 5.0
-texture = ExtResource("2_wbvvc")
+texture = ExtResource("4_j3bol")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_21xm5"]
 content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
 content_margin_bottom = 5.0
-texture = ExtResource("3_bfvqa")
+texture = ExtResource("5_j4x8q")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxfd4"]
 content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
 content_margin_bottom = 5.0
-texture = ExtResource("4_ensyb")
+texture = ExtResource("6_w8ar3")
 
 [sub_resource type="DPITexture" id="DPITexture_ensyb"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
@@ -1064,7 +1064,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a41xb"]
-bg_color = Color(0.008419049, 0.11897542, 0.21770668, 1)
+bg_color = Color(0.62, 0.403, 0.47171667, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvxmn"]
 content_margin_left = 0.0
@@ -1115,7 +1115,7 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0, 0.007843138, 0.13725491, 1)
+bg_color = Color(0.13, 0.08319999, 0.09100001, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -1163,7 +1163,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[sub_resource type="Image" id="Image_bfvqa"]
+[sub_resource type="Image" id="Image_u0alr"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -1173,7 +1173,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_qtegf"]
-image = SubResource("Image_bfvqa")
+image = SubResource("Image_u0alr")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gq4g"]
 content_margin_left = 0.0
@@ -1644,7 +1644,7 @@ expand_margin_right = 8.0
 expand_margin_bottom = 6.0
 
 [resource]
-default_font = ExtResource("1_y3e1p")
+default_font = ExtResource("7_yg4uy")
 default_font_size = 20
 AcceptDialog/constants/buttons_separation = 10
 AcceptDialog/styles/panel = SubResource("StyleBoxFlat_bfvqa")
@@ -1667,7 +1667,7 @@ Button/constants/h_separation = 0
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 8
 Button/font_sizes/font_size = 28
-Button/fonts/font = ExtResource("1_bfvqa")
+Button/fonts/font = ExtResource("1_u0alr")
 Button/styles/disabled = SubResource("StyleBoxTexture_njofm")
 Button/styles/focus = SubResource("StyleBoxTexture_wbvvc")
 Button/styles/hover = SubResource("StyleBoxTexture_l1plk")

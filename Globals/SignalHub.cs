@@ -1,11 +1,14 @@
 using Godot;
 using System;
+using UnitConversionTool.UI.Settings;
 
 namespace UnitConversionTool.Globals;
 
 public partial class SignalHub : Node
 {
 	public static SignalHub Instance { get; private set; }
+
+	public long SelectedBgmIndex { get; set; } = 0;
 
 	[Signal]
 	public delegate void OnMainButtonPressedEventHandler();
@@ -23,6 +26,10 @@ public partial class SignalHub : Node
 	public delegate void OnSfxOnButtonPressedEventHandler();
 	[Signal]
 	public delegate void OnSfxOffButtonPressedEventHandler();
+	[Signal]
+	public delegate void OnBgmOptionSelectedEventHandler(long index);
+	[Signal]
+	public delegate void OnThemeOptionSelectedEventHandler(long index);
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -30,6 +37,16 @@ public partial class SignalHub : Node
 		Instance = this;
 	}
 
+	public static void EmitOnThemeOptionSelected(long index)
+	{
+		Instance.EmitSignal(SignalName.OnThemeOptionSelected, index);
+	}
+	
+	public static void EmitOnBgmOptionSelected(long index)
+	{
+		Instance.EmitSignal(SignalName.OnBgmOptionSelected, index);
+	}
+	
 	public static void EmitOnMainButtonPressed()
 	{
 		Instance.EmitSignal(SignalName.OnMainButtonPressed);

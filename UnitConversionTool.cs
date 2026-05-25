@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using UnitConversionTool.Globals;
-using UnitConversionTool.UI.Settings;
 
 namespace UnitConversionTool;
 
@@ -38,6 +37,32 @@ public partial class UnitConversionTool : Control
 		SignalHub.Instance.OnSettingsButtonPressed += OnSettingsButtonPressed;
 		SignalHub.Instance.OnAboutButtonPressed += OnAboutButtonPressed;
 		SignalHub.Instance.OnChangelogButtonPressed += OnChangelogButtonPressed;
+		SignalHub.Instance.OnThemeOptionSelected += OnThemeOptionSelected;
+	}
+
+	private void OnThemeOptionSelected(long index)
+	{
+		switch (index)
+		{
+			case 0:
+				Theme = GD.Load("uid://vrb8t8tcj57i") as Theme;
+				break;
+			case 1:
+				Theme = GD.Load("uid://dxjqn3ak1ujs7") as Theme;
+				break;
+			case 2:
+				Theme = GD.Load("uid://b56x1l0aqfs1r") as Theme;
+				break;
+			case 3:
+				Theme = GD.Load("uid://bd8ijvuhkewrb") as Theme;
+				break;
+			case 4:
+				Theme = GD.Load("uid://d6gahkl5aae4") as Theme;
+				break;
+			default:
+				Theme = GD.Load("uid://vrb8t8tcj57i") as Theme;
+				break;
+		}
 	}
 	
 	private void OnMainButtonPressed()
