@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://baiurhoq0stx2"]
+
+[ext_resource type="PackedScene" uid="uid://7mgk8vijyyja" path="res://UI/InterfaceScenes/base_texture_button.tscn" id="1_a6gpj"]
+[ext_resource type="Texture2D" uid="uid://dqmnsw6m7rri5" path="res://AppTheme/Icons/ic_volume_off.png" id="2_hsp5e"]
+[ext_resource type="Texture2D" uid="uid://dn11of4hug5q1" path="res://AppTheme/Icons/ic_volume_off_fill.png" id="3_ovwj8"]
+[ext_resource type="Texture2D" uid="uid://dw6q36nhf6jun" path="res://AppTheme/Icons/ic_volume_off_lines.png" id="4_uo1sx"]
+
+[node name="SfxOffTextureButton" unique_id=1247644541 instance=ExtResource("1_a6gpj")]
+texture_normal = ExtResource("2_hsp5e")
+texture_pressed = ExtResource("3_ovwj8")
+texture_hover = ExtResource("4_uo1sx")

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dhpbodfq877l5" path="res://UI/ScreenScenes/settings_ui.tscn" id="4_p0ybj"]
 [ext_resource type="PackedScene" uid="uid://pg4uqg7sl5i8" path="res://UI/ScreenScenes/about_ui.tscn" id="5_l4tpj"]
 [ext_resource type="PackedScene" uid="uid://fwmew5fb1t08" path="res://UI/ScreenScenes/changelog_ui.tscn" id="6_gqhlc"]
+[ext_resource type="PackedScene" uid="uid://c6geu27g30qo2" path="res://UI/Settings/sound_controller.tscn" id="7_0dcoo"]
 
 [node name="UnitConversionTool" type="Control" unique_id=696273116 node_paths=PackedStringArray("_userInterface", "_settingsUi", "_aboutUi", "_changelogUi")]
 layout_mode = 3
@@ -25,7 +26,6 @@ _changelogUi = NodePath("ChangelogUI")
 layout_mode = 1
 
 [node name="SettingsUI" parent="." unique_id=2029752945 instance=ExtResource("4_p0ybj")]
-visible = false
 layout_mode = 1
 
 [node name="AboutUI" parent="." unique_id=2086764371 instance=ExtResource("5_l4tpj")]
@@ -35,3 +35,5 @@ layout_mode = 1
 [node name="ChangelogUI" parent="." unique_id=32682368 instance=ExtResource("6_gqhlc")]
 visible = false
 layout_mode = 1
+
+[node name="SoundController" parent="." unique_id=1601632186 instance=ExtResource("7_0dcoo")]

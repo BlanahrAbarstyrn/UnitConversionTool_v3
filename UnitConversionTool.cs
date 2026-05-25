@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using UnitConversionTool.Globals;
+using UnitConversionTool.UI.Settings;
 
 namespace UnitConversionTool;
 
@@ -21,7 +22,7 @@ public partial class UnitConversionTool : Control
 			Window window = GetWindow();
 			if (window != null)
 			{
-				window.MinSize = new Vector2I(360, 480); // Minimum width and height
+				window.MinSize = new Vector2I(420, 560); // Minimum width and height
 				window.MaxSize = new Vector2I(720, 960); // Maximum and design width and height
 			}
 		}
@@ -38,7 +39,7 @@ public partial class UnitConversionTool : Control
 		SignalHub.Instance.OnAboutButtonPressed += OnAboutButtonPressed;
 		SignalHub.Instance.OnChangelogButtonPressed += OnChangelogButtonPressed;
 	}
-
+	
 	private void OnMainButtonPressed()
 	{
 		ShowUserInterface(true);
@@ -53,6 +54,7 @@ public partial class UnitConversionTool : Control
 	{
 		ShowAboutUi(true);
 	}
+	
 	
 	private void OnChangelogButtonPressed()
 	{

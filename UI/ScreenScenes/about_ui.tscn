@@ -48,7 +48,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 0
 
@@ -79,6 +79,7 @@ Flow Rate: Barrels per hour, Cubic Meters per hour
 Developer: Lori Stalter
 Art Asset Attribution:
 [ul]
+Simple UI Icons by HardArtcore @ hardartcore.itch.io
 Board Game Icons (1.1) by Kenney @ www.kenney.nl
 Free UI KIT #1 by WENREXA @ wenrexa.itch.io
 [/ul]
@@ -87,7 +88,11 @@ Font Attribution:
 Futura Hand by Jon Grafton @ www.dafont.com/jon-grafton.d2892
 Luckiest Guy by Astigmatic @ www.dafontfree.io/luckiest-guy-font/
 [/ul]
-Sound Asset Attribution: UI SFX Set by Kenney @ www.kenney.nl
+Sound Asset Attribution:
+[ul]
+UI SFX Set by Kenney @ www.kenney.nl
+Ambiences Music Pack by JDSherbert @ jdsherbert.itch.io
+[/ul]
 [/ul]
 
 
