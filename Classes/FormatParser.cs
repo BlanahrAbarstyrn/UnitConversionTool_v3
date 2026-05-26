@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 namespace UnitConversionTool.Classes;
 public partial class FormatParser : Node
 {
-    public static void Parse()
+    private static void Parse()
     {
         var pattern = new Regex(@"
             (?: (\d+) ' \s* -? )?     # Optional feet
@@ -32,7 +32,7 @@ public partial class FormatParser : Node
      * Summary:
      * Parses a measurement string like 5' 8 1/2" into total inches.
      */
-    static double ParseMeasurementToInches(string input, Regex pattern)
+    private static double ParseMeasurementToInches(string input, Regex pattern)
     {
         var match = pattern.Match(input);
         if (!match.Success) return double.NaN;
@@ -49,7 +49,7 @@ public partial class FormatParser : Node
      * Summary:
      * Parses and integer safely, returning a default value if parsing fails.
      */
-    static int ParseIntSafe(string value, int defaultValue)
+    private static int ParseIntSafe(string value, int defaultValue)
     {
         return int.TryParse(value, out int result) ? result : defaultValue;
     }

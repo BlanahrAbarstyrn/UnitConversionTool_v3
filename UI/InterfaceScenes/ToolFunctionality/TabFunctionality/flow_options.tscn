@@ -1,15 +1,6 @@
 [gd_scene format=3 uid="uid://7x1d0w1q3ahc"]
 
-[node name="FlowOptions" type="Control" unique_id=1227267523]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="FlowOptionButton" type="OptionButton" parent="." unique_id=2003179037]
-layout_mode = 1
+[node name="FlowOptionButton" type="OptionButton" unique_id=2003179037]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

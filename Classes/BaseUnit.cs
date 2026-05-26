@@ -1,9 +1,5 @@
 using Godot;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnitConversionTool.Classes;
 public partial class BaseUnit : Node
@@ -105,7 +101,7 @@ public partial class BaseUnit : Node
             }
         };
         
-        /*
+        /* TODO:
          * need to get user input from LineEditUserInput
          * need to get user input from length, weight, pressure, or flow Option Buttons
          * check that selection is in the dictionary
@@ -114,11 +110,14 @@ public partial class BaseUnit : Node
          *      converted_output[key] = round(value * from_units, ##number of decimal places to include##)
          * return converted_output - meaning it needs to be sent to TEoutput in the user interface
          *
+         * TODO:
          * additional check needed for Architectural input to run input through parser
          * all other input needs to be checked that it adheres integer/decimal format
          *
+         * TODO:
          * error messages for improperly formatted input also can be sent to TEoutput
          *
+         * TODO:
          * try to set up processing to recognize enter from keyboard or pressing the Submit button
          * if user is running new input without using the clear button first, program needs to
          * automatically clear TEoutput before inserting new output

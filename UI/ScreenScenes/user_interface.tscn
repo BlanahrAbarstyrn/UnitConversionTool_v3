@@ -5,9 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bdxms4bs3asav" path="res://AppTheme/Icons/resource_planks.svg" id="3_pjpl6"]
 [ext_resource type="Texture2D" uid="uid://btkxwtwoqdfnx" path="res://AppTheme/Icons/card_outline_place.svg" id="4_d1gft"]
 [ext_resource type="Texture2D" uid="uid://bxs7hsx1n5h2q" path="res://AppTheme/Icons/cards_shuffle.svg" id="5_6jcqy"]
-[ext_resource type="Script" uid="uid://hyinleoj8scn" path="res://UI/ScreenScenes/TabBar.cs" id="6_dyjba"]
 [ext_resource type="PackedScene" uid="uid://d4mwknhkwd6pa" path="res://UI/InterfaceScenes/ToolFunctionality/TabFunctionality/length_options.tscn" id="7_6jcqy"]
-[ext_resource type="Script" uid="uid://bwrpne7bdnhxw" path="res://UI/ScreenScenes/LineEditUserInput.cs" id="7_sr1uv"]
 [ext_resource type="PackedScene" uid="uid://cva1gee4mxosq" path="res://UI/InterfaceScenes/ToolFunctionality/TabFunctionality/weight_options.tscn" id="7_yq5uo"]
 [ext_resource type="PackedScene" uid="uid://bqsegkpcn4ml6" path="res://UI/InterfaceScenes/ToolFunctionality/TabFunctionality/pressure_options.tscn" id="8_yq5uo"]
 [ext_resource type="PackedScene" uid="uid://7x1d0w1q3ahc" path="res://UI/InterfaceScenes/ToolFunctionality/TabFunctionality/flow_options.tscn" id="9_c8lgr"]
@@ -16,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cfgdjcmuv0ejb" path="res://UI/InterfaceScenes/Navigation/settings_button.tscn" id="11_yq1rd"]
 [ext_resource type="PackedScene" uid="uid://c66jmavyb6kng" path="res://UI/InterfaceScenes/Navigation/about_button.tscn" id="12_fl8jr"]
 
-[node name="UserInterface" type="Control" unique_id=2107891430]
+[node name="UserInterface" type="Control" unique_id=2107891430 node_paths=PackedStringArray("_tabBar", "_lengthOptionSelection", "_weightOptionSelection", "_pressureOptionSelection", "_flowOptionSelection", "_lineEditUserInput", "_teOutput")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,6 +22,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_d1gft")
+_tabBar = NodePath("Panel/MCscreen/VBscreen/MCtabBar/TabBar")
+_lengthOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LengthOptions")
+_weightOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/WeightOptions")
+_pressureOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/PressureOptions")
+_flowOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/FlowOptions")
+_lineEditUserInput = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LineEditUserInput")
+_teOutput = NodePath("Panel/MCscreen/VBscreen/MCoutput/TEoutput")
 
 [node name="Panel" type="Panel" parent="." unique_id=1538374626]
 layout_mode = 1
@@ -79,7 +84,6 @@ tab_2/icon = ExtResource("4_d1gft")
 tab_3/title = "FLOW RATE"
 tab_3/tooltip = "bbl/hr, m cubed/hr"
 tab_3/icon = ExtResource("5_6jcqy")
-script = ExtResource("6_dyjba")
 
 [node name="MClabels" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=262860075]
 layout_mode = 2
@@ -125,12 +129,10 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
-script = ExtResource("7_sr1uv")
 
 [node name="LengthOptions" parent="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs" unique_id=1227267523 instance=ExtResource("7_6jcqy")]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
 
 [node name="WeightOptions" parent="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs" unique_id=766687899 instance=ExtResource("7_yq5uo")]
 visible = false
@@ -204,3 +206,8 @@ layout_mode = 2
 
 [node name="AboutButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1579125042 instance=ExtResource("12_fl8jr")]
 layout_mode = 2
+
+[editable path="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LengthOptions"]
+[editable path="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/WeightOptions"]
+[editable path="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/PressureOptions"]
+[editable path="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/FlowOptions"]

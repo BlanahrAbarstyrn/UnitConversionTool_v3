@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using UnitConversionTool.Globals;
 
 namespace UnitConversionTool.UI.Settings;
@@ -20,6 +19,8 @@ public partial class SoundController : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		// TODO: could this be refactored by putting the signal on the base_button? 
+		
 		SignalHub.Instance.OnMainButtonPressed += OnMainButtonPressed;
 		SignalHub.Instance.OnSettingsButtonPressed += OnSettingsButtonPressed;
 		SignalHub.Instance.OnAboutButtonPressed += OnAboutButtonPressed;
@@ -29,6 +30,8 @@ public partial class SoundController : Node
 		SignalHub.Instance.OnSfxOnButtonPressed += OnSfxOnButtonPressed;
 		SignalHub.Instance.OnSfxOffButtonPressed += OnSfxOffButtonPressed;
 		SignalHub.Instance.OnBgmOptionSelected += OnBgmOptionSelected;
+		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
+		SignalHub.Instance.OnSubmitButtonPressed += OnSubmitButtonPressed;
 	}
 
 	private void OnBgmOptionSelected(long index)
@@ -74,12 +77,25 @@ public partial class SoundController : Node
 		_selectedBgmStream = _music.Stream;
 		_music.Play();
 	}
+	// TODO: could this be refactored by putting the signal on the base_button? 
+	
+	
+	private void OnSubmitButtonPressed()
+	{
+		_effects.Stream = _buttonClick;
+		_effects.Play();
+	}
+	
+	private void OnClearButtonPressed()
+	{
+		_effects.Stream = _buttonClick;
+		_effects.Play();
+	}
 	
 	private void OnMainButtonPressed()
 	{
 		_effects.Stream = _buttonClick;
 		_effects.Play();
-
 	}
 	
 	private void OnSettingsButtonPressed()

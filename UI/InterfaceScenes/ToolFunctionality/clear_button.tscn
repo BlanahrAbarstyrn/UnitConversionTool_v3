@@ -4,6 +4,6 @@
 [ext_resource type="Script" uid="uid://di51hx4cv8j4k" path="res://UI/InterfaceScenes/ToolFunctionality/ClearButton.cs" id="2_1f38s"]
 
 [node name="ClearButton" unique_id=568713739 node_paths=PackedStringArray("_clearButton") instance=ExtResource("1_y180g")]
-text = "Clear All"
+text = "Reset"
 script = ExtResource("2_1f38s")
 _clearButton = NodePath(".")
