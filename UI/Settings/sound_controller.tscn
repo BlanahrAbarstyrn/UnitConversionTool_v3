@@ -11,7 +11,7 @@ _bgMusic = ExtResource("2_xje4t")
 _music = NodePath("Music")
 _effects = NodePath("Effects")
 
-[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=669084992]
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=669084992 groups=["Audio4Cleanup"]]
 
-[node name="Effects" type="AudioStreamPlayer2D" parent="." unique_id=1306281111]
+[node name="Effects" type="AudioStreamPlayer2D" parent="." unique_id=1306281111 groups=["Audio4Cleanup"]]
 bus = &"SFX"

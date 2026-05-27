@@ -129,6 +129,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
+alignment = 2
 
 [node name="LengthOptions" parent="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs" unique_id=1227267523 instance=ExtResource("7_6jcqy")]
 layout_mode = 2

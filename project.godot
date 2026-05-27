@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalHub="*uid://b5nns8s1hi6jj"
+AudioCleanup="*uid://8fjakd8n0fdn"
 
 [display]
 
@@ -33,6 +34,10 @@ window/handheld/orientation=1
 
 project/assembly_name="UnitConversionTool"
 
+[editor]
+
+run/main_run_args="--verbose"
+
 [file_customization]
 
 folder_colors={
@@ -41,6 +46,10 @@ folder_colors={
 "res://Globals/": "gray",
 "res://UI/": "yellow"
 }
+
+[global_group]
+
+Audio4Cleanup=""
 
 [physics]
 

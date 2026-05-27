@@ -6,7 +6,7 @@ public partial class SignalHub : Node
 {
 	public static SignalHub Instance { get; private set; }
 
-	public long SelectedBgmIndex { get; set; }
+	public long SelectedBgmIndex { get; set; } = -1;
 
 	[Signal]
 	public delegate void OnMainButtonPressedEventHandler();

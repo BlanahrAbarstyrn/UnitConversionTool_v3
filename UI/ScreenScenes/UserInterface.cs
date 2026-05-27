@@ -19,6 +19,7 @@ public partial class UserInterface : Control
 	public override void _Ready()
 	{
 		_tabBar.TabClicked += OnTabBarClicked;
+		_lineEditUserInput.GrabFocus();
 
 		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
 		SignalHub.Instance.OnSubmitButtonPressed += OnSubmitButtonPressed;
@@ -38,6 +39,7 @@ public partial class UserInterface : Control
 		_weightOptionSelection.Visible = false;
 		_pressureOptionSelection.Visible = false;
 		_flowOptionSelection.Visible = false;
+		_lineEditUserInput.Clear();
 		
 		switch (tab)
 		{
