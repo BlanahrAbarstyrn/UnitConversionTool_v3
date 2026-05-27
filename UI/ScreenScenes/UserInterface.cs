@@ -15,6 +15,8 @@ public partial class UserInterface : Control
 	[Export] private LineEdit _lineEditUserInput;
 	[Export] private TextEdit _teOutput;
 	
+	[Export] private Button _submitButton;
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -22,7 +24,25 @@ public partial class UserInterface : Control
 		_lineEditUserInput.GrabFocus();
 
 		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
-		SignalHub.Instance.OnSubmitButtonPressed += OnSubmitButtonPressed;
+		//SignalHub.Instance.OnSubmitButtonPressed += OnSubmitButtonPressed;
+
+		_lineEditUserInput.TextSubmitted += OnUserInputSubmitted;
+		_submitButton.Pressed += OnUserInputPressed;
+	}
+
+	private void OnUserInputPressed()
+	{
+		OnUserInputSubmitted(_lineEditUserInput.Text);
+	}
+	
+	private void OnUserInputSubmitted(string input)
+	{
+		// quick test that input is captured and directly sent to output block
+		_teOutput.Clear();
+		_teOutput.Text = input;
+		
+		_lineEditUserInput.ReleaseFocus();
+		
 	}
 	
 	private void OnClearButtonPressed()
@@ -67,6 +87,7 @@ public partial class UserInterface : Control
 		}
 	}
 	
+	/*
 	private void OnSubmitButtonPressed()
 	{
 		// TODO
@@ -85,4 +106,6 @@ public partial class UserInterface : Control
 		// send output to TEoutput
 		
 	}
+	*/
+	
 }

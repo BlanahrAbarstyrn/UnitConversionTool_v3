@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cfgdjcmuv0ejb" path="res://UI/InterfaceScenes/Navigation/settings_button.tscn" id="11_yq1rd"]
 [ext_resource type="PackedScene" uid="uid://c66jmavyb6kng" path="res://UI/InterfaceScenes/Navigation/about_button.tscn" id="12_fl8jr"]
 
-[node name="UserInterface" type="Control" unique_id=2107891430 node_paths=PackedStringArray("_tabBar", "_lengthOptionSelection", "_weightOptionSelection", "_pressureOptionSelection", "_flowOptionSelection", "_lineEditUserInput", "_teOutput")]
+[node name="UserInterface" type="Control" unique_id=2107891430 node_paths=PackedStringArray("_tabBar", "_lengthOptionSelection", "_weightOptionSelection", "_pressureOptionSelection", "_flowOptionSelection", "_lineEditUserInput", "_teOutput", "_submitButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +29,7 @@ _pressureOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/
 _flowOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/FlowOptions")
 _lineEditUserInput = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LineEditUserInput")
 _teOutput = NodePath("Panel/MCscreen/VBscreen/MCoutput/TEoutput")
+_submitButton = NodePath("Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons/SubmitButton")
 
 [node name="Panel" type="Panel" parent="." unique_id=1538374626]
 layout_mode = 1
