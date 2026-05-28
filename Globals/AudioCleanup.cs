@@ -22,6 +22,8 @@ public partial class AudioCleanup : Node
                 player.Stop();
             }
         }
+        
+        GetTree().Quit();
     }
 }
 

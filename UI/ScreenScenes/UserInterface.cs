@@ -7,6 +7,8 @@ public partial class UserInterface : Control
 {
 	[Export] private TabBar _tabBar;
 
+	
+	// refactor to use one OptionButton
 	[Export] private OptionButton _lengthOptionSelection;
 	[Export] private OptionButton _weightOptionSelection;
 	[Export] private OptionButton _pressureOptionSelection;
@@ -17,6 +19,7 @@ public partial class UserInterface : Control
 	
 	[Export] private Button _submitButton;
 	
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -26,10 +29,41 @@ public partial class UserInterface : Control
 		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
 		//SignalHub.Instance.OnSubmitButtonPressed += OnSubmitButtonPressed;
 
+		_lengthOptionSelection.ItemSelected += OnLengthOptionSelection;
+		_weightOptionSelection.ItemSelected += OnWeightOptionSelection;
+		_pressureOptionSelection.ItemSelected += OnPressureOptionSelection;
+		_flowOptionSelection.ItemSelected += OnFlowOptionSelection;
+		
 		_lineEditUserInput.TextSubmitted += OnUserInputSubmitted;
 		_submitButton.Pressed += OnUserInputPressed;
+		
+		GlobalValues.Instance.SelectedUnits = string.Empty;
 	}
 
+	private void OnFlowOptionSelection(long index)
+	{
+		string selectedText = _flowOptionSelection.GetItemText((int) index);
+		GlobalValues.Instance.SelectedUnits = selectedText;
+	}
+	
+	private void OnPressureOptionSelection(long index)
+	{
+		string selectedText = _pressureOptionSelection.GetItemText((int) index);
+		GlobalValues.Instance.SelectedUnits = selectedText;
+	}
+	
+	private void OnWeightOptionSelection(long index)
+	{
+		string selectedText = _weightOptionSelection.GetItemText((int)index);
+		GlobalValues.Instance.SelectedUnits = selectedText;
+	}
+	
+	private void OnLengthOptionSelection(long index)
+	{
+		string selectedText = _lengthOptionSelection.GetItemText((int) index);
+		GlobalValues.Instance.SelectedUnits = selectedText;
+	}
+	
 	private void OnUserInputPressed()
 	{
 		OnUserInputSubmitted(_lineEditUserInput.Text);
@@ -39,7 +73,9 @@ public partial class UserInterface : Control
 	{
 		// quick test that input is captured and directly sent to output block
 		_teOutput.Clear();
-		_teOutput.Text = input;
+		_teOutput.Text = ($"{input} LineEdit input with {GlobalValues.Instance.SelectedUnits} units");
+		GlobalValues.Instance.SelectedUnits = string.Empty;
+		
 		
 		_lineEditUserInput.ReleaseFocus();
 		
@@ -51,6 +87,7 @@ public partial class UserInterface : Control
 		_tabBar.SetCurrentTab(0);
 		_teOutput.Text = "Converted units will appear here";
 		_lineEditUserInput.Clear();
+		GlobalValues.Instance.SelectedUnits = string.Empty;
 	}
 
 	private void OnTabBarClicked(long tab)

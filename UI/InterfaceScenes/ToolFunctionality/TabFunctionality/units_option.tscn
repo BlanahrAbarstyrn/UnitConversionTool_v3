@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bd6wa4je0psvl"]
+
+[node name="UnitsOption" type="OptionButton" unique_id=2003179037]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fit_to_longest_item = false
+item_count = 2
+popup/item_0/text = "Barrels/hour"
+popup/item_0/id = 0
+popup/item_1/text = "Cubic meters/hour"
+popup/item_1/id = 1

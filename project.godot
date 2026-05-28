@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalHub="*uid://b5nns8s1hi6jj"
+GlobalValues="*uid://dhgabytulv2uy"
 AudioCleanup="*uid://8fjakd8n0fdn"
 
 [display]
