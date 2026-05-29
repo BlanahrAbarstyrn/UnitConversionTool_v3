@@ -1,6 +1,8 @@
+using System.Text.RegularExpressions;
 using Godot;
 using UnitConversionTool.Globals;
 using UnitConversionTool.Classes;
+
 
 namespace UnitConversionTool.UI.ScreenScenes;
 public partial class UserInterface : Control
@@ -38,6 +40,9 @@ public partial class UserInterface : Control
 		_submitButton.Pressed += OnUserInputPressed;
 		
 		GlobalValues.Instance.SelectedUnits = string.Empty;
+		GlobalValues.Instance.UserInput = string.Empty;
+		GlobalValues.Instance.HasError = false;
+		GlobalValues.Instance.ValidDouble = 0.0;
 	}
 
 	private void OnFlowOptionSelection(long index)
@@ -71,10 +76,57 @@ public partial class UserInterface : Control
 	
 	private void OnUserInputSubmitted(string input)
 	{
+		_tabBar.SetMouseFilter(MouseFilterEnum.Ignore);
+		_lineEditUserInput.Editable = false;
+		_lengthOptionSelection.Disabled = true;
+		_weightOptionSelection.Disabled = true;
+		_pressureOptionSelection.Disabled = true;
+		_flowOptionSelection.Disabled = true;
+		_submitButton.Disabled = true;
+		
+		GlobalValues.Instance.UserInput = input;
+
+		if (GlobalValues.Instance.SelectedUnits == "Architectural feet/inches")
+		{
+			MeasurementParser.ParseToInches(input);
+			_teOutput.Clear();
+			
+			if (!GlobalValues.Instance.HasError)
+			{
+				_teOutput.Text = ($"{GlobalValues.Instance.ValidDouble} inches\n\nPress Reset to continue.");
+			}
+			else
+			{
+				_teOutput.Text = "Invalid input format. Please try again.\n\nPress Reset to continue.";
+				GlobalValues.Instance.HasError = false;
+			}
+		}
+		else
+		{
+			string rawInput = GlobalValues.Instance.UserInput;
+
+			if (double.TryParse(rawInput, out double parsedInput))
+			{
+				// success
+				GlobalValues.Instance.ValidDouble = parsedInput;
+				_teOutput.Clear();
+				_teOutput.Text = ($"{GlobalValues.Instance.ValidDouble} valid input\n\nPress Reset to continue.");
+			}
+			else
+			{
+				_teOutput.Text = "Invalid input format. Please try again.\n\nPress Reset to continue.";
+			}
+		}
+		
+
+		
+		
+		
 		// quick test that input is captured and directly sent to output block
-		_teOutput.Clear();
-		_teOutput.Text = ($"{input} LineEdit input with {GlobalValues.Instance.SelectedUnits} units");
+		//_teOutput.Clear();
+		//teOutput.Text = ($"{GlobalValues.Instance.UserInput} LineEdit input with {GlobalValues.Instance.SelectedUnits} units");
 		GlobalValues.Instance.SelectedUnits = string.Empty;
+		GlobalValues.Instance.UserInput = string.Empty;
 		
 		
 		_lineEditUserInput.ReleaseFocus();
@@ -87,7 +139,17 @@ public partial class UserInterface : Control
 		_tabBar.SetCurrentTab(0);
 		_teOutput.Text = "Converted units will appear here";
 		_lineEditUserInput.Clear();
+		_tabBar.SetMouseFilter(MouseFilterEnum.Stop);
 		GlobalValues.Instance.SelectedUnits = string.Empty;
+		GlobalValues.Instance.UserInput = string.Empty;
+		GlobalValues.Instance.HasError = false;
+		GlobalValues.Instance.ValidDouble = 0.0;
+		_lineEditUserInput.Editable = true;
+		_lengthOptionSelection.Disabled = false;
+		_weightOptionSelection.Disabled = false;
+		_pressureOptionSelection.Disabled = false;
+		_flowOptionSelection.Disabled = false;
+		_submitButton.Disabled = false;
 	}
 
 	private void OnTabBarClicked(long tab)
@@ -123,26 +185,4 @@ public partial class UserInterface : Control
 				break;
 		}
 	}
-	
-	/*
-	private void OnSubmitButtonPressed()
-	{
-		// TODO
-		// read user input from LineEditUserInput
-		if (_tabBar.CurrentTab == 0 && _lengthOptionSelection.Selected == 0)
-		{
-			// try / except - run input through parser
-		}
-		else
-		{
-			// try / except - can be turned into a float
-		}
-		
-		// if successful use key, value to run through base_unit dictionary
-		
-		// send output to TEoutput
-		
-	}
-	*/
-	
 }
