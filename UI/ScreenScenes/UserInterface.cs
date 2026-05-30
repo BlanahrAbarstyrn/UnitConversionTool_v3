@@ -1,35 +1,32 @@
-using System.Text.RegularExpressions;
 using Godot;
 using UnitConversionTool.Globals;
 using UnitConversionTool.Classes;
-
+using System.Collections.Generic;
+using System;
 
 namespace UnitConversionTool.UI.ScreenScenes;
 public partial class UserInterface : Control
 {
-	[Export] private TabBar _tabBar;
-
+	private BaseUnit _baseUnit;
 	
-	// refactor to use one OptionButton
+	[Export] private TabBar _tabBar;
 	[Export] private OptionButton _lengthOptionSelection;
 	[Export] private OptionButton _weightOptionSelection;
 	[Export] private OptionButton _pressureOptionSelection;
 	[Export] private OptionButton _flowOptionSelection;
-	
 	[Export] private LineEdit _lineEditUserInput;
 	[Export] private TextEdit _teOutput;
-	
 	[Export] private Button _submitButton;
 	
-	
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		_baseUnit = new BaseUnit();
+		
 		_tabBar.TabClicked += OnTabBarClicked;
 		_lineEditUserInput.GrabFocus();
 
 		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
-		//SignalHub.Instance.OnSubmitButtonPressed += OnSubmitButtonPressed;
+		SignalHub.Instance.OnMainButtonPressed += OnMainButtonPressed;
 
 		_lengthOptionSelection.ItemSelected += OnLengthOptionSelection;
 		_weightOptionSelection.ItemSelected += OnWeightOptionSelection;
@@ -42,7 +39,7 @@ public partial class UserInterface : Control
 		GlobalValues.Instance.SelectedUnits = string.Empty;
 		GlobalValues.Instance.UserInput = string.Empty;
 		GlobalValues.Instance.HasError = false;
-		GlobalValues.Instance.ValidDouble = 0.0;
+		GlobalValues.Instance.ValidDecimal = 0;
 	}
 
 	private void OnFlowOptionSelection(long index)
@@ -93,7 +90,24 @@ public partial class UserInterface : Control
 			
 			if (!GlobalValues.Instance.HasError)
 			{
-				_teOutput.Text = ($"{GlobalValues.Instance.ValidDouble} inches\n\nPress Reset to continue.");
+				IReadOnlyDictionary<string, decimal> convertToUnits = _baseUnit.GetCategoryUnits(GlobalValues.Instance.SelectedUnits);
+
+				if (convertToUnits == null)
+				{
+					_teOutput.Text = "No input units selected. Please try again.\n\nPress Reset to continue.";
+				}
+				else
+				{
+					foreach (KeyValuePair<string, decimal> unit in convertToUnits)
+					{
+						string unitName = unit.Key;
+						decimal unitValue = unit.Value;
+						decimal convertedValue = unitValue * GlobalValues.Instance.ValidDecimal;
+						_teOutput.Text += $"{unitName}: {Math.Round(convertedValue, 4)}\n";
+					}
+				}
+				
+				//_teOutput.Text = ($"{GlobalValues.Instance.ValidDouble} inches\n\nPress Reset to continue.");
 			}
 			else
 			{
@@ -105,12 +119,30 @@ public partial class UserInterface : Control
 		{
 			string rawInput = GlobalValues.Instance.UserInput;
 
-			if (double.TryParse(rawInput, out double parsedInput))
+			if (decimal.TryParse(rawInput, out decimal parsedInput))
 			{
 				// success
-				GlobalValues.Instance.ValidDouble = parsedInput;
+				GlobalValues.Instance.ValidDecimal = parsedInput;
 				_teOutput.Clear();
-				_teOutput.Text = ($"{GlobalValues.Instance.ValidDouble} valid input\n\nPress Reset to continue.");
+				//_teOutput.Text = ($"{GlobalValues.Instance.ValidDecimal} valid input\n\nPress Reset to continue.");
+				
+				IReadOnlyDictionary<string, decimal> convertToUnits = _baseUnit.GetCategoryUnits(GlobalValues.Instance.SelectedUnits);
+
+				if (convertToUnits == null)
+				{
+					_teOutput.Text = "No input units selected. Please try again.\n\nPress Reset to continue.";
+				}
+				else
+				{
+					foreach (KeyValuePair<string, decimal> unit in convertToUnits)
+					{
+						string unitName = unit.Key;
+						decimal unitValue = unit.Value;
+						decimal convertedValue = unitValue * GlobalValues.Instance.ValidDecimal;
+						_teOutput.Text += $"{unitName}: {Math.Round(convertedValue, 4)}\n";
+					}
+				}
+				
 			}
 			else
 			{
@@ -118,18 +150,14 @@ public partial class UserInterface : Control
 			}
 		}
 		
-
-		
-		
-		
-		// quick test that input is captured and directly sent to output block
-		//_teOutput.Clear();
-		//teOutput.Text = ($"{GlobalValues.Instance.UserInput} LineEdit input with {GlobalValues.Instance.SelectedUnits} units");
 		GlobalValues.Instance.SelectedUnits = string.Empty;
 		GlobalValues.Instance.UserInput = string.Empty;
 		
-		
 		_lineEditUserInput.ReleaseFocus();
+		_teOutput.Editable = true;
+		_teOutput.MouseFilter = MouseFilterEnum.Stop;
+		_teOutput.ShortcutKeysEnabled = true;
+		_teOutput.GrabFocus();
 		
 	}
 	
@@ -143,13 +171,17 @@ public partial class UserInterface : Control
 		GlobalValues.Instance.SelectedUnits = string.Empty;
 		GlobalValues.Instance.UserInput = string.Empty;
 		GlobalValues.Instance.HasError = false;
-		GlobalValues.Instance.ValidDouble = 0.0;
+		GlobalValues.Instance.ValidDecimal = 0;
 		_lineEditUserInput.Editable = true;
 		_lengthOptionSelection.Disabled = false;
 		_weightOptionSelection.Disabled = false;
 		_pressureOptionSelection.Disabled = false;
 		_flowOptionSelection.Disabled = false;
 		_submitButton.Disabled = false;
+		_teOutput.Editable = false;
+		_teOutput.MouseFilter = MouseFilterEnum.Ignore;
+		_teOutput.ReleaseFocus();
+		_teOutput.ShortcutKeysEnabled = false;
 	}
 
 	private void OnTabBarClicked(long tab)
@@ -184,5 +216,10 @@ public partial class UserInterface : Control
 				_lengthOptionSelection.Selected = -1;
 				break;
 		}
+	}
+
+	private void OnMainButtonPressed()
+	{
+		OnClearButtonPressed();
 	}
 }

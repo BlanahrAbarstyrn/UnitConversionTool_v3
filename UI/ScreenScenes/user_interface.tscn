@@ -193,10 +193,10 @@ placeholder_text = "Converted units will appear here"
 editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
-shortcut_keys_enabled = false
-selecting_enabled = false
+deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 middle_mouse_paste_enabled = false
+wrap_mode = 1
 tab_input_mode = false
 
 [node name="MCnavigation" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1714566333]

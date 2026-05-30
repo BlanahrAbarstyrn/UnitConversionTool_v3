@@ -8,6 +8,7 @@ public partial class SignalHub : Node
 
 	public long SelectedBgmIndex { get; set; } = -1;
 
+
 	[Signal]
 	public delegate void OnMainButtonPressedEventHandler();
 	[Signal]
@@ -16,6 +17,7 @@ public partial class SignalHub : Node
 	public delegate void OnAboutButtonPressedEventHandler();
 	[Signal]
 	public delegate void OnChangelogButtonPressedEventHandler();
+
 	[Signal]
 	public delegate void OnBgmOnButtonPressedEventHandler();
 	[Signal]
@@ -28,16 +30,19 @@ public partial class SignalHub : Node
 	public delegate void OnBgmOptionSelectedEventHandler(long index);
 	[Signal]
 	public delegate void OnThemeOptionSelectedEventHandler(long index);
+
 	[Signal]
 	public delegate void OnClearButtonPressedEventHandler();
 	[Signal]
 	public delegate void OnSubmitButtonPressedEventHandler();
+	
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		Instance = this;
 	}
+	
 
 	public static void EmitOnSubmitButtonPressed()
 	{
@@ -58,7 +63,7 @@ public partial class SignalHub : Node
 	{
 		Instance.EmitSignal(SignalName.OnBgmOptionSelected, index);
 	}
-	
+
 	public static void EmitOnMainButtonPressed()
 	{
 		Instance.EmitSignal(SignalName.OnMainButtonPressed);
@@ -75,6 +80,7 @@ public partial class SignalHub : Node
 	{
 		Instance.EmitSignal(SignalName.OnChangelogButtonPressed);
 	}
+
 	public static void EmitOnBgmOnButtonPressed()
 	{
 		Instance.EmitSignal(SignalName.OnBgmOnButtonPressed);

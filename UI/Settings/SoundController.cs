@@ -79,7 +79,6 @@ public partial class SoundController : Node
 	}
 	// TODO: could this be refactored by putting the signal on the base_button? 
 	
-	
 	private void OnSubmitButtonPressed()
 	{
 		_effects.Stream = _buttonClick;
@@ -115,6 +114,8 @@ public partial class SoundController : Node
 		_effects.Stream = _buttonClick;
 		_effects.Play();
 	}
+
+	
 	private void OnBgmOnButtonPressed()
 	{
 		_effects.Stream = _buttonClick;

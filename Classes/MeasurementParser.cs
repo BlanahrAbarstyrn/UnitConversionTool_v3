@@ -22,17 +22,17 @@ public static class MeasurementParser
         if (!match.Success || string.IsNullOrEmpty(cleanedInput))
         {
             GlobalValues.Instance.HasError = true;
-            GlobalValues.Instance.ValidDouble = 0.0;
+            GlobalValues.Instance.ValidDecimal = 0;
             return;
         }
 
-        double feet   = string.IsNullOrEmpty(match.Groups["feet"].Value)   ? 0 : double.Parse(match.Groups["feet"].Value);
-        double inches = string.IsNullOrEmpty(match.Groups["inches"].Value) ? 0 : double.Parse(match.Groups["inches"].Value);
-        double num    = string.IsNullOrEmpty(match.Groups["num"].Value)    ? 0 : double.Parse(match.Groups["num"].Value);
-        double den    = string.IsNullOrEmpty(match.Groups["den"].Value)    ? 1 : double.Parse(match.Groups["den"].Value);
+        decimal feet   = string.IsNullOrEmpty(match.Groups["feet"].Value)   ? 0 : decimal.Parse(match.Groups["feet"].Value);
+        decimal inches = string.IsNullOrEmpty(match.Groups["inches"].Value) ? 0 : decimal.Parse(match.Groups["inches"].Value);
+        decimal num    = string.IsNullOrEmpty(match.Groups["num"].Value)    ? 0 : decimal.Parse(match.Groups["num"].Value);
+        decimal den    = string.IsNullOrEmpty(match.Groups["den"].Value)    ? 1 : decimal.Parse(match.Groups["den"].Value);
         
         GlobalValues.Instance.HasError = false;
-        GlobalValues.Instance.ValidDouble = (feet * 12) + inches + (num / den);
+        GlobalValues.Instance.ValidDecimal = (feet * 12m) + inches + (num / den);
     }
 }
 
