@@ -52,8 +52,30 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBscreen/MCoutput" unique_id=1207340020]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBscreen/MCoutput" unique_id=2036118288]
 layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBscreen/MCoutput/VBoxContainer" unique_id=1207340020]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+bbcode_enabled = true
+text = "[u]Alpha Version 1.0-a.1[/u]
+[ul]
+Development of Godot version of this program began 2026-05-22
+[/ul]
+
+
+
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/MarginContainer/VBscreen/MCoutput/VBoxContainer" unique_id=620950672]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 20
@@ -69,16 +91,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-[u]Alpha Version 1.0-a.1[/u]
-[ul]
-Development of Godot version of this program began 2026-05-22
-[/ul]
-
-
-
-"
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
 
 [node name="MCnavigation" type="MarginContainer" parent="Panel/MarginContainer/VBscreen" unique_id=629472859]
 layout_mode = 2

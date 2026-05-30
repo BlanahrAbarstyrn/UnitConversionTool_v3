@@ -107,12 +107,10 @@ public partial class UserInterface : Control
 					}
 				}
 				
-				//_teOutput.Text = ($"{GlobalValues.Instance.ValidDouble} inches\n\nPress Reset to continue.");
 			}
 			else
 			{
 				_teOutput.Text = "Invalid input format. Please try again.\n\nPress Reset to continue.";
-				GlobalValues.Instance.HasError = false;
 			}
 		}
 		else
@@ -124,7 +122,6 @@ public partial class UserInterface : Control
 				// success
 				GlobalValues.Instance.ValidDecimal = parsedInput;
 				_teOutput.Clear();
-				//_teOutput.Text = ($"{GlobalValues.Instance.ValidDecimal} valid input\n\nPress Reset to continue.");
 				
 				IReadOnlyDictionary<string, decimal> convertToUnits = _baseUnit.GetCategoryUnits(GlobalValues.Instance.SelectedUnits);
 
@@ -149,9 +146,6 @@ public partial class UserInterface : Control
 				_teOutput.Text = "Invalid input format. Please try again.\n\nPress Reset to continue.";
 			}
 		}
-		
-		GlobalValues.Instance.SelectedUnits = string.Empty;
-		GlobalValues.Instance.UserInput = string.Empty;
 		
 		_lineEditUserInput.ReleaseFocus();
 		_teOutput.Editable = true;

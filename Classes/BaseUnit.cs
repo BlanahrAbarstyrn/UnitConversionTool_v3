@@ -83,7 +83,7 @@ public class BaseUnit
                 { "psi", 1.0m },
                 { "mbar", 68.9475728m }
             },
-            ["Mbar"] = new Dictionary<string, decimal>
+            ["MBar"] = new Dictionary<string, decimal>
             {
                 // base units mbar
                 { "psi", 0.014503773800721815m },
