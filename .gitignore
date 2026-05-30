@@ -43,3 +43,6 @@ Thumbs.db
 *.gltf
 *.blend"
 *.fbx
+
+# Build Exports
+Exports/

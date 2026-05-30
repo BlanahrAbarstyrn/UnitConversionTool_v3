@@ -36,6 +36,7 @@ layout_mode = 1
 script = null
 
 [node name="ChangelogUI" parent="." unique_id=32682368 instance=ExtResource("6_gqhlc")]
+visible = false
 layout_mode = 1
 script = null
 

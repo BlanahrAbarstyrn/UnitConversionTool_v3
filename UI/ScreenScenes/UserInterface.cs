@@ -39,7 +39,7 @@ public partial class UserInterface : Control
 		GlobalValues.Instance.SelectedUnits = string.Empty;
 		GlobalValues.Instance.UserInput = string.Empty;
 		GlobalValues.Instance.HasError = false;
-		GlobalValues.Instance.ValidDecimal = 0;
+		GlobalValues.Instance.ValidDouble = 0;
 	}
 
 	private void OnFlowOptionSelection(long index)
@@ -90,7 +90,7 @@ public partial class UserInterface : Control
 			
 			if (!GlobalValues.Instance.HasError)
 			{
-				IReadOnlyDictionary<string, decimal> convertToUnits = _baseUnit.GetCategoryUnits(GlobalValues.Instance.SelectedUnits);
+				IReadOnlyDictionary<string, double> convertToUnits = _baseUnit.GetCategoryUnits(GlobalValues.Instance.SelectedUnits);
 
 				if (convertToUnits == null)
 				{
@@ -98,11 +98,11 @@ public partial class UserInterface : Control
 				}
 				else
 				{
-					foreach (KeyValuePair<string, decimal> unit in convertToUnits)
+					foreach (KeyValuePair<string, double> unit in convertToUnits)
 					{
 						string unitName = unit.Key;
-						decimal unitValue = unit.Value;
-						decimal convertedValue = unitValue * GlobalValues.Instance.ValidDecimal;
+						double unitValue = unit.Value;
+						double convertedValue = unitValue * GlobalValues.Instance.ValidDouble;
 						_teOutput.Text += $"{unitName}: {Math.Round(convertedValue, 4)}\n";
 					}
 				}
@@ -117,13 +117,13 @@ public partial class UserInterface : Control
 		{
 			string rawInput = GlobalValues.Instance.UserInput;
 
-			if (decimal.TryParse(rawInput, out decimal parsedInput))
+			if (double.TryParse(rawInput, out double parsedInput))
 			{
 				// success
-				GlobalValues.Instance.ValidDecimal = parsedInput;
+				GlobalValues.Instance.ValidDouble = parsedInput;
 				_teOutput.Clear();
 				
-				IReadOnlyDictionary<string, decimal> convertToUnits = _baseUnit.GetCategoryUnits(GlobalValues.Instance.SelectedUnits);
+				IReadOnlyDictionary<string, double> convertToUnits = _baseUnit.GetCategoryUnits(GlobalValues.Instance.SelectedUnits);
 
 				if (convertToUnits == null)
 				{
@@ -131,11 +131,11 @@ public partial class UserInterface : Control
 				}
 				else
 				{
-					foreach (KeyValuePair<string, decimal> unit in convertToUnits)
+					foreach (KeyValuePair<string, double> unit in convertToUnits)
 					{
 						string unitName = unit.Key;
-						decimal unitValue = unit.Value;
-						decimal convertedValue = unitValue * GlobalValues.Instance.ValidDecimal;
+						double unitValue = unit.Value;
+						double convertedValue = unitValue * GlobalValues.Instance.ValidDouble;
 						_teOutput.Text += $"{unitName}: {Math.Round(convertedValue, 4)}\n";
 					}
 				}
@@ -165,7 +165,7 @@ public partial class UserInterface : Control
 		GlobalValues.Instance.SelectedUnits = string.Empty;
 		GlobalValues.Instance.UserInput = string.Empty;
 		GlobalValues.Instance.HasError = false;
-		GlobalValues.Instance.ValidDecimal = 0;
+		GlobalValues.Instance.ValidDouble = 0;
 		_lineEditUserInput.Editable = true;
 		_lengthOptionSelection.Disabled = false;
 		_weightOptionSelection.Disabled = false;

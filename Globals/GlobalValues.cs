@@ -11,7 +11,7 @@ public partial class GlobalValues : Node
     public string UserInput { get; set; } = "";
     
     public bool HasError { get; set; } = false;
-    public decimal ValidDecimal  { get; set; } = 0;
+    public double ValidDouble  { get; set; } = 0;
     
     public override void _Ready()
     {
