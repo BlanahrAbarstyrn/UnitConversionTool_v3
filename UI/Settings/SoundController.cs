@@ -19,8 +19,6 @@ public partial class SoundController : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		// TODO: could this be refactored by putting the signal on the base_button? 
-		
 		SignalHub.Instance.OnMainButtonPressed += OnMainButtonPressed;
 		SignalHub.Instance.OnSettingsButtonPressed += OnSettingsButtonPressed;
 		SignalHub.Instance.OnAboutButtonPressed += OnAboutButtonPressed;
@@ -77,7 +75,6 @@ public partial class SoundController : Node
 		_selectedBgmStream = _music.Stream;
 		_music.Play();
 	}
-	// TODO: could this be refactored by putting the signal on the base_button? 
 	
 	private void OnSubmitButtonPressed()
 	{
