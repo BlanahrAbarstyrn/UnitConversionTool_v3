@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using UnitConversionTool.Globals;
 
 namespace UnitConversionTool.UI.InterfaceScenes.Navigation;

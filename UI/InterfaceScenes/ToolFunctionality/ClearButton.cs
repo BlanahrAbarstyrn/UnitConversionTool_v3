@@ -1,7 +1,5 @@
 using Godot;
-using System;
 using UnitConversionTool.Globals;
-using UnitConversionTool.UI.InterfaceScenes;
 
 namespace UnitConversionTool.UI.InterfaceScenes.ToolFunctionality;
 

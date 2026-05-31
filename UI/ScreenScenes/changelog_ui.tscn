@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://fwmew5fb1t08"]
 
-[ext_resource type="Script" uid="uid://dfdm4w7p0yxvi" path="res://UI/ScreenScenes/ChangelogUi.cs" id="1_c2nu8"]
 [ext_resource type="PackedScene" uid="uid://dg8oaq6anfgkd" path="res://UI/InterfaceScenes/Navigation/main_button.tscn" id="1_c3jnt"]
 [ext_resource type="PackedScene" uid="uid://cfgdjcmuv0ejb" path="res://UI/InterfaceScenes/Navigation/settings_button.tscn" id="2_c2nu8"]
 [ext_resource type="PackedScene" uid="uid://c66jmavyb6kng" path="res://UI/InterfaceScenes/Navigation/about_button.tscn" id="3_c3jnt"]
@@ -12,7 +11,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_c2nu8")
 
 [node name="Panel" type="Panel" parent="." unique_id=877794546]
 layout_mode = 1

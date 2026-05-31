@@ -31,18 +31,5 @@ Thumbs.db
 .idea/
 .fleet/
 
-# Assets
-*.png
-*.svg
-*.ttf
-*.ogg
-*.jpg
-*.wav
-*.mp3
-*.glb
-*.gltf
-*.blend"
-*.fbx
-
 # Build Exports
 Exports/
