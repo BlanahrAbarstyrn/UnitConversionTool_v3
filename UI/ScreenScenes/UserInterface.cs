@@ -159,7 +159,15 @@ public partial class UserInterface : Control
 	{
 		OnTabBarClicked(0);
 		_tabBar.SetCurrentTab(0);
-		_teOutput.Text = "Converted units will appear here";
+		_teOutput.Text = "Converted units will appear here.\n\n" +
+		                 "HOW TO USE CONVERTER:\n" +
+		                 "Select category tab.\n" +
+		                 "Select input units.\n" +
+		                 "Type in number to be converted.\n" +
+		                 "Press Submit button or Enter on keyboard.\n\n" +
+		                 "After viewing results, press Reset button\n" +
+		                 "to start a new session.";
+		
 		_lineEditUserInput.Clear();
 		_tabBar.SetMouseFilter(MouseFilterEnum.Stop);
 		GlobalValues.Instance.SelectedUnits = string.Empty;

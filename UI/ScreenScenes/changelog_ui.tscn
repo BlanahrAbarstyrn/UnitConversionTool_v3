@@ -64,7 +64,14 @@ theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
-text = "[u]Alpha Version 1.0-a.1[/u]
+text = "[u]Beta Version 1.0-b.1[/u]
+[ul]
+2026-05-30
+Main features complete
+Ready for beta testing
+[/ul]
+
+[u]Alpha Version 1.0-a.1[/u]
 [ul]
 Development of Godot version of this program began 2026-05-22
 [/ul]

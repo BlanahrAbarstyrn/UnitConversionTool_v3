@@ -189,7 +189,16 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_font_sizes/font_size = 28
-placeholder_text = "Converted units will appear here"
+placeholder_text = "Converted units will appear here.
+
+HOW TO USE CONVERTER:
+Select category tab.
+Select input units.
+Type in number to be converted.
+Press Submit button or Enter on keyboard.
+
+After viewing results, press Reset button
+to start a new session."
 editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
