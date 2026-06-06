@@ -30,6 +30,7 @@ public partial class SoundController : Node
 		SignalHub.Instance.OnBgmOptionSelected += OnBgmOptionSelected;
 		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
 		SignalHub.Instance.OnSubmitButtonPressed += OnSubmitButtonPressed;
+		SignalHub.Instance.OnSaveSettingsButtonPressed += OnSaveSettingsButtonPressed;
 	}
 
 	private void OnBgmOptionSelected(long index)
@@ -107,6 +108,12 @@ public partial class SoundController : Node
 	}
 	
 	private void OnChangelogButtonPressed()
+	{
+		_effects.Stream = _buttonClick;
+		_effects.Play();
+	}
+	
+	private void OnSaveSettingsButtonPressed()
 	{
 		_effects.Stream = _buttonClick;
 		_effects.Play();

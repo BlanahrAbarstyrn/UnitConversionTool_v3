@@ -14,5 +14,6 @@ public partial class SfxOnTextureButton : TextureButton
 	private void OnSfxOnButtonPressed()
 	{
 		SignalHub.EmitOnSfxOnButtonPressed();
+		GlobalValues.Instance.EffectsOn = true;
 	}
 }

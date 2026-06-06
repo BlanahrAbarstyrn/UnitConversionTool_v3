@@ -31,7 +31,6 @@ public partial class UnitConversionTool : Control
 			GD.PrintErr($"Error in _Ready: {ex.Message}");
 			// Handle or log the exception
 		}
-
 		
 		ShowUserInterface(true);
 		SignalHub.Instance.OnMainButtonPressed += OnMainButtonPressed;
@@ -39,6 +38,8 @@ public partial class UnitConversionTool : Control
 		SignalHub.Instance.OnAboutButtonPressed += OnAboutButtonPressed;
 		SignalHub.Instance.OnChangelogButtonPressed += OnChangelogButtonPressed;
 		SignalHub.Instance.OnThemeOptionSelected += OnThemeOptionSelected;
+		
+		SaveManager.Instance.LoadSaveFile();
 	}
 
 	private void OnThemeOptionSelected(long index)

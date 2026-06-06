@@ -23,6 +23,7 @@ public partial class BgmOptionButton : OptionButton
 	{
 		SignalHub.Instance.SelectedBgmIndex = index;
 		SignalHub.EmitOnBgmOptionSelected(index);
+		GlobalValues.Instance.BgmOption = index;
 	}
 
 }

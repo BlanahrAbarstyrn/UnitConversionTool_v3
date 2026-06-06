@@ -36,13 +36,20 @@ public partial class SignalHub : Node
 	[Signal]
 	public delegate void OnSubmitButtonPressedEventHandler();
 	
+	[Signal]
+	public delegate void OnSaveSettingsButtonPressedEventHandler();
+	
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		Instance = this;
 	}
-	
+
+	public static void EmitOnSaveSettingsButtonPressed()
+	{
+		Instance.EmitSignal(SignalName.OnSaveSettingsButtonPressed);
+	}
 
 	public static void EmitOnSubmitButtonPressed()
 	{

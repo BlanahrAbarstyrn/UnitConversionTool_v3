@@ -95,6 +95,7 @@ public partial class UserInterface : Control
 				if (convertToUnits == null)
 				{
 					_teOutput.Text = "No input units selected. Please try again.\n\nPress Reset to continue.";
+					TakeDamageOnErr();
 				}
 				else
 				{
@@ -105,12 +106,15 @@ public partial class UserInterface : Control
 						double convertedValue = unitValue * GlobalValues.Instance.ValidDouble;
 						_teOutput.Text += $"{unitName}: {Math.Round(convertedValue, 4)}\n";
 					}
+					GlobalValues.Instance.Score += 1;
+					GD.Print($"Number of conversions: {GlobalValues.Instance.Score}");
 				}
 				
 			}
 			else
 			{
 				_teOutput.Text = "Invalid input format. Please try again.\n\nPress Reset to continue.";
+				TakeDamageOnErr();
 			}
 		}
 		else
@@ -128,6 +132,7 @@ public partial class UserInterface : Control
 				if (convertToUnits == null)
 				{
 					_teOutput.Text = "No input units selected. Please try again.\n\nPress Reset to continue.";
+					TakeDamageOnErr();
 				}
 				else
 				{
@@ -138,12 +143,15 @@ public partial class UserInterface : Control
 						double convertedValue = unitValue * GlobalValues.Instance.ValidDouble;
 						_teOutput.Text += $"{unitName}: {Math.Round(convertedValue, 4)}\n";
 					}
+					GlobalValues.Instance.Score += 1;
+					GD.Print($"Number of conversions: {GlobalValues.Instance.Score}");
 				}
 				
 			}
 			else
 			{
 				_teOutput.Text = "Invalid input format. Please try again.\n\nPress Reset to continue.";
+				TakeDamageOnErr();
 			}
 		}
 		
@@ -184,8 +192,23 @@ public partial class UserInterface : Control
 		_teOutput.MouseFilter = MouseFilterEnum.Ignore;
 		_teOutput.ReleaseFocus();
 		_teOutput.ShortcutKeysEnabled = false;
+
+		if (GlobalValues.Instance.Health <= 0)
+		{
+			GlobalValues.Instance.ResetHealth();
+		}
 	}
 
+	private void TakeDamageOnErr()
+	{
+		GlobalValues.Instance.Health -= 1;
+		GD.Print($"Number of health: {GlobalValues.Instance.Health}");
+		if (GlobalValues.Instance.Health <= 0)
+		{
+			GD.Print("Game Over!");
+		}
+	}
+	
 	private void OnTabBarClicked(long tab)
 	{
 		_lengthOptionSelection.Visible = false;

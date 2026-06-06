@@ -2,23 +2,19 @@
 
 [ext_resource type="Script" uid="uid://ddrhkt3p2kw0j" path="res://UI/Settings/ThemeOptionButton.cs" id="1_gw0ag"]
 
-[node name="ThemeOptions" type="Control" unique_id=1227267523]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="ThemeOptionButton" type="OptionButton" unique_id=2003179037 node_paths=PackedStringArray("_themeOptionButton")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -15.5
+offset_right = 44.5
+offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="ThemeOptionButton" type="OptionButton" parent="." unique_id=2003179037 node_paths=PackedStringArray("_themeOptionButton")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 3
 alignment = 1
 selected = 0
 allow_reselect = true

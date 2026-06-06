@@ -14,5 +14,6 @@ public partial class ThemeOptionButton : OptionButton
 	private void OnThemeOptionItemSelected(long index)
 	{
 		SignalHub.EmitOnThemeOptionSelected(index);
+		GlobalValues.Instance.ThemeOption = index;
 	}
 }

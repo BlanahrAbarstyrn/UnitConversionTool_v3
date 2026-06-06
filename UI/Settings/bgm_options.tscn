@@ -2,23 +2,19 @@
 
 [ext_resource type="Script" uid="uid://bq30td2hntm" path="res://UI/Settings/BgmOptionButton.cs" id="1_usnf8"]
 
-[node name="BgmOptions" type="Control" unique_id=1227267523]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="BgmOptionButton" type="OptionButton" unique_id=2003179037 node_paths=PackedStringArray("_bgmOptionButton")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -15.5
+offset_right = 98.0
+offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="BgmOptionButton" type="OptionButton" parent="." unique_id=2003179037 node_paths=PackedStringArray("_bgmOptionButton")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 3
 alignment = 1
 allow_reselect = true
 item_count = 10

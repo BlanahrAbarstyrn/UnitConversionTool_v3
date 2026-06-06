@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://gcwpmjn214qj" path="res://UI/Settings/bgm_options.tscn" id="7_wl25h"]
 [ext_resource type="Script" uid="uid://c2tkeis4ru6nt" path="res://UI/Settings/SfxOnTextureButton.cs" id="8_05bus"]
 [ext_resource type="Script" uid="uid://be3o0sga8oxt0" path="res://UI/Settings/SfxOffTextureButton.cs" id="10_ermnc"]
+[ext_resource type="PackedScene" uid="uid://bgjy8kbym5itj" path="res://UI/Settings/save_settings_button.tscn" id="11_ghya7"]
+[ext_resource type="Script" uid="uid://d4f0j5waflwo8" path="res://UI/Settings/SaveSettingsButton.cs" id="12_y5gb0"]
 
 [node name="SettingsUI" type="Control" unique_id=2029752945]
 layout_mode = 3
@@ -70,7 +72,7 @@ vertical_alignment = 1
 
 [node name="ThemeOptions" parent="Panel/MCscreen/VBscreen/MCthemeButtons2/HBoxContainer" unique_id=1227267523 instance=ExtResource("2_ghya7")]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="MCthemeButtons" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=981917312]
 layout_mode = 2
@@ -189,8 +191,7 @@ vertical_alignment = 1
 
 [node name="BgmOptions" parent="Panel/MCscreen/VBscreen/MCbgmSelection/HBbgmSelection" unique_id=564184743 instance=ExtResource("7_wl25h")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 4
 
 [node name="MCthemeButton3" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1755243726]
 layout_mode = 2
@@ -200,6 +201,12 @@ theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton3" unique_id=772826654]
 layout_mode = 2
+
+[node name="SaveSettingsButton" parent="Panel/MCscreen/VBscreen/MCthemeButton3/HBoxContainer" unique_id=568713739 node_paths=PackedStringArray("_saveSettingsButton") instance=ExtResource("11_ghya7")]
+layout_mode = 2
+size_flags_horizontal = 6
+script = ExtResource("12_y5gb0")
+_saveSettingsButton = NodePath(".")
 
 [node name="MCnavigation" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=132401349]
 layout_mode = 2

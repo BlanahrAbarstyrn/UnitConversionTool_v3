@@ -14,5 +14,6 @@ public partial class SfxOffTextureButton : TextureButton
 	private void OnSfxOffButtonPressed()
 	{
 		SignalHub.EmitOnSfxOffButtonPressed();
+		GlobalValues.Instance.EffectsOn = false;
 	}
 }

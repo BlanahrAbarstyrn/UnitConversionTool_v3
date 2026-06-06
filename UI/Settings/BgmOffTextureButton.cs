@@ -14,5 +14,6 @@ public partial class BgmOffTextureButton : TextureButton
 	private void OnBgmOffButtonPressed()
 	{
 		SignalHub.EmitOnBgmOffButtonPressed();
+		GlobalValues.Instance.BgmOn = false;
 	}
 }
