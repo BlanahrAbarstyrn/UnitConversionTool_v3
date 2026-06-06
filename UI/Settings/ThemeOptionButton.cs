@@ -1,5 +1,6 @@
 using Godot;
 using UnitConversionTool.Globals;
+using UnitConversionTool.Classes;
 
 namespace UnitConversionTool.UI.Settings;
 public partial class ThemeOptionButton : OptionButton
@@ -13,7 +14,9 @@ public partial class ThemeOptionButton : OptionButton
 
 	private void OnThemeOptionItemSelected(long index)
 	{
+		var saveManager = GetNode<SaveManager>("/root/SaveManager");
 		SignalHub.EmitOnThemeOptionSelected(index);
-		GlobalValues.Instance.ThemeOption = index;
+		saveManager.CurrentData.ThemeOption = index;
+		saveManager.SaveFile();
 	}
 }

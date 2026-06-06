@@ -7,56 +7,41 @@ namespace UnitConversionTool.Globals;
 public partial class SaveManager : Node
 {
     private const string SaveFilePath = "user://unitconversiontool.tres";
+    public UserSaveData CurrentData { get; private set; }
     
-    public static SaveManager Instance { get; private set; }
-    
-    public UserSaveData DataHistory { get; private set; } = new ();
-
     public void LogInfo(string message)
     {
         GD.Print($"[SaveManager] {message}");
     }
-
-    public override void _EnterTree()
-    {
-        LoadSaveFile();
-    }
-
-    public override void _ExitTree()
-    {
-        SaveFile();
-    }
-
+    
     public override void _Ready()
     {
-        Instance = this;
+        //Instance = this;
+        LoadSaveFile();
+        GD.Print("Save file loaded!");
     }
 
     public void LoadSaveFile()
     {
-        LogInfo("Loading save file...");
-        if (!ResourceLoader.Exists(SaveFilePath))
+        if (ResourceLoader.Exists(SaveFilePath))
         {
-            LogInfo("Save file not found!");
-            return;
-        }
-        
-        UserSaveData usd = ResourceLoader.Load<UserSaveData>(SaveFilePath);
-        if (usd != null)
-        {
-            DataHistory = usd;
-            LogInfo("Loaded save file!");
+            // load existing file
+            CurrentData = ResourceLoader.Load<UserSaveData>(SaveFilePath);
         }
         else
         {
-            LogInfo("Save file not found!");
+            // create new instance with defaults if file doesn't exist
+            CurrentData = new UserSaveData();
+            SaveFile();
         }
+
     }
 
     public void SaveFile()
     {
         LogInfo("Saving save file...");
-        Error err = ResourceSaver.Save(DataHistory, SaveFilePath);
+        Error err = ResourceSaver.Save(CurrentData, SaveFilePath);
+
         if (err == Error.Ok)
         {
             LogInfo("Save file saved!");
@@ -65,5 +50,10 @@ public partial class SaveManager : Node
         {
             LogInfo("Save file failed!");
         }
+    }
+
+    public void ApplySettings()
+    {
+        
     }
 }

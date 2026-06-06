@@ -13,7 +13,9 @@ public partial class SfxOnTextureButton : TextureButton
 	
 	private void OnSfxOnButtonPressed()
 	{
+		var saveManager = GetNode<SaveManager>("/root/SaveManager");
 		SignalHub.EmitOnSfxOnButtonPressed();
-		GlobalValues.Instance.EffectsOn = true;
+		saveManager.CurrentData.EffectsOn = true;
+		saveManager.SaveFile();
 	}
 }

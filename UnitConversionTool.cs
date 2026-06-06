@@ -38,8 +38,6 @@ public partial class UnitConversionTool : Control
 		SignalHub.Instance.OnAboutButtonPressed += OnAboutButtonPressed;
 		SignalHub.Instance.OnChangelogButtonPressed += OnChangelogButtonPressed;
 		SignalHub.Instance.OnThemeOptionSelected += OnThemeOptionSelected;
-		
-		SaveManager.Instance.LoadSaveFile();
 	}
 
 	private void OnThemeOptionSelected(long index)

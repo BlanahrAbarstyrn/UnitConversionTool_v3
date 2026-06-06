@@ -21,9 +21,11 @@ public partial class BgmOptionButton : OptionButton
 
 	private void OnBgmOptionItemSelected(long index)
 	{
+		var saveManager = (SaveManager)GetNode("/root/SaveManager");
 		SignalHub.Instance.SelectedBgmIndex = index;
 		SignalHub.EmitOnBgmOptionSelected(index);
-		GlobalValues.Instance.BgmOption = index;
+		saveManager.CurrentData.BgmOption = index;
+		saveManager.SaveFile();
 	}
 
 }

@@ -15,7 +15,6 @@ public partial class SaveSettingsButton : Button
     private void OnSaveSettingsButtonPressed()
     {
         SignalHub.EmitOnSaveSettingsButtonPressed();
-        SaveManager.Instance.SaveFile();
     }
 }
 

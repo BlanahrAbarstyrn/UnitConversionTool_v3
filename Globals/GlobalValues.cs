@@ -19,14 +19,6 @@ public partial class GlobalValues : Node
     public bool HasError { get; set; } = false;
     public double ValidDouble  { get; set; } = 0;
     
-    public bool EffectsOn { get; set; } = true;
-    
-    public bool BgmOn { get; set; } = false;
-    
-    public long ThemeOption { get; set; } = -1;
-    
-    public long BgmOption { get; set; } = -1;
-    
     public override void _Ready()
     {
         Instance = this;
