@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://kejbq8j30cev"
+path="res://.godot/imported/Tiger Temple Trial.ogg-2194f20bf5d437093e2e9d42d26852f4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/BackgroundMusic/Tiger Temple Trial.ogg"
+dest_files=["res://.godot/imported/Tiger Temple Trial.ogg-2194f20bf5d437093e2e9d42d26852f4.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

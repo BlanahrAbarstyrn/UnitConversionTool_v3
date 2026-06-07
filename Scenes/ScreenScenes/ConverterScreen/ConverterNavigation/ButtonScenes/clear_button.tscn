@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://djsu5hn87eg6j"]
+
+[ext_resource type="PackedScene" uid="uid://bikdyka3yayso" path="res://Scenes/ParentScenes/base_button.tscn" id="1_y180g"]
+[ext_resource type="Script" uid="uid://di51hx4cv8j4k" path="res://Scenes/ScreenScenes/ConverterScreen/ConverterNavigation/ButtonScenes/ClearButton.cs" id="2_1f38s"]
+
+[node name="ClearButton" unique_id=568713739 node_paths=PackedStringArray("_clearButton") instance=ExtResource("1_y180g")]
+text = "Reset"
+script = ExtResource("2_1f38s")
+_clearButton = NodePath(".")

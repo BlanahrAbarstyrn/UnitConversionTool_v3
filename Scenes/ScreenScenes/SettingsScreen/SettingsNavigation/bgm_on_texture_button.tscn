@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7jbdls7nx0v6"]
+
+[ext_resource type="PackedScene" uid="uid://7mgk8vijyyja" path="res://Scenes/ParentScenes/base_texture_button.tscn" id="1_fcsir"]
+
+[node name="BgmOnTextureButton" unique_id=1247644541 instance=ExtResource("1_fcsir")]
+tooltip_text = "Background Music On"

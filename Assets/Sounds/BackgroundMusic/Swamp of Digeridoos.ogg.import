@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://clsrscukip80d"
+path="res://.godot/imported/Swamp of Digeridoos.ogg-652931bfbc92cd613cb6a4ca17b935cb.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/BackgroundMusic/Swamp of Digeridoos.ogg"
+dest_files=["res://.godot/imported/Swamp of Digeridoos.ogg-652931bfbc92cd613cb6a4ca17b935cb.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

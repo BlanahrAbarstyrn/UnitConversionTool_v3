@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://223sufrqoj33"
+path="res://.godot/imported/Frost Mountain Aura.ogg-8e31a2e2dc3880f202de7c7a16a8553a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/BackgroundMusic/Frost Mountain Aura.ogg"
+dest_files=["res://.godot/imported/Frost Mountain Aura.ogg-8e31a2e2dc3880f202de7c7a16a8553a.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

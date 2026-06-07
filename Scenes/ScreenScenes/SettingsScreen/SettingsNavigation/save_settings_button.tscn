@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bgjy8kbym5itj"]
+
+[ext_resource type="PackedScene" uid="uid://bikdyka3yayso" path="res://Scenes/ParentScenes/base_button.tscn" id="1_1yj8q"]
+
+[node name="SaveSettingsButton" unique_id=568713739 instance=ExtResource("1_1yj8q")]
+text = "Save Settings"

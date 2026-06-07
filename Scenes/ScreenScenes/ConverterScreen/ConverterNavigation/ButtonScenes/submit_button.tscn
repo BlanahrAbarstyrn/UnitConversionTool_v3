@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cxxfoi3uslpdn"]
+
+[ext_resource type="PackedScene" uid="uid://bikdyka3yayso" path="res://Scenes/ParentScenes/base_button.tscn" id="1_jym2i"]
+[ext_resource type="Script" uid="uid://bibq75ua6u40r" path="res://Scenes/ScreenScenes/ConverterScreen/ConverterNavigation/ButtonScenes/SubmitButton.cs" id="2_hwm8c"]
+
+[node name="SubmitButton" unique_id=568713739 node_paths=PackedStringArray("_submitButton") instance=ExtResource("1_jym2i")]
+text = "Submit"
+script = ExtResource("2_hwm8c")
+_submitButton = NodePath(".")

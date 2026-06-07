@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c6geu27g30qo2"]
+
+[ext_resource type="Script" uid="uid://bdg5oooji6blk" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsNavigation/SoundController.cs" id="1_jlypu"]
+[ext_resource type="AudioStream" uid="uid://ktg5bau8jh5a" path="res://Assets/Sounds/SoundEffects/button_click.ogg" id="2_h0m1r"]
+[ext_resource type="AudioStream" uid="uid://bwx1trv0cxopa" path="res://Assets/Sounds/BackgroundMusic/Bloodrat Sewers.ogg" id="2_xje4t"]
+
+[node name="SoundController" type="Node" unique_id=1601632186 node_paths=PackedStringArray("_music", "_effects")]
+script = ExtResource("1_jlypu")
+_buttonClick = ExtResource("2_h0m1r")
+_bgMusic = ExtResource("2_xje4t")
+_music = NodePath("Music")
+_effects = NodePath("Effects")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=669084992 groups=["Audio4Cleanup"]]
+
+[node name="Effects" type="AudioStreamPlayer2D" parent="." unique_id=1306281111 groups=["Audio4Cleanup"]]
+bus = &"SFX"

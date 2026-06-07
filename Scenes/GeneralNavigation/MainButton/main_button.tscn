@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dg8oaq6anfgkd"]
+
+[ext_resource type="PackedScene" uid="uid://bikdyka3yayso" path="res://Scenes/ParentScenes/base_button.tscn" id="1_osp0a"]
+[ext_resource type="Script" uid="uid://bpmrrs8l2grnq" path="res://Scenes/GeneralNavigation/MainButton/MainButton.cs" id="2_q6kqi"]
+
+[node name="MainButton" unique_id=568713739 node_paths=PackedStringArray("_mainButton") instance=ExtResource("1_osp0a")]
+text = "Main"
+script = ExtResource("2_q6kqi")
+_mainButton = NodePath(".")

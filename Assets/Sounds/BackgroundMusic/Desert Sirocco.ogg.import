@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://coo2fh12i4lc8"
+path="res://.godot/imported/Desert Sirocco.ogg-b07e9aed1ef2d3caadcb967ccd57d76b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/BackgroundMusic/Desert Sirocco.ogg"
+dest_files=["res://.godot/imported/Desert Sirocco.ogg-b07e9aed1ef2d3caadcb967ccd57d76b.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
