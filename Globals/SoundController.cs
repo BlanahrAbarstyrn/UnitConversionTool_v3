@@ -1,10 +1,11 @@
 using Godot;
-using UnitConversionTool.Globals;
+using UnitConversionTool.Classes;
 
-namespace UnitConversionTool.UI.Settings;
+namespace UnitConversionTool.Globals;
 
 public partial class SoundController : Node
 {
+	public UserSaveData CurrentData { get; private set; }
 
 	[Export] private AudioStream _buttonClick;
 	[Export] private AudioStream _bgMusic;
@@ -33,7 +34,7 @@ public partial class SoundController : Node
 		SignalHub.Instance.OnSaveSettingsButtonPressed += OnSaveSettingsButtonPressed;
 	}
 
-	private void OnBgmOptionSelected(long index)
+	public void OnBgmOptionSelected(long index)
 	{
 		_selectedBgmIndex = index;
 		

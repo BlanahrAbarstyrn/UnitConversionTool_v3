@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dhpbodfq877l5"]
 
+[ext_resource type="Script" uid="uid://ilpae54lod88" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsUi.cs" id="1_b1fle"]
 [ext_resource type="PackedScene" uid="uid://cvey5yes5riyr" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsNavigation/theme_options.tscn" id="2_ghya7"]
 [ext_resource type="PackedScene" uid="uid://dg8oaq6anfgkd" path="res://Scenes/GeneralNavigation/MainButton/main_button.tscn" id="2_gqiv8"]
 [ext_resource type="PackedScene" uid="uid://c66jmavyb6kng" path="res://Scenes/GeneralNavigation/AboutButton/about_button.tscn" id="3_n3jyd"]
@@ -13,13 +14,16 @@
 [ext_resource type="Script" uid="uid://c2tkeis4ru6nt" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsNavigation/SfxOnTextureButton.cs" id="8_05bus"]
 [ext_resource type="Script" uid="uid://be3o0sga8oxt0" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsNavigation/SfxOffTextureButton.cs" id="10_ermnc"]
 
-[node name="SettingsUI" type="Control" unique_id=2029752945]
+[node name="SettingsUI" type="Control" unique_id=2029752945 node_paths=PackedStringArray("ThemeOptions", "BgmOptions")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_b1fle")
+ThemeOptions = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons2/HBoxContainer/ThemeOptions")
+BgmOptions = NodePath("Panel/MCscreen/VBscreen/MCbgmSelection/HBbgmSelection/BgmOptions")
 
 [node name="Panel" type="Panel" parent="." unique_id=457652825]
 layout_mode = 1
@@ -215,4 +219,5 @@ alignment = 1
 layout_mode = 2
 
 [node name="AboutButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=276046882 instance=ExtResource("3_n3jyd")]
+visible = false
 layout_mode = 2

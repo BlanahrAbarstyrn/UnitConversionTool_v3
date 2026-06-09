@@ -2,7 +2,6 @@ using Godot;
 using System;
 using UnitConversionTool.Globals;
 
-
 namespace UnitConversionTool.Scenes
 ;
 
@@ -69,6 +68,9 @@ public partial class UnitConversionTool : Control
 	private void OnMainButtonPressed()
 	{
 		ShowUserInterface(true);
+		
+		var saveManager = GetNode<SaveManager>("/root/SaveManager");
+		saveManager.SaveFile();
 	}
 	
 	private void OnSettingsButtonPressed()

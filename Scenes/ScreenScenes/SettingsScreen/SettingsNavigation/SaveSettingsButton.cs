@@ -2,7 +2,7 @@ using Godot;
 using System;
 using UnitConversionTool.Globals;
 
-namespace UnitConversionTool.UI.Settings;
+namespace UnitConversionTool.Scenes.ScreenScenes.SettingsScreen.SettingsNavigation;
 public partial class SaveSettingsButton : Button
 {
     [Export] private Button _saveSettingsButton;

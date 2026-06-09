@@ -2,7 +2,7 @@ using Godot;
 using UnitConversionTool.Globals;
 using UnitConversionTool.Classes;
 
-namespace UnitConversionTool.UI.Settings;
+namespace UnitConversionTool.Scenes.ScreenScenes.SettingsScreen.SettingsNavigation;
 public partial class ThemeOptionButton : OptionButton
 {
 	[Export] private OptionButton _themeOptionButton;
@@ -17,6 +17,6 @@ public partial class ThemeOptionButton : OptionButton
 		var saveManager = GetNode<SaveManager>("/root/SaveManager");
 		SignalHub.EmitOnThemeOptionSelected(index);
 		saveManager.CurrentData.ThemeOption = index;
-		saveManager.SaveFile();
+		//saveManager.SaveFile();
 	}
 }

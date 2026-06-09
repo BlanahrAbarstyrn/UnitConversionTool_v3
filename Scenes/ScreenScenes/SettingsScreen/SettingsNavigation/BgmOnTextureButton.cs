@@ -1,7 +1,7 @@
 using Godot;
 using UnitConversionTool.Globals;
 
-namespace UnitConversionTool.UI.Settings;
+namespace UnitConversionTool.Scenes.ScreenScenes.SettingsScreen.SettingsNavigation;
 public partial class BgmOnTextureButton : TextureButton
 {
 	[Export] private TextureButton _bgmOnTextureButton;
@@ -16,6 +16,6 @@ public partial class BgmOnTextureButton : TextureButton
 		var saveManager = GetNode<SaveManager>("/root/SaveManager");
 		SignalHub.EmitOnBgmOnButtonPressed();
 		saveManager.CurrentData.BgmOn = true;
-		saveManager.SaveFile();
+		//saveManager.SaveFile();
 	}
 }

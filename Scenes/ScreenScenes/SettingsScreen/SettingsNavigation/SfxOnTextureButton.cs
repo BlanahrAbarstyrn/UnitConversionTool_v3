@@ -1,7 +1,7 @@
 using Godot;
 using UnitConversionTool.Globals;
 
-namespace UnitConversionTool.UI.Settings;
+namespace UnitConversionTool.Scenes.ScreenScenes.SettingsScreen.SettingsNavigation;
 public partial class SfxOnTextureButton : TextureButton
 {
 	[Export] private TextureButton _sfxOnTextureButton;
@@ -16,6 +16,6 @@ public partial class SfxOnTextureButton : TextureButton
 		var saveManager = GetNode<SaveManager>("/root/SaveManager");
 		SignalHub.EmitOnSfxOnButtonPressed();
 		saveManager.CurrentData.EffectsOn = true;
-		saveManager.SaveFile();
+		//saveManager.SaveFile();
 	}
 }

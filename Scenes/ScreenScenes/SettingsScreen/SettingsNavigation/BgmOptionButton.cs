@@ -2,7 +2,7 @@ using Godot;
 using System;
 using UnitConversionTool.Globals;
 
-namespace UnitConversionTool.UI.Settings;
+namespace UnitConversionTool.Scenes.ScreenScenes.SettingsScreen.SettingsNavigation;
 
 public partial class BgmOptionButton : OptionButton
 {
@@ -25,7 +25,7 @@ public partial class BgmOptionButton : OptionButton
 		SignalHub.Instance.SelectedBgmIndex = index;
 		SignalHub.EmitOnBgmOptionSelected(index);
 		saveManager.CurrentData.BgmOption = index;
-		saveManager.SaveFile();
+		//saveManager.SaveFile();
 	}
 
 }

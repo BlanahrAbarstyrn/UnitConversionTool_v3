@@ -109,9 +109,11 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="MainButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=568713739 instance=ExtResource("1_c3jnt")]
+visible = false
 layout_mode = 2
 
 [node name="SettingsButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=407583013 instance=ExtResource("2_c2nu8")]
+visible = false
 layout_mode = 2
 
 [node name="AboutButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=1851123545 instance=ExtResource("3_c3jnt")]

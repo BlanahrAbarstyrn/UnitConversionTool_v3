@@ -110,6 +110,7 @@ alignment = 1
 layout_mode = 2
 
 [node name="SettingsButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=407583013 instance=ExtResource("2_uom8l")]
+visible = false
 layout_mode = 2
 
 [node name="ChangelogButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=1039977809 instance=ExtResource("3_uom8l")]
