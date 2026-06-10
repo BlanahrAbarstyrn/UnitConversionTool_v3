@@ -2,8 +2,7 @@ using Godot;
 using System;
 using UnitConversionTool.Globals;
 
-namespace UnitConversionTool.Scenes
-;
+namespace UnitConversionTool.Scenes;
 
 public partial class UnitConversionTool : Control
 {
@@ -11,7 +10,6 @@ public partial class UnitConversionTool : Control
 	[Export] private Control _settingsUi;
 	[Export] private Control _aboutUi;
 	[Export] private Control _changelogUi;
-	
 	
 	// Called when the node enters the scene tree for the first time.
 	public override async void _Ready()

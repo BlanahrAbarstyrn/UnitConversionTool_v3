@@ -2,11 +2,12 @@ using Godot;
 using System;
 using UnitConversionTool.Classes;
 
-
 namespace UnitConversionTool.Globals;
 
 public partial class SaveManager : Node
 {
+    [Export] private AudioStreamPlayer2D _music;
+    
     private const string SaveFilePath = "user://unitconversiontool.tres";
     public UserSaveData CurrentData { get; private set; }
     
@@ -17,7 +18,6 @@ public partial class SaveManager : Node
     
     public override void _Ready()
     {
-        //Instance = this;
         LoadSaveFile();
         GD.Print("Save file loaded!");
         ApplySettingsToEngine();
@@ -63,16 +63,23 @@ public partial class SaveManager : Node
         //SoundController.OnBgmOptionSelected();
         
         // Still need to connect to theme options too
-        // are the globals in the wrong order so players or buses aren't loaded yet?
+       
         
         if (CurrentData == null) return;
-        
+
+
+        if (CurrentData.ThemeOption > -1)
+        {
+            
+        }
+            
         if (CurrentData.BgmOn == true)
         {
-            SignalHub.EmitOnBgmOnButtonPressed();
+            
         }
 
-        // still not successfully making change on app restart
+        // with the globals reordered in project settings
+        // the effects volume is now correct on app restart
         if (CurrentData.EffectsOn == false)
         {
             int sfxBusIndex = AudioServer.GetBusIndex("SFX");

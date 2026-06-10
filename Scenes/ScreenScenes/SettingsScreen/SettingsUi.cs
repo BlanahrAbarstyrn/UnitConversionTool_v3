@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using UnitConversionTool.Globals;
-using UnitConversionTool.Scenes.ScreenScenes.SettingsScreen.SettingsNavigation;
 
 namespace UnitConversionTool.Scenes.ScreenScenes.SettingsScreen;
 

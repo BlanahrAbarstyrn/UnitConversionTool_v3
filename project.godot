@@ -23,11 +23,11 @@ buses/default_bus_layout="res://Resources/default_bus_layout.tres"
 
 [autoload]
 
-SoundController="*uid://c6geu27g30qo2"
-SaveManager="*uid://bq55ey24oumu"
-GlobalValues="*uid://dhgabytulv2uy"
-SignalHub="*uid://b5nns8s1hi6jj"
 AudioCleanup="*uid://8fjakd8n0fdn"
+SignalHub="*uid://b5nns8s1hi6jj"
+GlobalValues="*uid://dhgabytulv2uy"
+SaveManager="*uid://bq55ey24oumu"
+SoundController="*uid://c6geu27g30qo2"
 
 [display]
 

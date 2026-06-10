@@ -12,7 +12,7 @@ public static class MeasurementParser
     // (?:(?<feet>\d+)\s*['’′]\s*)??   -> Optional feet (lazy match to not steal from inches)
     // (?:(?<inches>\d+))??            -> Optional whole inches
     // \s*(?<fraction>(?<num>\d+)\/(?<den>\d+))? -> Optional fraction
-    // \s*(?:"|”|″|in)?$               -> Optional ending inch symbols
+    // \s*(?:""|”|″|in)?$               -> Optional ending inch symbols
     private static readonly Regex MeasurementRegex = new Regex(
         @"^(?<sign>-)?(?:(?<feet>\d+)\s*['’′]\s*)??(?:(?<inches>\d+))??\s*(?<fraction>(?<num>\d+)\/(?<den>\d+))?\s*(?:""|”|″|in)?$",
         RegexOptions.Compiled | RegexOptions.IgnoreCase

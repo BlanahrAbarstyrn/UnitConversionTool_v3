@@ -5,8 +5,6 @@ namespace UnitConversionTool.Globals;
 
 public partial class SoundController : Node
 {
-	public UserSaveData CurrentData { get; private set; }
-
 	[Export] private AudioStream _buttonClick;
 	[Export] private AudioStream _bgMusic;
 	
@@ -20,18 +18,17 @@ public partial class SoundController : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		SignalHub.Instance.OnAboutButtonPressed += OnAboutButtonPressed;
+		SignalHub.Instance.OnBgmOffButtonPressed += OnBgmOffButtonPressed;
+		SignalHub.Instance.OnBgmOnButtonPressed += OnBgmOnButtonPressed;
+		SignalHub.Instance.OnBgmOptionSelected += OnBgmOptionSelected;
+		SignalHub.Instance.OnChangelogButtonPressed += OnChangelogButtonPressed;
+		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
 		SignalHub.Instance.OnMainButtonPressed += OnMainButtonPressed;
 		SignalHub.Instance.OnSettingsButtonPressed += OnSettingsButtonPressed;
-		SignalHub.Instance.OnAboutButtonPressed += OnAboutButtonPressed;
-		SignalHub.Instance.OnChangelogButtonPressed += OnChangelogButtonPressed;
-		SignalHub.Instance.OnBgmOnButtonPressed += OnBgmOnButtonPressed;
-		SignalHub.Instance.OnBgmOffButtonPressed += OnBgmOffButtonPressed;
-		SignalHub.Instance.OnSfxOnButtonPressed += OnSfxOnButtonPressed;
 		SignalHub.Instance.OnSfxOffButtonPressed += OnSfxOffButtonPressed;
-		SignalHub.Instance.OnBgmOptionSelected += OnBgmOptionSelected;
-		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
+		SignalHub.Instance.OnSfxOnButtonPressed += OnSfxOnButtonPressed;
 		SignalHub.Instance.OnSubmitButtonPressed += OnSubmitButtonPressed;
-		SignalHub.Instance.OnSaveSettingsButtonPressed += OnSaveSettingsButtonPressed;
 	}
 
 	public void OnBgmOptionSelected(long index)
@@ -78,48 +75,22 @@ public partial class SoundController : Node
 		_music.Play();
 	}
 	
-	private void OnSubmitButtonPressed()
-	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-	}
-	
-	private void OnClearButtonPressed()
-	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-	}
-	
-	private void OnMainButtonPressed()
-	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-	}
-	
-	private void OnSettingsButtonPressed()
-	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-	}
-	
 	private void OnAboutButtonPressed()
 	{
 		_effects.Stream = _buttonClick;
 		_effects.Play();
 	}
 	
-	private void OnChangelogButtonPressed()
+	private void OnBgmOffButtonPressed()
 	{
 		_effects.Stream = _buttonClick;
 		_effects.Play();
-	}
-	
-	private void OnSaveSettingsButtonPressed()
-	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-	}
 
+		if (_music.IsPlaying())
+		{
+			_music.StreamPaused = true;
+		}
+	}
 	
 	private void OnBgmOnButtonPressed()
 	{
@@ -132,23 +103,31 @@ public partial class SoundController : Node
 			_music.Play();
 		}
 	}
-	private void OnBgmOffButtonPressed()
+	
+	private void OnChangelogButtonPressed()
 	{
 		_effects.Stream = _buttonClick;
 		_effects.Play();
+	}
+	
+	private void OnClearButtonPressed()
+	{
+		_effects.Stream = _buttonClick;
+		_effects.Play();
+	}
+		
+	private void OnMainButtonPressed()
+	{
+		_effects.Stream = _buttonClick;
+		_effects.Play();
+	}
+	
+	private void OnSettingsButtonPressed()
+	{
+		_effects.Stream = _buttonClick;
+		_effects.Play();
+	}
 
-		if (_music.IsPlaying())
-		{
-			_music.StreamPaused = true;
-		}
-	}
-	private void OnSfxOnButtonPressed()
-	{
-		int sfxBusIndex = AudioServer.GetBusIndex("SFX");
-		AudioServer.SetBusVolumeDb(sfxBusIndex,0.0f);
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-	}
 	private void OnSfxOffButtonPressed()
 	{
 		int sfxBusIndex = AudioServer.GetBusIndex("SFX");
@@ -156,5 +135,19 @@ public partial class SoundController : Node
 		_effects.Stream = _buttonClick;
 		_effects.Play();
 		AudioServer.SetBusVolumeDb(sfxBusIndex, -100.0f);
+	}
+	
+	private void OnSfxOnButtonPressed()
+	{
+		int sfxBusIndex = AudioServer.GetBusIndex("SFX");
+		AudioServer.SetBusVolumeDb(sfxBusIndex,0.0f);
+		_effects.Stream = _buttonClick;
+		_effects.Play();
+	}
+		
+	private void OnSubmitButtonPressed()
+	{
+		_effects.Stream = _buttonClick;
+		_effects.Play();
 	}
 }
