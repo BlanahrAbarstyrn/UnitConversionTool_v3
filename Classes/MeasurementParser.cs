@@ -1,7 +1,5 @@
-using System;
 using System.Text.RegularExpressions;
 using UnitConversionTool.Globals;
-using Godot;
 
 namespace UnitConversionTool.Classes;
 

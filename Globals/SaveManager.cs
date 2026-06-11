@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using UnitConversionTool.Classes;
 
 namespace UnitConversionTool.Globals;

@@ -62,7 +62,13 @@ theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
-text = "[u]Beta Version 1.0-b.1[/u]
+text = "[u]Beta Version 1.0-b.2[/u]
+[ul]
+2026-06-11
+Save and Load file ability added to persist user settings between sessions
+[/ul]
+
+[u]Beta Version 1.0-b.1[/u]
 [ul]
 2026-05-30
 Main features complete

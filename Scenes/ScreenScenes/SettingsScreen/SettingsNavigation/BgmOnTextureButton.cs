@@ -16,6 +16,5 @@ public partial class BgmOnTextureButton : TextureButton
 		var saveManager = GetNode<SaveManager>("/root/SaveManager");
 		SignalHub.EmitOnBgmOnButtonPressed();
 		saveManager.CurrentData.BgmOn = true;
-		//saveManager.SaveFile();
 	}
 }
