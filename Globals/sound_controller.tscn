@@ -3,15 +3,27 @@
 [ext_resource type="Script" uid="uid://bdg5oooji6blk" path="res://Globals/SoundController.cs" id="1_jlypu"]
 [ext_resource type="AudioStream" uid="uid://ktg5bau8jh5a" path="res://Assets/Sounds/SoundEffects/button_click.ogg" id="2_h0m1r"]
 [ext_resource type="AudioStream" uid="uid://bwx1trv0cxopa" path="res://Assets/Sounds/BackgroundMusic/Bloodrat Sewers.ogg" id="2_xje4t"]
+[ext_resource type="AudioStream" uid="uid://truudvslg5t3" path="res://Assets/Sounds/BackgroundMusic/Cosmic Star.ogg" id="4_r08qg"]
+[ext_resource type="AudioStream" uid="uid://dhbrnw8wkhv3h" path="res://Assets/Sounds/BackgroundMusic/Dark Dark Woods.ogg" id="5_nwvdj"]
+[ext_resource type="AudioStream" uid="uid://coo2fh12i4lc8" path="res://Assets/Sounds/BackgroundMusic/Desert Sirocco.ogg" id="6_wf22l"]
+[ext_resource type="AudioStream" uid="uid://223sufrqoj33" path="res://Assets/Sounds/BackgroundMusic/Frost Mountain Aura.ogg" id="7_l2l4x"]
+[ext_resource type="AudioStream" uid="uid://dt1k1ma1p7m8b" path="res://Assets/Sounds/BackgroundMusic/Junction Jazz.ogg" id="8_7uvjy"]
+[ext_resource type="AudioStream" uid="uid://clsrscukip80d" path="res://Assets/Sounds/BackgroundMusic/Swamp of Digeridoos.ogg" id="9_vdplw"]
+[ext_resource type="AudioStream" uid="uid://dq5ucktb6146u" path="res://Assets/Sounds/BackgroundMusic/The Blackpenny Pub.ogg" id="10_gthpp"]
+[ext_resource type="AudioStream" uid="uid://kejbq8j30cev" path="res://Assets/Sounds/BackgroundMusic/Tiger Temple Trial.ogg" id="11_drfma"]
+[ext_resource type="AudioStream" uid="uid://kkdl054mxggi" path="res://Assets/Sounds/BackgroundMusic/Underwater City.ogg" id="12_1bdlg"]
 
-[node name="SoundController" type="Node" unique_id=1601632186 node_paths=PackedStringArray("_music", "_effects")]
+[node name="SoundController" type="Node" unique_id=1601632186 node_paths=PackedStringArray("BackgroundMusicPlayer", "_effects")]
 script = ExtResource("1_jlypu")
 _buttonClick = ExtResource("2_h0m1r")
-_bgMusic = ExtResource("2_xje4t")
-_music = NodePath("Music")
+AudioStreams = Array[AudioStream]([ExtResource("2_xje4t"), ExtResource("4_r08qg"), ExtResource("5_nwvdj"), ExtResource("6_wf22l"), ExtResource("7_l2l4x"), ExtResource("8_7uvjy"), ExtResource("9_vdplw"), ExtResource("10_gthpp"), ExtResource("11_drfma"), ExtResource("12_1bdlg")])
+BackgroundMusicPlayer = NodePath("BackgroundMusicPlayer")
 _effects = NodePath("Effects")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=669084992 groups=["Audio4Cleanup"]]
 
 [node name="Effects" type="AudioStreamPlayer2D" parent="." unique_id=1306281111 groups=["Audio4Cleanup"]]
 bus = &"SFX"
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1500349998]
+bus = &"BGM"

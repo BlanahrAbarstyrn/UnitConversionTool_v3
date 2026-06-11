@@ -16,10 +16,11 @@ public partial class SaveManager : Node
         GD.Print($"[SaveManager] {message}");
     }
     
-    public override void _Ready()
+    public override async void _Ready()
     {
         LoadSaveFile();
         GD.Print("Save file loaded!");
+        await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
         ApplySettingsToEngine();
     }
 
@@ -36,7 +37,6 @@ public partial class SaveManager : Node
             CurrentData = new UserSaveData();
             SaveFile();
         }
-
     }
 
     public void SaveFile()
@@ -56,28 +56,26 @@ public partial class SaveManager : Node
 
     public void ApplySettingsToEngine()
     {
-        
-        //*********************** left off here trying to feed index
-        // to audiostreamplayer2d to load the track and play it
-        // if on is set to true
-        //SoundController.OnBgmOptionSelected();
-        
-        // Still need to connect to theme options too
-       
-        
         if (CurrentData == null) return;
-
-
+        
         if (CurrentData.ThemeOption > -1)
         {
-            
-        }
-            
-        if (CurrentData.BgmOn == true)
-        {
-            
+            // TODO: Still need to connect to theme options
         }
 
+        if (CurrentData.BgmOption >= 0 && CurrentData.BgmOption < SoundController.Instance.AudioStreams.Length)
+        {
+            SoundController.Instance.BackgroundMusicPlayer.Stream = SoundController.Instance.AudioStreams[(int)CurrentData.BgmOption];
+            
+            if (CurrentData.BgmOn == true)
+            {
+                int bgmBusIndex = AudioServer.GetBusIndex("BGM");
+                AudioServer.SetBusVolumeDb(bgmBusIndex,0.0f);
+                
+                SoundController.Instance.BackgroundMusicPlayer.Play();
+            }
+        }
+        
         // with the globals reordered in project settings
         // the effects volume is now correct on app restart
         if (CurrentData.EffectsOn == false)

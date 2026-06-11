@@ -5,19 +5,19 @@ namespace UnitConversionTool.Globals;
 
 public partial class SoundController : Node
 {
+	public static SoundController Instance { get; private set; }
+	
 	[Export] private AudioStream _buttonClick;
-	[Export] private AudioStream _bgMusic;
-	
-	[Export] private AudioStreamPlayer2D _music;
+	[Export] public AudioStream[] AudioStreams;
+
+	[Export] public AudioStreamPlayer BackgroundMusicPlayer;
 	[Export] private AudioStreamPlayer2D _effects;
-	
-	private long _selectedBgmIndex;
-	private AudioStream _selectedBgmStream;
-	
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Instance = this;
+		
 		SignalHub.Instance.OnAboutButtonPressed += OnAboutButtonPressed;
 		SignalHub.Instance.OnBgmOffButtonPressed += OnBgmOffButtonPressed;
 		SignalHub.Instance.OnBgmOnButtonPressed += OnBgmOnButtonPressed;
@@ -31,48 +31,13 @@ public partial class SoundController : Node
 		SignalHub.Instance.OnSubmitButtonPressed += OnSubmitButtonPressed;
 	}
 
-	public void OnBgmOptionSelected(long index)
+	private void OnBgmOptionSelected(long index)
 	{
-		_selectedBgmIndex = index;
-		
-		switch (index)
+		if ((int)index >= 0 && (int)index < AudioStreams.Length)
 		{
-			case 0:
-				_music.Stream = GD.Load("uid://bwx1trv0cxopa") as AudioStream;
-				break;
-			case 1:
-				_music.Stream = GD.Load("uid://truudvslg5t3") as AudioStream;
-				break;
-			case 2:
-				_music.Stream = GD.Load("uid://dhbrnw8wkhv3h") as AudioStream;
-				break;
-			case 3:
-				_music.Stream = GD.Load("uid://coo2fh12i4lc8") as AudioStream;
-				break;
-			case 4:
-				_music.Stream = GD.Load("uid://223sufrqoj33") as AudioStream;
-				break;
-			case 5:
-				_music.Stream = GD.Load("uid://dt1k1ma1p7m8b") as AudioStream;
-				break;
-			case 6:
-				_music.Stream = GD.Load("uid://clsrscukip80d") as AudioStream;
-				break;
-			case 7:
-				_music.Stream = GD.Load("uid://dq5ucktb6146u") as AudioStream;
-				break;
-			case 8:
-				_music.Stream = GD.Load("uid://kejbq8j30cev") as AudioStream;
-				break;
-			case 9:
-				_music.Stream = GD.Load("uid://kkdl054mxggi") as AudioStream;
-				break;
-			default:
-				_music.Stream = GD.Load("uid://coo2fh12i4lc8") as AudioStream;
-				break;
+			BackgroundMusicPlayer.Stream = AudioStreams[(int)index];
 		}
-		_selectedBgmStream = _music.Stream;
-		_music.Play();
+		BackgroundMusicPlayer.Play();
 	}
 	
 	private void OnAboutButtonPressed()
@@ -85,11 +50,9 @@ public partial class SoundController : Node
 	{
 		_effects.Stream = _buttonClick;
 		_effects.Play();
-
-		if (_music.IsPlaying())
-		{
-			_music.StreamPaused = true;
-		}
+		
+		int bgmBusIndex = AudioServer.GetBusIndex("BGM");
+		AudioServer.SetBusVolumeDb(bgmBusIndex, -100.0f);
 	}
 	
 	private void OnBgmOnButtonPressed()
@@ -97,11 +60,14 @@ public partial class SoundController : Node
 		_effects.Stream = _buttonClick;
 		_effects.Play();
 		
-		if (!_music.IsPlaying())
+		if (!BackgroundMusicPlayer.IsPlaying())
 		{
-			_music.Stream = _selectedBgmStream;
-			_music.Play();
+			BackgroundMusicPlayer.Play();
 		}
+		
+		int bgmBusIndex = AudioServer.GetBusIndex("BGM");
+		AudioServer.SetBusVolumeDb(bgmBusIndex,0.0f);
+		
 	}
 	
 	private void OnChangelogButtonPressed()
