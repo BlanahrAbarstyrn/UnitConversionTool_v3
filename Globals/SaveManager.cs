@@ -58,9 +58,13 @@ public partial class SaveManager : Node
     {
         if (CurrentData == null) return;
         
-        if (CurrentData.ThemeOption > -1)
+        if (CurrentData.ThemeOption > -1 && CurrentData.ThemeOption < ThemeManager.Instance.Themes.Length)
         {
-            // TODO: Still need to connect to theme options
+            ThemeManager.Instance.SetThemeByIndex((int)CurrentData.ThemeOption);
+        }
+        else
+        {
+            ThemeManager.Instance.SetThemeByIndex(0);
         }
 
         if (CurrentData.BgmOption >= 0 && CurrentData.BgmOption < SoundController.Instance.AudioStreams.Length)

@@ -20,10 +20,8 @@ AudioStreams = Array[AudioStream]([ExtResource("2_xje4t"), ExtResource("4_r08qg"
 BackgroundMusicPlayer = NodePath("BackgroundMusicPlayer")
 _effects = NodePath("Effects")
 
-[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=669084992 groups=["Audio4Cleanup"]]
-
 [node name="Effects" type="AudioStreamPlayer2D" parent="." unique_id=1306281111 groups=["Audio4Cleanup"]]
 bus = &"SFX"
 
-[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1500349998]
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1500349998 groups=["Audio4Cleanup"]]
 bus = &"BGM"

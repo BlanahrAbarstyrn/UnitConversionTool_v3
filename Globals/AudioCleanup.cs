@@ -20,6 +20,11 @@ public partial class AudioCleanup : Node
             {
                 player.Stop();
             }
+
+            if (node is AudioStreamPlayer2D player2D)
+            {
+                player2D.Stop();
+            }
         }
         
         GetTree().Quit();

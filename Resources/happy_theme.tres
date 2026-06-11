@@ -1163,7 +1163,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[sub_resource type="Image" id="Image_u0alr"]
+[sub_resource type="Image" id="Image_8knvo"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -1173,7 +1173,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_qtegf"]
-image = SubResource("Image_u0alr")
+image = SubResource("Image_8knvo")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gq4g"]
 content_margin_left = 0.0

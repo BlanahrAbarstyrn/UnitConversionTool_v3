@@ -25,7 +25,6 @@ public partial class BgmOptionButton : OptionButton
 		SignalHub.Instance.SelectedBgmIndex = index;
 		SignalHub.EmitOnBgmOptionSelected(index);
 		saveManager.CurrentData.BgmOption = index;
-		//saveManager.SaveFile();
+		saveManager.CurrentData.BgmOn = true;
 	}
-
 }

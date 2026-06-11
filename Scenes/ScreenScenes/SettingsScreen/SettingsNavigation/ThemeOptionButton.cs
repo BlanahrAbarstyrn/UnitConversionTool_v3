@@ -17,6 +17,5 @@ public partial class ThemeOptionButton : OptionButton
 		var saveManager = GetNode<SaveManager>("/root/SaveManager");
 		SignalHub.EmitOnThemeOptionSelected(index);
 		saveManager.CurrentData.ThemeOption = index;
-		//saveManager.SaveFile();
 	}
 }

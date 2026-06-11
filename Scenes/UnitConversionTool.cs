@@ -40,6 +40,9 @@ public partial class UnitConversionTool : Control
 
 	private void OnThemeOptionSelected(long index)
 	{
+		ThemeManager.Instance.SetThemeByIndex((int)index);
+		
+		/*
 		switch (index)
 		{
 			case 0:
@@ -61,6 +64,8 @@ public partial class UnitConversionTool : Control
 				Theme = GD.Load("uid://vrb8t8tcj57i") as Theme;
 				break;
 		}
+		*/
+		
 	}
 	
 	private void OnMainButtonPressed()
