@@ -58,8 +58,6 @@ vertical_alignment = 1
 [node name="MCthemeButtons2" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=271783464]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons2" unique_id=324603203]
 layout_mode = 2
@@ -76,22 +74,88 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 4
 
+[node name="MCthemeButton5" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=84578165]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton5" unique_id=1971862855]
+layout_mode = 2
+
 [node name="MCthemeButtons" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=981917312]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons" unique_id=1815418528]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons" unique_id=1558285060]
 layout_mode = 2
+
+[node name="HBoxEffectsButtons" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer" unique_id=1815418528]
+layout_mode = 2
+size_flags_vertical = 3
 alignment = 1
+
+[node name="SfxOffTextureButton" parent="Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsButtons" unique_id=847267771 node_paths=PackedStringArray("_sfxOffTextureButton") instance=ExtResource("6_ynbgp")]
+layout_mode = 2
+size_flags_horizontal = 3
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("10_ermnc")
+_sfxOffTextureButton = NodePath(".")
+
+[node name="HSliderEffects" type="HSlider" parent="Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsButtons" unique_id=49342372]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="SfxOnTextureButton" parent="Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsButtons" unique_id=1920180020 node_paths=PackedStringArray("_sfxOnTextureButton") instance=ExtResource("5_vqxmr")]
+layout_mode = 2
+size_flags_horizontal = 3
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("8_05bus")
+_sfxOnTextureButton = NodePath(".")
+
+[node name="HBoxEffectsLabels" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer" unique_id=1069474762]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="SfxOffLabel" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsLabels" unique_id=1529376447]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+text = "Effects Off"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SfxVolumeLabel" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsLabels" unique_id=843538583]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+text = "Effect Volume Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SfxOnLabel" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsLabels" unique_id=491228411]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+text = "Effects On"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MCthemeButton6" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=2099747206]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton6" unique_id=1889315397]
+layout_mode = 2
 
 [node name="MCthemeButton4" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1913721144]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton4" unique_id=779781620]
 layout_mode = 2
@@ -101,14 +165,6 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="BgmOnTextureButton" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundButtons" unique_id=1247644541 node_paths=PackedStringArray("_bgmOnTextureButton") instance=ExtResource("3_oeim2")]
-layout_mode = 2
-size_flags_horizontal = 3
-ignore_texture_size = true
-stretch_mode = 5
-script = ExtResource("4_ghya7")
-_bgmOnTextureButton = NodePath(".")
-
 [node name="BgmOffTextureButton" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundButtons" unique_id=721145224 node_paths=PackedStringArray("_bgmOffTextureButton") instance=ExtResource("4_27q5b")]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -117,34 +173,22 @@ stretch_mode = 5
 script = ExtResource("6_y5gb0")
 _bgmOffTextureButton = NodePath(".")
 
-[node name="SfxOnTextureButton" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundButtons" unique_id=1920180020 node_paths=PackedStringArray("_sfxOnTextureButton") instance=ExtResource("5_vqxmr")]
+[node name="HSliderBgm" type="HSlider" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundButtons" unique_id=698594962]
 layout_mode = 2
 size_flags_horizontal = 3
-ignore_texture_size = true
-stretch_mode = 5
-script = ExtResource("8_05bus")
-_sfxOnTextureButton = NodePath(".")
+size_flags_vertical = 1
 
-[node name="SfxOffTextureButton" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundButtons" unique_id=847267771 node_paths=PackedStringArray("_sfxOffTextureButton") instance=ExtResource("6_ynbgp")]
+[node name="BgmOnTextureButton" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundButtons" unique_id=1247644541 node_paths=PackedStringArray("_bgmOnTextureButton") instance=ExtResource("3_oeim2")]
 layout_mode = 2
 size_flags_horizontal = 3
 ignore_texture_size = true
 stretch_mode = 5
-script = ExtResource("10_ermnc")
-_sfxOffTextureButton = NodePath(".")
+script = ExtResource("4_ghya7")
+_bgmOnTextureButton = NodePath(".")
 
 [node name="HBsoundLabels" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer" unique_id=1933507544]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="BgmOnLabel" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundLabels" unique_id=866745615]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 20
-text = "Music On"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="BgmOffLabel" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundLabels" unique_id=1056354012]
 layout_mode = 2
@@ -155,28 +199,35 @@ text = "Music Off  "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SfxOnLabel" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundLabels" unique_id=491228411]
+[node name="BgmVolumeLabel" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundLabels" unique_id=814769959]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 20
-text = "Effects On"
+text = "Music Volume Level"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SfxOffLabel" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundLabels" unique_id=1529376447]
+[node name="BgmOnLabel" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundLabels" unique_id=866745615]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 20
-text = "Effects Off"
+text = "Music On"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MCthemeButton8" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1647399470]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton8" unique_id=689369772]
+layout_mode = 2
 
 [node name="MCbgmSelection" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1366880211]
 layout_mode = 2
 theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 20
 
@@ -194,15 +245,6 @@ vertical_alignment = 1
 [node name="BgmOptions" parent="Panel/MCscreen/VBscreen/MCbgmSelection/HBbgmSelection" unique_id=564184743 instance=ExtResource("7_wl25h")]
 layout_mode = 2
 size_flags_vertical = 4
-
-[node name="MCthemeButton3" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1755243726]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton3" unique_id=772826654]
-layout_mode = 2
 
 [node name="MCnavigation" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=132401349]
 layout_mode = 2
