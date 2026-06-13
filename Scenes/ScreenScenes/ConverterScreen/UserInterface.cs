@@ -27,7 +27,7 @@ public partial class UserInterface : Control
 
 		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
 		SignalHub.Instance.OnMainButtonPressed += OnMainButtonPressed;
-
+		
 		_lengthOptionSelection.ItemSelected += OnLengthOptionSelection;
 		_weightOptionSelection.ItemSelected += OnWeightOptionSelection;
 		_pressureOptionSelection.ItemSelected += OnPressureOptionSelection;
@@ -106,6 +106,7 @@ public partial class UserInterface : Control
 						double convertedValue = unitValue * GlobalValues.Instance.ValidDouble;
 						_teOutput.Text += $"{unitName}: {Math.Round(convertedValue, 4)}\n";
 					}
+					SoundController.Instance.UiSuccess();
 					GlobalValues.Instance.Score += 1;
 					GD.Print($"Number of conversions: {GlobalValues.Instance.Score}");
 				}
@@ -124,6 +125,7 @@ public partial class UserInterface : Control
 			if (double.TryParse(rawInput, out double parsedInput))
 			{
 				// success
+				SoundController.Instance.UiSuccess();
 				GlobalValues.Instance.ValidDouble = parsedInput;
 				_teOutput.Clear();
 				
@@ -201,6 +203,7 @@ public partial class UserInterface : Control
 
 	private void TakeDamageOnErr()
 	{
+		SoundController.Instance.UiError();
 		GlobalValues.Instance.Health -= 1;
 		GD.Print($"Number of health: {GlobalValues.Instance.Health}");
 		if (GlobalValues.Instance.Health <= 0)
@@ -211,6 +214,7 @@ public partial class UserInterface : Control
 	
 	private void OnTabBarClicked(long tab)
 	{
+		SoundController.Instance.UiSelect();
 		_lengthOptionSelection.Visible = false;
 		_weightOptionSelection.Visible = false;
 		_pressureOptionSelection.Visible = false;

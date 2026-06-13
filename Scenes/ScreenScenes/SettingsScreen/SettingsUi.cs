@@ -7,11 +7,9 @@ public partial class SettingsUi : Control
 {
     [Export] public OptionButton ThemeOptions;
     [Export] public OptionButton BgmOptions;
-
     
     public override void _Ready()
     {
-        
         // making UI visual changes only on app startup
         // actual settings triggers happening in SaveManager
         

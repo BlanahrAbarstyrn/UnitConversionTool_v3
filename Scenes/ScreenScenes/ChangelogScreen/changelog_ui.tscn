@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://fwmew5fb1t08"]
 
-[ext_resource type="PackedScene" uid="uid://dg8oaq6anfgkd" path="res://Scenes/GeneralNavigation/MainButton/main_button.tscn" id="1_c3jnt"]
-[ext_resource type="PackedScene" uid="uid://cfgdjcmuv0ejb" path="res://Scenes/GeneralNavigation/SettingsButton/settings_button.tscn" id="2_c2nu8"]
 [ext_resource type="PackedScene" uid="uid://c66jmavyb6kng" path="res://Scenes/GeneralNavigation/AboutButton/about_button.tscn" id="3_c3jnt"]
 
 [node name="ChangelogUI" type="Control" unique_id=2086764371]
@@ -113,14 +111,6 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
-
-[node name="MainButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=568713739 instance=ExtResource("1_c3jnt")]
-visible = false
-layout_mode = 2
-
-[node name="SettingsButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=407583013 instance=ExtResource("2_c2nu8")]
-visible = false
-layout_mode = 2
 
 [node name="AboutButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=1851123545 instance=ExtResource("3_c3jnt")]
 layout_mode = 2

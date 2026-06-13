@@ -25,6 +25,7 @@ public partial class AudioCleanup : Node
             {
                 player2D.Stop();
             }
+            
         }
         
         GetTree().Quit();

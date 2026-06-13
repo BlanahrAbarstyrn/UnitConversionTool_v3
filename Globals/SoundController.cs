@@ -1,4 +1,6 @@
 using Godot;
+using System;
+using System.Threading.Tasks;
 
 namespace UnitConversionTool.Globals;
 
@@ -6,30 +8,92 @@ public partial class SoundController : Node
 {
 	public static SoundController Instance { get; private set; }
 	
-	[Export] private AudioStream _buttonClick;
 	[Export] public AudioStream[] AudioStreams;
-
 	[Export] public AudioStreamPlayer BackgroundMusicPlayer;
-	[Export] private AudioStreamPlayer2D _effects;
+	
+	[Export] private AudioStream _uiFocusAudio;
+	[Export] private AudioStream _uiSelectAudio;
+	[Export] private AudioStream _uiCancelAudio;
+	[Export] private AudioStream _uiSuccessAudio;
+	[Export] private AudioStream _uiErrorAudio;
+	
+	private AudioStreamPlaybackPolyphonic _uiAudioPlayer;
+	
+	[Export] private AudioStreamPlayer _uiPlayer;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		Instance = this;
 		
-		SignalHub.Instance.OnAboutButtonPressed += OnAboutButtonPressed;
 		SignalHub.Instance.OnBgmOffButtonPressed += OnBgmOffButtonPressed;
 		SignalHub.Instance.OnBgmOnButtonPressed += OnBgmOnButtonPressed;
 		SignalHub.Instance.OnBgmOptionSelected += OnBgmOptionSelected;
-		SignalHub.Instance.OnChangelogButtonPressed += OnChangelogButtonPressed;
-		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
-		SignalHub.Instance.OnMainButtonPressed += OnMainButtonPressed;
-		SignalHub.Instance.OnSettingsButtonPressed += OnSettingsButtonPressed;
 		SignalHub.Instance.OnSfxOffButtonPressed += OnSfxOffButtonPressed;
 		SignalHub.Instance.OnSfxOnButtonPressed += OnSfxOnButtonPressed;
-		SignalHub.Instance.OnSubmitButtonPressed += OnSubmitButtonPressed;
+	
+		_uiPlayer.Play();
+		
+		// C# needs to do a cast because types don't match which wasn't needed in GDScript
+		_uiAudioPlayer = _uiPlayer.GetStreamPlayback() as AudioStreamPlaybackPolyphonic;
+	}
+	
+	private void PlayUiAudio(AudioStream audio)
+	{
+		if (_uiAudioPlayer != null)
+		{
+			_uiAudioPlayer.PlayStream(audio);
+		}
 	}
 
+	public void SetupButtonAudio(Node sceneRoot)
+	{
+		if (sceneRoot == null) return;
+		
+		foreach (Node child in sceneRoot.FindChildren("*", "BaseButton"))
+		{
+			if (child is BaseButton button)
+			{
+				button.Pressed += UiSelect;
+				button.MouseEntered += UiFocusChange;
+			}
+		}
+	}
+	
+	private void UiFocusChange()
+	{
+		Control hoveredControl = GetViewport().GetWindow().GuiGetHoveredControl();
+
+		if (hoveredControl is BaseButton button && button.Disabled)
+		{
+			return;
+		}
+		
+		PlayUiAudio(_uiFocusAudio);
+	}
+
+	public void UiSelect()
+	{
+		PlayUiAudio(_uiSelectAudio);
+	}
+	
+	private void UiCancel()
+	{
+		PlayUiAudio(_uiCancelAudio);
+	}
+	
+	public async void UiSuccess()
+	{
+		await Task.Delay(300);
+		PlayUiAudio(_uiSuccessAudio);
+	}
+	
+	public async void UiError()
+	{
+		await Task.Delay(300);
+		PlayUiAudio(_uiErrorAudio);
+	}
+	
 	private void OnBgmOptionSelected(long index)
 	{
 		if ((int)index >= 0 && (int)index < AudioStreams.Length)
@@ -39,26 +103,14 @@ public partial class SoundController : Node
 		BackgroundMusicPlayer.Play();
 	}
 	
-	private void OnAboutButtonPressed()
-	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-	}
-	
 	private void OnBgmOffButtonPressed()
 	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-		
 		int bgmBusIndex = AudioServer.GetBusIndex("BGM");
 		AudioServer.SetBusVolumeDb(bgmBusIndex, -100.0f);
 	}
 	
 	private void OnBgmOnButtonPressed()
 	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-		
 		if (!BackgroundMusicPlayer.IsPlaying())
 		{
 			BackgroundMusicPlayer.Play();
@@ -66,39 +118,11 @@ public partial class SoundController : Node
 		
 		int bgmBusIndex = AudioServer.GetBusIndex("BGM");
 		AudioServer.SetBusVolumeDb(bgmBusIndex,0.0f);
-		
-	}
-	
-	private void OnChangelogButtonPressed()
-	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-	}
-	
-	private void OnClearButtonPressed()
-	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-	}
-		
-	private void OnMainButtonPressed()
-	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-	}
-	
-	private void OnSettingsButtonPressed()
-	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
 	}
 
 	private void OnSfxOffButtonPressed()
 	{
 		int sfxBusIndex = AudioServer.GetBusIndex("SFX");
-		
-		_effects.Stream = _buttonClick;
-		_effects.Play();
 		AudioServer.SetBusVolumeDb(sfxBusIndex, -100.0f);
 	}
 	
@@ -106,13 +130,5 @@ public partial class SoundController : Node
 	{
 		int sfxBusIndex = AudioServer.GetBusIndex("SFX");
 		AudioServer.SetBusVolumeDb(sfxBusIndex,0.0f);
-		_effects.Stream = _buttonClick;
-		_effects.Play();
-	}
-		
-	private void OnSubmitButtonPressed()
-	{
-		_effects.Stream = _buttonClick;
-		_effects.Play();
 	}
 }

@@ -7,8 +7,7 @@ public partial class SignalHub : Node
 	public static SignalHub Instance { get; private set; }
 
 	public long SelectedBgmIndex { get; set; } = -1;
-
-
+	
 	[Signal]
 	public delegate void OnMainButtonPressedEventHandler();
 	[Signal]
@@ -38,7 +37,6 @@ public partial class SignalHub : Node
 	
 	[Signal]
 	public delegate void OnSaveSettingsButtonPressedEventHandler();
-	
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

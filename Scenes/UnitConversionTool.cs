@@ -36,6 +36,8 @@ public partial class UnitConversionTool : Control
 		SignalHub.Instance.OnAboutButtonPressed += OnAboutButtonPressed;
 		SignalHub.Instance.OnChangelogButtonPressed += OnChangelogButtonPressed;
 		SignalHub.Instance.OnThemeOptionSelected += OnThemeOptionSelected;
+		
+		SoundController.Instance.SetupButtonAudio(this);
 	}
 
 	private void OnThemeOptionSelected(long index)
@@ -60,7 +62,6 @@ public partial class UnitConversionTool : Control
 	{
 		ShowAboutUi(true);
 	}
-	
 	
 	private void OnChangelogButtonPressed()
 	{
