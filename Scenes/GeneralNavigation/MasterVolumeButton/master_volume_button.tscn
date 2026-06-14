@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://5glnc2l67v44"]
+
+[ext_resource type="PackedScene" uid="uid://7mgk8vijyyja" path="res://Scenes/ParentScenes/base_texture_button.tscn" id="1_7h83y"]
+[ext_resource type="Texture2D" uid="uid://iwcurn8oodea" path="res://Assets/Icons/ic_volume_on.png" id="2_coivb"]
+[ext_resource type="Texture2D" uid="uid://dqmnsw6m7rri5" path="res://Assets/Icons/ic_volume_off.png" id="3_tk404"]
+[ext_resource type="Texture2D" uid="uid://ri5aftq4vvhf" path="res://Assets/Icons/ic_volume_on_lines.png" id="4_w6f1o"]
+
+[node name="MasterVolumeButton" unique_id=1247644541 instance=ExtResource("1_7h83y")]
+toggle_mode = true
+texture_normal = ExtResource("2_coivb")
+texture_pressed = ExtResource("3_tk404")
+texture_hover = ExtResource("4_w6f1o")
+ignore_texture_size = true

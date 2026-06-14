@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cxxfoi3uslpdn" path="res://Scenes/ScreenScenes/ConverterScreen/ConverterNavigation/ButtonScenes/submit_button.tscn" id="11_r4yx8"]
 [ext_resource type="PackedScene" uid="uid://cfgdjcmuv0ejb" path="res://Scenes/GeneralNavigation/SettingsButton/settings_button.tscn" id="11_yq1rd"]
 [ext_resource type="PackedScene" uid="uid://c66jmavyb6kng" path="res://Scenes/GeneralNavigation/AboutButton/about_button.tscn" id="12_fl8jr"]
+[ext_resource type="PackedScene" uid="uid://5glnc2l67v44" path="res://Scenes/GeneralNavigation/MasterVolumeButton/master_volume_button.tscn" id="15_gb73c"]
 
 [node name="UserInterface" type="Control" unique_id=2107891430 node_paths=PackedStringArray("_tabBar", "_lengthOptionSelection", "_weightOptionSelection", "_pressureOptionSelection", "_flowOptionSelection", "_lineEditUserInput", "_teOutput", "_submitButton")]
 layout_mode = 3
@@ -218,11 +219,19 @@ layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="SettingsButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1703535439 instance=ExtResource("11_yq1rd")]
-layout_mode = 2
-
 [node name="AboutButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1579125042 instance=ExtResource("12_fl8jr")]
 layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="SettingsButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1703535439 instance=ExtResource("11_yq1rd")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MasterVolumeButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1247644541 instance=ExtResource("15_gb73c")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+stretch_mode = 5
 
 [editable path="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LengthOptions"]
 [editable path="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/WeightOptions"]
