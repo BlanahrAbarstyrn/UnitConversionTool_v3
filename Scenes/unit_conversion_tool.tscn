@@ -12,7 +12,6 @@
 [ext_resource type="Theme" uid="uid://b56x1l0aqfs1r" path="res://Resources/dark_theme.tres" id="10_7kfnb"]
 [ext_resource type="Theme" uid="uid://bd8ijvuhkewrb" path="res://Resources/happy_theme.tres" id="11_ubyft"]
 [ext_resource type="Theme" uid="uid://d6gahkl5aae4" path="res://Resources/nature_theme.tres" id="12_m3k8q"]
-[ext_resource type="Script" uid="uid://8fjakd8n0fdn" path="res://Globals/AudioCleanup.cs" id="13_7kfnb"]
 
 [node name="UnitConversionTool" type="Control" unique_id=696273116 node_paths=PackedStringArray("_userInterface", "_settingsUi", "_aboutUi", "_changelogUi")]
 layout_mode = 3
@@ -47,6 +46,3 @@ layout_mode = 1
 [node name="ThemeManager" type="Node" parent="." unique_id=1951548430]
 script = ExtResource("8_nl4op")
 Themes = Array[Theme]([ExtResource("1_0dcoo"), ExtResource("9_lne8i"), ExtResource("10_7kfnb"), ExtResource("11_ubyft"), ExtResource("12_m3k8q")])
-
-[node name="AudioCleanup" type="Node" parent="." unique_id=1405587622]
-script = ExtResource("13_7kfnb")

@@ -2,7 +2,7 @@ using Godot;
 
 namespace UnitConversionTool.Globals;
 
-public partial class AudioCleanup : Node
+public partial class MemoryCleanup : Node
 {
     public override void _ExitTree()
     {
@@ -25,10 +25,8 @@ public partial class AudioCleanup : Node
             {
                 player2D.Stop();
             }
-            
         }
         
         GetTree().Quit();
     }
 }
-

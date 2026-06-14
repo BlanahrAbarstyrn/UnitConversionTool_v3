@@ -33,6 +33,7 @@ _uiErrorAudio = ExtResource("17_p73lf")
 _uiPlayer = NodePath("UiPlayer")
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1500349998 groups=["Audio4Cleanup"]]
+pitch_scale = 0.5
 bus = &"BGM"
 
 [node name="UiPlayer" type="AudioStreamPlayer" parent="." unique_id=2110829934 groups=["Audio4Cleanup"]]

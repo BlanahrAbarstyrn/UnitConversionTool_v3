@@ -117,7 +117,7 @@ public partial class SoundController : Node
 		}
 		
 		int bgmBusIndex = AudioServer.GetBusIndex("BGM");
-		AudioServer.SetBusVolumeDb(bgmBusIndex,0.0f);
+		AudioServer.SetBusVolumeLinear(bgmBusIndex,0.5f);
 	}
 
 	private void OnSfxOffButtonPressed()
@@ -129,7 +129,7 @@ public partial class SoundController : Node
 	private void OnSfxOnButtonPressed()
 	{
 		int sfxBusIndex = AudioServer.GetBusIndex("SFX");
-		AudioServer.SetBusVolumeDb(sfxBusIndex,0.0f);
+		AudioServer.SetBusVolumeLinear(sfxBusIndex, 0.5f);
 	}
 	
 }

@@ -1,13 +1,18 @@
 using Godot;
 using UnitConversionTool.Classes;
+using UnitConversionTool.Scenes.ScreenScenes.SettingsScreen.SettingsNavigation;
 
 namespace UnitConversionTool.Globals;
 
 public partial class SaveManager : Node
 {
+    public static SaveManager Instance { get; private set; }
+    
     [Export] private AudioStreamPlayer2D _music;
     
     private const string SaveFilePath = "user://unitconversiontool.tres";
+    private const string ConfigFilePath = "user://unitconversiontool_config.cfg";
+    
     public UserSaveData CurrentData { get; private set; }
     
     public void LogInfo(string message)
@@ -19,8 +24,12 @@ public partial class SaveManager : Node
     {
         LoadSaveFile();
         GD.Print("Save file loaded!");
+        LoadConfig();
+        GD.Print("Config file loaded!");
         await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
         ApplySettingsToEngine();
+
+        Instance = this;
     }
 
     public void LoadSaveFile()
@@ -38,6 +47,48 @@ public partial class SaveManager : Node
         }
     }
 
+    public void SaveConfig()
+    {
+        var config = new ConfigFile();
+  
+        config.SetValue("App Stats", "Score", GlobalValues.Instance.Score);
+        config.SetValue("App Stats", "Health", GlobalValues.Instance.Health);
+        
+        config.SetValue("Audio", "HSliderBgm", AudioServer.GetBusVolumeLinear(1));
+        config.SetValue("Audio", "HSliderEffects", AudioServer.GetBusVolumeLinear(2));
+        
+        LogInfo("Saving config file...");
+        Error err = config.Save(ConfigFilePath);
+
+        if (err == Error.Ok)
+        {
+            LogInfo("Config saved!");
+        }
+        else
+        {
+            LogInfo("Config failed!");
+        }
+    }
+
+    public void LoadConfig()
+    {
+        var config = new ConfigFile();
+        var err = config.Load(ConfigFilePath);
+        if (err == Error.Ok)
+        {
+            LogInfo("Config file loaded!");
+            AudioServer.SetBusVolumeLinear(1, (float)config.GetValue("Audio", "HSliderBgm", 0.2f));
+            AudioServer.SetBusVolumeLinear(2, (float)config.GetValue("Audio", "HSliderEffects", 0.2f));
+        }
+        else
+        {
+            LogInfo("Config failed - load default values!");
+            AudioServer.SetBusVolumeLinear(1, 0.5f);
+            AudioServer.SetBusVolumeLinear(2, 0.5f);
+        }
+        
+    }
+    
     public void SaveFile()
     {
         LogInfo("Saving save file...");

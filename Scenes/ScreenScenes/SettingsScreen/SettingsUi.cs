@@ -29,9 +29,15 @@ public partial class SettingsUi : Control
         
         BgmOptions.Selected = (int)loadedData.BgmOption;
         
-        HSliderBgm.Value = AudioServer.GetBusVolumeLinear(1);
         
-        HSliderEffects.Value = AudioServer.GetBusVolumeLinear(2);
+        //HSliderBgm.Value = AudioServer.GetBusVolumeLinear(1);
+        HSliderBgm.Value = (float)loadedData.HSliderBgm;
+        AudioServer.SetBusVolumeLinear(1, (float)HSliderBgm.Value);
+        
+        
+        //HSliderEffects.Value = AudioServer.GetBusVolumeLinear(2);
+        HSliderEffects.Value = (float)loadedData.HSliderEffects;
+        AudioServer.SetBusVolumeLinear(2, (float)HSliderEffects.Value);
  
         HSliderBgm.ValueChanged += OnHSliderBgmValueChanged;
         HSliderEffects.ValueChanged += OnHSliderEffectsValueChanged;
@@ -52,7 +58,7 @@ public partial class SettingsUi : Control
 
     private void OnBgmOnButtonPressed()
     {
-        HSliderBgm.Value = 1;
+        HSliderBgm.Value = 0.5;
     }
 
     private void OnSfxOffButtonPressed()
@@ -62,7 +68,7 @@ public partial class SettingsUi : Control
 
     private void OnSfxOnButtonPressed()
     {
-        HSliderEffects.Value = 1;
+        HSliderEffects.Value = 0.5;
     }
     
     // OnHSliders do adjust volumes in addition to updating visual
@@ -74,7 +80,7 @@ public partial class SettingsUi : Control
     private void OnHSliderEffectsValueChanged(double value)
     {
         AudioServer.SetBusVolumeLinear(2, (float)value);
-        SoundController.Instance.UiFocusChange();
+        SoundController.Instance.UiSelect();
     }
     
 }

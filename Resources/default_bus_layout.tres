@@ -1,7 +1,6 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://c8k0ik67o618h"]
 
 [resource]
-bus/0/send = &"SFX"
 bus/1/name = &"BGM"
 bus/1/solo = false
 bus/1/mute = false

@@ -106,9 +106,8 @@ public partial class UserInterface : Control
 						double convertedValue = unitValue * GlobalValues.Instance.ValidDouble;
 						_teOutput.Text += $"{unitName}: {Math.Round(convertedValue, 4)}\n";
 					}
-					SoundController.Instance.UiSuccess();
-					GlobalValues.Instance.Score += 1;
-					GD.Print($"Number of conversions: {GlobalValues.Instance.Score}");
+					
+					ScorePoint();
 				}
 				
 			}
@@ -145,8 +144,8 @@ public partial class UserInterface : Control
 						double convertedValue = unitValue * GlobalValues.Instance.ValidDouble;
 						_teOutput.Text += $"{unitName}: {Math.Round(convertedValue, 4)}\n";
 					}
-					GlobalValues.Instance.Score += 1;
-					GD.Print($"Number of conversions: {GlobalValues.Instance.Score}");
+
+					ScorePoint();
 				}
 				
 			}
@@ -201,6 +200,14 @@ public partial class UserInterface : Control
 		}
 	}
 
+	private void ScorePoint()
+	{
+		SoundController.Instance.UiSuccess();
+		GlobalValues.Instance.Score += 1;
+		GD.Print($"Number of conversions: {GlobalValues.Instance.Score}");
+		SaveManager.Instance.SaveConfig();
+	}
+	
 	private void TakeDamageOnErr()
 	{
 		SoundController.Instance.UiError();
@@ -210,6 +217,7 @@ public partial class UserInterface : Control
 		{
 			GD.Print("Game Over!");
 		}
+		SaveManager.Instance.SaveConfig();
 	}
 	
 	private void OnTabBarClicked(long tab)

@@ -49,8 +49,8 @@ public partial class UnitConversionTool : Control
 	{
 		ShowUserInterface(true);
 		
-		var saveManager = GetNode<SaveManager>("/root/SaveManager");
-		saveManager.SaveFile();
+		SaveManager.Instance.SaveFile();
+		SaveManager.Instance.SaveConfig();
 	}
 	
 	private void OnSettingsButtonPressed()
