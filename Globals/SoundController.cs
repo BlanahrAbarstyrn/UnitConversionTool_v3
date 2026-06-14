@@ -60,7 +60,7 @@ public partial class SoundController : Node
 		}
 	}
 	
-	private void UiFocusChange()
+	public void UiFocusChange()
 	{
 		Control hoveredControl = GetViewport().GetWindow().GuiGetHoveredControl();
 
@@ -131,4 +131,5 @@ public partial class SoundController : Node
 		int sfxBusIndex = AudioServer.GetBusIndex("SFX");
 		AudioServer.SetBusVolumeDb(sfxBusIndex,0.0f);
 	}
+	
 }

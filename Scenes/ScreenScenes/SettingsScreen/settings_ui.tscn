@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://c2tkeis4ru6nt" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsNavigation/SfxOnTextureButton.cs" id="8_05bus"]
 [ext_resource type="Script" uid="uid://be3o0sga8oxt0" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsNavigation/SfxOffTextureButton.cs" id="10_ermnc"]
 
-[node name="SettingsUI" type="Control" unique_id=2029752945 node_paths=PackedStringArray("ThemeOptions", "BgmOptions")]
+[node name="SettingsUI" type="Control" unique_id=2029752945 node_paths=PackedStringArray("ThemeOptions", "BgmOptions", "HSliderEffects", "HSliderBgm", "SfxOff", "SfxOn", "BgmOff", "BgmOn")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +23,12 @@ grow_vertical = 2
 script = ExtResource("1_b1fle")
 ThemeOptions = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons2/HBoxContainer/ThemeOptions")
 BgmOptions = NodePath("Panel/MCscreen/VBscreen/MCbgmSelection/HBbgmSelection/BgmOptions")
+HSliderEffects = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
+HSliderBgm = NodePath("Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundButtons/HSliderBgm")
+SfxOff = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsButtons/SfxOffTextureButton")
+SfxOn = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsButtons/SfxOnTextureButton")
+BgmOff = NodePath("Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundButtons/BgmOffTextureButton")
+BgmOn = NodePath("Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundButtons/BgmOnTextureButton")
 
 [node name="Panel" type="Panel" parent="." unique_id=457652825]
 layout_mode = 1
@@ -104,6 +110,8 @@ _sfxOffTextureButton = NodePath(".")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
 
 [node name="SfxOnTextureButton" parent="Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsButtons" unique_id=1920180020 node_paths=PackedStringArray("_sfxOnTextureButton") instance=ExtResource("5_vqxmr")]
 layout_mode = 2
@@ -176,6 +184,8 @@ _bgmOffTextureButton = NodePath(".")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
 
 [node name="BgmOnTextureButton" parent="Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundButtons" unique_id=1247644541 node_paths=PackedStringArray("_bgmOnTextureButton") instance=ExtResource("3_oeim2")]
 layout_mode = 2

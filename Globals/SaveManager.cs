@@ -73,7 +73,7 @@ public partial class SaveManager : Node
             if (CurrentData.BgmOn == true)
             {
                 int bgmBusIndex = AudioServer.GetBusIndex("BGM");
-                AudioServer.SetBusVolumeDb(bgmBusIndex,0.0f);
+                AudioServer.SetBusVolumeDb(bgmBusIndex, (float)CurrentData.HSliderBgm);
                 
                 SoundController.Instance.BackgroundMusicPlayer.Play();
             }
@@ -89,7 +89,7 @@ public partial class SaveManager : Node
         else
         {
             int sfxBusIndex = AudioServer.GetBusIndex("SFX");
-            AudioServer.SetBusVolumeDb(sfxBusIndex,0.0f);
+            AudioServer.SetBusVolumeLinear(sfxBusIndex, (float)CurrentData.HSliderEffects);
         }
     }
 }
