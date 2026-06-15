@@ -26,11 +26,7 @@ public partial class SoundController : Node
 	{
 		Instance = this;
 		
-		SignalHub.Instance.OnBgmOffButtonPressed += OnBgmOffButtonPressed;
-		SignalHub.Instance.OnBgmOnButtonPressed += OnBgmOnButtonPressed;
 		SignalHub.Instance.OnBgmOptionSelected += OnBgmOptionSelected;
-		SignalHub.Instance.OnSfxOffButtonPressed += OnSfxOffButtonPressed;
-		SignalHub.Instance.OnSfxOnButtonPressed += OnSfxOnButtonPressed;
 	
 		_uiPlayer.Play();
 		
@@ -102,34 +98,4 @@ public partial class SoundController : Node
 		}
 		BackgroundMusicPlayer.Play();
 	}
-	
-	private void OnBgmOffButtonPressed()
-	{
-		int bgmBusIndex = AudioServer.GetBusIndex("BGM");
-		AudioServer.SetBusVolumeDb(bgmBusIndex, -100.0f);
-	}
-	
-	private void OnBgmOnButtonPressed()
-	{
-		if (!BackgroundMusicPlayer.IsPlaying())
-		{
-			BackgroundMusicPlayer.Play();
-		}
-		
-		int bgmBusIndex = AudioServer.GetBusIndex("BGM");
-		AudioServer.SetBusVolumeLinear(bgmBusIndex,0.5f);
-	}
-
-	private void OnSfxOffButtonPressed()
-	{
-		int sfxBusIndex = AudioServer.GetBusIndex("SFX");
-		AudioServer.SetBusVolumeDb(sfxBusIndex, -100.0f);
-	}
-	
-	private void OnSfxOnButtonPressed()
-	{
-		int sfxBusIndex = AudioServer.GetBusIndex("SFX");
-		AudioServer.SetBusVolumeLinear(sfxBusIndex, 0.5f);
-	}
-	
 }

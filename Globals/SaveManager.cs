@@ -121,26 +121,14 @@ public partial class SaveManager : Node
         {
             SoundController.Instance.BackgroundMusicPlayer.Stream = SoundController.Instance.AudioStreams[(int)CurrentData.BgmOption];
             
-            if (CurrentData.BgmOn == true)
-            {
-                int bgmBusIndex = AudioServer.GetBusIndex("BGM");
-                AudioServer.SetBusVolumeDb(bgmBusIndex, (float)CurrentData.HSliderBgm);
+            int bgmBusIndex = AudioServer.GetBusIndex("BGM");
+            //AudioServer.SetBusVolumeDb(bgmBusIndex, (float)CurrentData.HSliderBgm);
                 
-                SoundController.Instance.BackgroundMusicPlayer.Play();
-            }
+            SoundController.Instance.BackgroundMusicPlayer.Play();
+            
         }
         
-        // with the globals reordered in project settings
-        // the effects volume is now correct on app restart
-        if (CurrentData.EffectsOn == false)
-        {
-            int sfxBusIndex = AudioServer.GetBusIndex("SFX");
-            AudioServer.SetBusVolumeDb(sfxBusIndex, -100.0f);
-        }
-        else
-        {
-            int sfxBusIndex = AudioServer.GetBusIndex("SFX");
-            AudioServer.SetBusVolumeLinear(sfxBusIndex, (float)CurrentData.HSliderEffects);
-        }
+        //int sfxBusIndex = AudioServer.GetBusIndex("SFX");
+        //AudioServer.SetBusVolumeLinear(sfxBusIndex, (float)CurrentData.HSliderEffects);
     }
 }

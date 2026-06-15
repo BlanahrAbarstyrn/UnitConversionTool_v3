@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cfgdjcmuv0ejb" path="res://Scenes/GeneralNavigation/SettingsButton/settings_button.tscn" id="11_yq1rd"]
 [ext_resource type="PackedScene" uid="uid://c66jmavyb6kng" path="res://Scenes/GeneralNavigation/AboutButton/about_button.tscn" id="12_fl8jr"]
 [ext_resource type="PackedScene" uid="uid://5glnc2l67v44" path="res://Scenes/GeneralNavigation/MasterVolumeButton/master_volume_button.tscn" id="15_gb73c"]
+[ext_resource type="Script" uid="uid://ctrbed8x62r3h" path="res://Scenes/GeneralNavigation/MasterVolumeButton/MasterVolumeButton.cs" id="16_f4634"]
 
 [node name="UserInterface" type="Control" unique_id=2107891430 node_paths=PackedStringArray("_tabBar", "_lengthOptionSelection", "_weightOptionSelection", "_pressureOptionSelection", "_flowOptionSelection", "_lineEditUserInput", "_teOutput", "_submitButton")]
 layout_mode = 3
@@ -227,11 +228,13 @@ size_flags_horizontal = 6
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="MasterVolumeButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1247644541 instance=ExtResource("15_gb73c")]
+[node name="MasterVolumeButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1247644541 node_paths=PackedStringArray("_masterVolumeButton") instance=ExtResource("15_gb73c")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 stretch_mode = 5
+script = ExtResource("16_f4634")
+_masterVolumeButton = NodePath(".")
 
 [editable path="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LengthOptions"]
 [editable path="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/WeightOptions"]
