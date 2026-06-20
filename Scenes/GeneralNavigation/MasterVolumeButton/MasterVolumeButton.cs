@@ -1,13 +1,15 @@
 using Godot;
+using UnitConversionTool.Globals;
 
 namespace UnitConversionTool.Scenes.GeneralNavigation.MasterVolumeButton;
 public partial class MasterVolumeButton : TextureButton
 {
-    [Export] private TextureButton _masterVolumeButton;
+    [Export] public TextureButton MasterVolume;
 
     public override void _Ready()
     {
         Toggled += OnButtonToggled;
+        SignalHub.Instance.RequestToggleState += OnButtonToggled;
     }
 
     private void OnButtonToggled(bool isToggledOn)
@@ -15,10 +17,12 @@ public partial class MasterVolumeButton : TextureButton
         if (isToggledOn)
         {
             AudioServer.SetBusVolumeLinear(0, 1);
+            MasterVolume.ButtonPressed = true;
         }
         else
         {
             AudioServer.SetBusVolumeLinear(0, 0);
+            MasterVolume.ButtonPressed = false;
         }
     }
 }

@@ -68,8 +68,11 @@ public partial class UserInterface : Control
 		
 		ResetGlobals();
 		CheckForNewLevel(HighScore);
-	}
 
+		SetMasterVolume();
+	}
+	
+	
 	private void OnFlowOptionSelection(long index)
 	{
 		string selectedText = _flowOptionSelection.GetItemText((int) index);
@@ -352,5 +355,9 @@ public partial class UserInterface : Control
 		GlobalValues.Instance.HasError = false;
 		GlobalValues.Instance.ValidDouble = 0;
 	}
-	
+
+	private void SetMasterVolume()
+	{
+		SignalHub.EmitRequestToggleState(false);
+	}
 }

@@ -40,6 +40,7 @@ public partial class UnitConversionTool : Control
 		SoundController.Instance.SetupButtonAudio(this);
 		
 		ThemeManager.Instance.SetThemeByIndex((int)GlobalValues.Instance.ThemeOption);
+		
 	}
 
 	public override void _ExitTree()
@@ -60,7 +61,6 @@ public partial class UnitConversionTool : Control
 	{
 		ShowUserInterface(true);
 		
-		//SaveManager.Instance.SaveFile();
 		SaveManager.Instance.SaveConfig();
 	}
 	

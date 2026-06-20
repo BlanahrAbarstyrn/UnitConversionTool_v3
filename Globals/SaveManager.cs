@@ -32,7 +32,7 @@ public partial class SaveManager : Node
         config.SetValue("Audio", "HSliderBgm", AudioServer.GetBusVolumeLinear(1));
         config.SetValue("Audio", "HSliderEffects", AudioServer.GetBusVolumeLinear(2));
         config.SetValue("Audio", "HSliderUi", AudioServer.GetBusVolumeLinear(3));
-        config.SetValue("Audio", "MasterVolumeToggle", GlobalValues.Instance.MasterVolumeToggle);
+        //config.SetValue("Audio", "MasterVolumeToggle", GlobalValues.Instance.MasterVolumeToggle);
         
         config.SetValue("App Theme", "ThemeOption", GlobalValues.Instance.ThemeOption);
         config.SetValue("Bgm Selection", "BgmOption", GlobalValues.Instance.BgmOption);
@@ -65,7 +65,7 @@ public partial class SaveManager : Node
             AudioServer.SetBusVolumeLinear(1, (float)config.GetValue("Audio", "HSliderBgm", 0.2f));
             AudioServer.SetBusVolumeLinear(2, (float)config.GetValue("Audio", "HSliderEffects", 0.2f));
             AudioServer.SetBusVolumeLinear(3, (float)config.GetValue("Audio", "HSliderUi", 0.5f));
-            GlobalValues.Instance.MasterVolumeToggle = (bool)config.GetValue("Audio", "MasterVolumeToggle", false);
+           //GlobalValues.Instance.MasterVolumeToggle = (bool)config.GetValue("Audio", "MasterVolumeToggle", false);
             
             GlobalValues.Instance.ThemeOption = (long)config.GetValue("App Theme", "ThemeOption", 0);
             GlobalValues.Instance.BgmOption = (long)config.GetValue("Bgm Selection", "BgmOption", 0);
@@ -80,7 +80,7 @@ public partial class SaveManager : Node
             AudioServer.SetBusVolumeLinear(1, 0.2f);
             AudioServer.SetBusVolumeLinear(2, 0.2f);
             AudioServer.SetBusVolumeLinear(3, 0.5f);
-            GlobalValues.Instance.MasterVolumeToggle = false;
+            //GlobalValues.Instance.MasterVolumeToggle = false;
             
             GlobalValues.Instance.ThemeOption = 0;
             GlobalValues.Instance.BgmOption = 0;

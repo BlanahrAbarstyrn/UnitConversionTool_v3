@@ -114,7 +114,14 @@ public partial class SignalHub : Node
 	{
 		Instance.EmitSignal(SignalName.OnUserHealthChanged, currentHealth, maxHealth);
 	}
-	
+
+	[Signal]
+	public delegate void RequestToggleStateEventHandler(bool isPressed);
+
+	public static void EmitRequestToggleState(bool isPressed)
+	{
+		Instance.EmitSignal(SignalName.RequestToggleState, isPressed);
+	}
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

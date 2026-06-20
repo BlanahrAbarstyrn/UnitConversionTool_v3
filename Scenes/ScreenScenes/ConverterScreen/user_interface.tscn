@@ -228,13 +228,13 @@ size_flags_horizontal = 6
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="MasterVolumeButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1247644541 node_paths=PackedStringArray("_masterVolumeButton") instance=ExtResource("15_gb73c")]
+[node name="MasterVolumeButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1247644541 node_paths=PackedStringArray("MasterVolume") instance=ExtResource("15_gb73c")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 stretch_mode = 5
 script = ExtResource("16_f4634")
-_masterVolumeButton = NodePath(".")
+MasterVolume = NodePath(".")
 
 [editable path="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LengthOptions"]
 [editable path="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/WeightOptions"]

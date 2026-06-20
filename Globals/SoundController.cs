@@ -1,6 +1,5 @@
 using Godot;
 using System.Threading.Tasks;
-using UnitConversionTool.Scenes.GeneralNavigation.MasterVolumeButton;
 
 namespace UnitConversionTool.Globals;
 
@@ -109,14 +108,15 @@ public partial class SoundController : Node
 		await Task.Delay(600);
 		PlaySfxAudio(_uiGameOverAudio);
 	}
-	
+
 	private void OnBgmOptionSelected(long index)
 	{
 		if ((int)index >= 0 && (int)index < AudioStreams.Length)
 		{
 			BackgroundMusicPlayer.Stream = AudioStreams[(int)index];
 		}
+
 		BackgroundMusicPlayer.Play();
-		
+		SignalHub.EmitRequestToggleState(true);
 	}
 }

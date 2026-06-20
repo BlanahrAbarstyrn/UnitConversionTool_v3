@@ -9,8 +9,6 @@ public partial class GlobalValues : Node
     
     public long BgmOption { get; set; }
     
-    public bool MasterVolumeToggle { get; set; }
-    
     public string SelectedUnits { get; set; } = "";
     
     public string UserInput { get; set; } = "";
