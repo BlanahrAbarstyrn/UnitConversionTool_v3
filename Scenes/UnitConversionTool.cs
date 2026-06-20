@@ -60,8 +60,6 @@ public partial class UnitConversionTool : Control
 	private void OnMainButtonPressed()
 	{
 		ShowUserInterface(true);
-		
-		SaveManager.Instance.SaveConfig();
 	}
 	
 	private void OnSettingsButtonPressed()

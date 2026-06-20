@@ -231,7 +231,6 @@ public partial class UserInterface : Control
 		SoundController.Instance.UiSuccess();
 		HighScore += 1;
 		CheckForNewLevel(HighScore);
-		//SaveManager.Instance.SaveConfig();
 	}
 	
 	private void TakeDamageOnErr()
@@ -252,7 +251,6 @@ public partial class UserInterface : Control
 			                 "Press Reset to continue.";
 			
 		}
-		//SaveManager.Instance.SaveConfig();
 	}
 
 	private void CheckForNewLevel(int score)
