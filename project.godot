@@ -29,6 +29,7 @@ GlobalValues="*uid://dhgabytulv2uy"
 SaveManager="*uid://bq55ey24oumu"
 SoundController="*uid://c6geu27g30qo2"
 ThemeManager="*uid://btan31yrucmmq"
+UserHud="*uid://ckg1etrgugk5n"
 
 [display]
 
@@ -58,6 +59,7 @@ folder_colors={
 [global_group]
 
 Audio4Cleanup=""
+ConvUiButtons=""
 
 [physics]
 

@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 namespace UnitConversionTool.Scenes.GeneralNavigation.MasterVolumeButton;
 public partial class MasterVolumeButton : TextureButton
@@ -8,18 +7,18 @@ public partial class MasterVolumeButton : TextureButton
 
     public override void _Ready()
     {
-        this.Toggled += OnButtonToggled;
+        Toggled += OnButtonToggled;
     }
 
     private void OnButtonToggled(bool isToggledOn)
     {
         if (isToggledOn)
         {
-            AudioServer.SetBusVolumeLinear(0, 0);
+            AudioServer.SetBusVolumeLinear(0, 1);
         }
         else
         {
-            AudioServer.SetBusVolumeLinear(0, 1);
+            AudioServer.SetBusVolumeLinear(0, 0);
         }
     }
 }

@@ -1,6 +1,6 @@
 using Godot;
-using System;
 using System.Threading.Tasks;
+using UnitConversionTool.Scenes.GeneralNavigation.MasterVolumeButton;
 
 namespace UnitConversionTool.Globals;
 
@@ -16,10 +16,14 @@ public partial class SoundController : Node
 	[Export] private AudioStream _uiCancelAudio;
 	[Export] private AudioStream _uiSuccessAudio;
 	[Export] private AudioStream _uiErrorAudio;
+	[Export] private AudioStream _uiGameOverAudio;
 	
 	private AudioStreamPlaybackPolyphonic _uiAudioPlayer;
+	private AudioStreamPlaybackPolyphonic _effectsAudioPlayer;
 	
 	[Export] private AudioStreamPlayer _uiPlayer;
+	[Export] private AudioStreamPlayer _effectsPlayer;
+	
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -29,11 +33,21 @@ public partial class SoundController : Node
 		SignalHub.Instance.OnBgmOptionSelected += OnBgmOptionSelected;
 	
 		_uiPlayer.Play();
+		_effectsPlayer.Play();
 		
 		// C# needs to do a cast because types don't match which wasn't needed in GDScript
 		_uiAudioPlayer = _uiPlayer.GetStreamPlayback() as AudioStreamPlaybackPolyphonic;
+		_effectsAudioPlayer = _effectsPlayer.GetStreamPlayback() as AudioStreamPlaybackPolyphonic;
 	}
 	
+	private void PlaySfxAudio(AudioStream audio)
+	{
+		if (_effectsAudioPlayer != null)
+		{
+			_effectsAudioPlayer.PlayStream(audio);
+		}
+	}
+
 	private void PlayUiAudio(AudioStream audio)
 	{
 		if (_uiAudioPlayer != null)
@@ -41,7 +55,7 @@ public partial class SoundController : Node
 			_uiAudioPlayer.PlayStream(audio);
 		}
 	}
-
+	
 	public void SetupButtonAudio(Node sceneRoot)
 	{
 		if (sceneRoot == null) return;
@@ -81,13 +95,19 @@ public partial class SoundController : Node
 	public async void UiSuccess()
 	{
 		await Task.Delay(300);
-		PlayUiAudio(_uiSuccessAudio);
+		PlaySfxAudio(_uiSuccessAudio);
 	}
 	
 	public async void UiError()
 	{
 		await Task.Delay(300);
-		PlayUiAudio(_uiErrorAudio);
+		PlaySfxAudio(_uiErrorAudio);
+	}
+	
+	public async void UiGameOver()
+	{
+		await Task.Delay(600);
+		PlaySfxAudio(_uiGameOverAudio);
 	}
 	
 	private void OnBgmOptionSelected(long index)
@@ -97,5 +117,6 @@ public partial class SoundController : Node
 			BackgroundMusicPlayer.Stream = AudioStreams[(int)index];
 		}
 		BackgroundMusicPlayer.Play();
+		
 	}
 }

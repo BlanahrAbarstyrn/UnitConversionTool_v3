@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dg8oaq6anfgkd" path="res://Scenes/GeneralNavigation/MainButton/main_button.tscn" id="2_gqiv8"]
 [ext_resource type="PackedScene" uid="uid://gcwpmjn214qj" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsNavigation/bgm_options.tscn" id="7_wl25h"]
 
-[node name="SettingsUI" type="Control" unique_id=2029752945 node_paths=PackedStringArray("ThemeOptions", "BgmOptions", "HSliderEffects", "HSliderBgm")]
+[node name="SettingsUI" type="Control" unique_id=2029752945 node_paths=PackedStringArray("ThemeOptions", "BgmOptions", "HSliderEffects", "HSliderUi", "HSliderBgm")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,7 @@ script = ExtResource("1_b1fle")
 ThemeOptions = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons2/HBoxContainer/ThemeOptions")
 BgmOptions = NodePath("Panel/MCscreen/VBscreen/MCbgmSelection/HBbgmSelection/BgmOptions")
 HSliderEffects = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
+HSliderUi = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons3/VBoxContainer/HBoxUIButtons/HSliderUi")
 HSliderBgm = NodePath("Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundButtons/HSliderBgm")
 
 [node name="Panel" type="Panel" parent="." unique_id=457652825]
@@ -51,28 +52,24 @@ vertical_alignment = 1
 [node name="MCthemeButtons2" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=271783464]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons2" unique_id=324603203]
 layout_mode = 2
+theme_override_constants/separation = 25
 
 [node name="Label" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButtons2/HBoxContainer" unique_id=1987260962]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Skin Theme Options"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ThemeOptions" parent="Panel/MCscreen/VBscreen/MCthemeButtons2/HBoxContainer" unique_id=1227267523 instance=ExtResource("2_ghya7")]
 layout_mode = 2
 size_flags_vertical = 4
-
-[node name="MCthemeButton5" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=84578165]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton5" unique_id=1971862855]
-layout_mode = 2
 
 [node name="MCthemeButtons" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=981917312]
 layout_mode = 2
@@ -105,16 +102,44 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 20
-text = "Effect Volume Level"
+text = "Effects Volume Level"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MCthemeButton6" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=2099747206]
+[node name="MCthemeButtons3" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=304026978]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 125
+theme_override_constants/margin_right = 125
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton6" unique_id=1889315397]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons3" unique_id=717327124]
 layout_mode = 2
+
+[node name="HBoxUIButtons" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons3/VBoxContainer" unique_id=1163972786]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HSliderUi" type="HSlider" parent="Panel/MCscreen/VBscreen/MCthemeButtons3/VBoxContainer/HBoxUIButtons" unique_id=605632569]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
+[node name="HBoxEffectsLabels" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons3/VBoxContainer" unique_id=491189949]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="UIVolumeLabel" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButtons3/VBoxContainer/HBoxEffectsLabels" unique_id=1855860042]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+text = "UI Volume Level"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MCthemeButton4" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1913721144]
 layout_mode = 2
@@ -150,19 +175,12 @@ text = "Music Volume Level"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MCthemeButton8" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1647399470]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButton8" unique_id=689369772]
-layout_mode = 2
-
 [node name="MCbgmSelection" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1366880211]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_bottom = 40
 
 [node name="HBbgmSelection" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCbgmSelection" unique_id=2136035179]
 layout_mode = 2
@@ -182,8 +200,8 @@ size_flags_vertical = 4
 [node name="MCnavigation" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=132401349]
 layout_mode = 2
 size_flags_vertical = 10
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_top = 45
+theme_override_constants/margin_bottom = 45
 
 [node name="HBnavigation" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCnavigation" unique_id=8451338]
 layout_mode = 2

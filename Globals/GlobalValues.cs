@@ -5,11 +5,11 @@ public partial class GlobalValues : Node
 {
     public static GlobalValues Instance { get; private set; }
     
-    public int Score { get; set; } = 0;
-
-    private const int MaxHealth = 3;
+    public long ThemeOption { get; set; }
     
-    public int Health = MaxHealth;
+    public long BgmOption { get; set; }
+    
+    public bool MasterVolumeToggle { get; set; }
     
     public string SelectedUnits { get; set; } = "";
     
@@ -22,9 +22,5 @@ public partial class GlobalValues : Node
     {
         Instance = this;
     }
-
-    public void ResetHealth()
-    {
-        Health = MaxHealth;
-    }
+    
 }

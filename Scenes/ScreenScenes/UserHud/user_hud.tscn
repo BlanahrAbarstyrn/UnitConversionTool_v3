@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://ckg1etrgugk5n"]
+
+[ext_resource type="Script" uid="uid://brpeougj84vjo" path="res://Scenes/ScreenScenes/UserHud/UserHud.cs" id="1_jasxh"]
+[ext_resource type="Texture2D" uid="uid://c2tsetcplrrf6" path="res://Assets/Icons/health_bar_frame.png" id="1_uhwga"]
+
+[sub_resource type="Gradient" id="Gradient_jasxh"]
+offsets = PackedFloat32Array(0, 0.0015479876, 0.998452)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ayq1w"]
+gradient = SubResource("Gradient_jasxh")
+
+[sub_resource type="Gradient" id="Gradient_whtkq"]
+offsets = PackedFloat32Array(0.0015479876, 0.99226004, 0.998452, 1)
+colors = PackedColorArray(0.8627451, 0.34117648, 0.34117648, 1, 0.9459488, 0.55047286, 0.5326984, 1, 0, 0, 0, 1, 0.8627451, 0.34117648, 0.34117648, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gbfer"]
+gradient = SubResource("Gradient_whtkq")
+
+[node name="UserHud" type="CanvasLayer" unique_id=936876022 node_paths=PackedStringArray("_mC_HealthBar", "_hP_TPBar", "_highScore", "_level")]
+process_mode = 3
+script = ExtResource("1_jasxh")
+_mC_HealthBar = NodePath("Control/MC_HealthBar")
+_hP_TPBar = NodePath("Control/MC_HealthBar/NinePatchRect/HP_TPBar")
+_highScore = NodePath("Control/MC_Hud/HB_Hud/HighScore")
+_level = NodePath("Control/MC_Hud/HB_Hud/Level")
+
+[node name="Control" type="Control" parent="." unique_id=477007704]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MC_HealthBar" type="MarginContainer" parent="Control" unique_id=1825688739]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = -44.0
+offset_right = 223.0
+offset_bottom = -14.0
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/MC_HealthBar" unique_id=1047418910]
+layout_mode = 2
+texture = ExtResource("1_uhwga")
+patch_margin_left = 27
+patch_margin_right = 7
+
+[node name="HP_TPBar" type="TextureProgressBar" parent="Control/MC_HealthBar/NinePatchRect" unique_id=1829758720]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 5.0
+offset_right = -3.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+rounded = true
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_ayq1w")
+texture_progress = SubResource("GradientTexture2D_gbfer")
+
+[node name="MC_Hud" type="MarginContainer" parent="Control" unique_id=2089960705]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="HB_Hud" type="HBoxContainer" parent="Control/MC_Hud" unique_id=1306715460]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="LabelSpacer" type="Label" parent="Control/MC_Hud/HB_Hud" unique_id=1500489939]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="LabelSpacer2" type="Label" parent="Control/MC_Hud/HB_Hud" unique_id=323583153]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="LevelLabel" type="Label" parent="Control/MC_Hud/HB_Hud" unique_id=483884808]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+text = "Level:"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Level" type="Label" parent="Control/MC_Hud/HB_Hud" unique_id=238445991]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+text = "Novice"
+vertical_alignment = 2
+
+[node name="HighScoreLabel" type="Label" parent="Control/MC_Hud/HB_Hud" unique_id=911874029]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+text = "High Score:"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="HighScore" type="Label" parent="Control/MC_Hud/HB_Hud" unique_id=2075230578]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+text = "000000"
+vertical_alignment = 2

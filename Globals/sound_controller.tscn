@@ -20,7 +20,7 @@
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_vdplw"]
 polyphony = 8
 
-[node name="SoundController" type="Node" unique_id=1601632186 node_paths=PackedStringArray("BackgroundMusicPlayer", "_uiPlayer")]
+[node name="SoundController" type="Node" unique_id=1601632186 node_paths=PackedStringArray("BackgroundMusicPlayer", "_uiPlayer", "_effectsPlayer")]
 process_mode = 3
 script = ExtResource("1_jlypu")
 AudioStreams = Array[AudioStream]([ExtResource("2_xje4t"), ExtResource("4_r08qg"), ExtResource("5_nwvdj"), ExtResource("6_wf22l"), ExtResource("7_l2l4x"), ExtResource("8_7uvjy"), ExtResource("9_vdplw"), ExtResource("10_gthpp"), ExtResource("11_drfma"), ExtResource("12_1bdlg")])
@@ -31,6 +31,7 @@ _uiCancelAudio = ExtResource("15_drfma")
 _uiSuccessAudio = ExtResource("16_1bdlg")
 _uiErrorAudio = ExtResource("17_p73lf")
 _uiPlayer = NodePath("UiPlayer")
+_effectsPlayer = NodePath("EffectsPlayer")
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1500349998 groups=["Audio4Cleanup"]]
 bus = &"BGM"
@@ -38,3 +39,7 @@ bus = &"BGM"
 [node name="UiPlayer" type="AudioStreamPlayer" parent="." unique_id=2110829934 groups=["Audio4Cleanup"]]
 stream = SubResource("AudioStreamPolyphonic_vdplw")
 bus = &"UI"
+
+[node name="EffectsPlayer" type="AudioStreamPlayer" parent="." unique_id=737069970 groups=["Audio4Cleanup"]]
+stream = SubResource("AudioStreamPolyphonic_vdplw")
+bus = &"SFX"

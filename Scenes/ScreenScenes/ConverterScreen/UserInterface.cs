@@ -7,8 +7,6 @@ using System;
 namespace UnitConversionTool.Scenes.ScreenScenes.ConverterScreen;
 public partial class UserInterface : Control
 {
-	private BaseUnit _baseUnit;
-	
 	[Export] private TabBar _tabBar;
 	[Export] private OptionButton _lengthOptionSelection;
 	[Export] private OptionButton _weightOptionSelection;
@@ -18,9 +16,41 @@ public partial class UserInterface : Control
 	[Export] private TextEdit _teOutput;
 	[Export] private Button _submitButton;
 	
+	private BaseUnit _baseUnit;
+	
+	private int _highScore;
+	public int HighScore
+	{
+		get => _highScore;
+		set
+		{
+			_highScore = value;
+			SignalHub.EmitOnHighScoreChanged(_highScore);
+		}
+	}
+
+	private float _health;
+	public float MaxHealth { get; set; } = 3f;
+	
+	public float Health
+	{
+		get => _health;
+		set
+		{
+			// clamp the value between 0 and max health
+			_health = Mathf.Clamp(value, 0f, MaxHealth);
+			
+			// emit signal
+			SignalHub.EmitOnUserHealthChanged(_health, MaxHealth);
+		}
+	}
+	
 	public override void _Ready()
 	{
 		_baseUnit = new BaseUnit();
+		
+		_health = MaxHealth;
+		_highScore = 0;
 		
 		_tabBar.TabClicked += OnTabBarClicked;
 		_lineEditUserInput.GrabFocus();
@@ -36,10 +66,8 @@ public partial class UserInterface : Control
 		_lineEditUserInput.TextSubmitted += OnUserInputSubmitted;
 		_submitButton.Pressed += OnUserInputPressed;
 		
-		GlobalValues.Instance.SelectedUnits = string.Empty;
-		GlobalValues.Instance.UserInput = string.Empty;
-		GlobalValues.Instance.HasError = false;
-		GlobalValues.Instance.ValidDouble = 0;
+		ResetGlobals();
+		CheckForNewLevel(HighScore);
 	}
 
 	private void OnFlowOptionSelection(long index)
@@ -75,14 +103,11 @@ public partial class UserInterface : Control
 	{
 		_tabBar.SetMouseFilter(MouseFilterEnum.Ignore);
 		_lineEditUserInput.Editable = false;
-		_lengthOptionSelection.Disabled = true;
-		_weightOptionSelection.Disabled = true;
-		_pressureOptionSelection.Disabled = true;
-		_flowOptionSelection.Disabled = true;
-		_submitButton.Disabled = true;
+		
+		DisEnAbleConvUiButton(true);
 		
 		GlobalValues.Instance.UserInput = input;
-
+		
 		if (GlobalValues.Instance.SelectedUnits == "Architectural feet/inches")
 		{
 			MeasurementParser.ParseToInches(input);
@@ -179,45 +204,89 @@ public partial class UserInterface : Control
 		
 		_lineEditUserInput.Clear();
 		_tabBar.SetMouseFilter(MouseFilterEnum.Stop);
-		GlobalValues.Instance.SelectedUnits = string.Empty;
-		GlobalValues.Instance.UserInput = string.Empty;
-		GlobalValues.Instance.HasError = false;
-		GlobalValues.Instance.ValidDouble = 0;
+		ResetGlobals();
 		_lineEditUserInput.Editable = true;
-		_lengthOptionSelection.Disabled = false;
-		_weightOptionSelection.Disabled = false;
-		_pressureOptionSelection.Disabled = false;
-		_flowOptionSelection.Disabled = false;
-		_submitButton.Disabled = false;
+		DisEnAbleConvUiButton(false);
 		_teOutput.Editable = false;
 		_teOutput.MouseFilter = MouseFilterEnum.Ignore;
 		_teOutput.ReleaseFocus();
 		_teOutput.ShortcutKeysEnabled = false;
 
-		if (GlobalValues.Instance.Health <= 0)
+		if (Health <= 0)
 		{
-			GlobalValues.Instance.ResetHealth();
+			ResetHealth();
 		}
 	}
 
+	private void ResetHealth()
+	{
+		Health = MaxHealth;
+	}
+	
 	private void ScorePoint()
 	{
 		SoundController.Instance.UiSuccess();
-		GlobalValues.Instance.Score += 1;
-		GD.Print($"Number of conversions: {GlobalValues.Instance.Score}");
-		SaveManager.Instance.SaveConfig();
+		HighScore += 1;
+		CheckForNewLevel(HighScore);
+		//SaveManager.Instance.SaveConfig();
 	}
 	
 	private void TakeDamageOnErr()
 	{
 		SoundController.Instance.UiError();
-		GlobalValues.Instance.Health -= 1;
-		GD.Print($"Number of health: {GlobalValues.Instance.Health}");
-		if (GlobalValues.Instance.Health <= 0)
+		Health -= 1;
+		GD.Print($"Number of health: {Health}");
+		if (Health <= 0)
 		{
-			GD.Print("Game Over!");
+			SignalHub.EmitOnGameOver(true);
+			SoundController.Instance.UiGameOver();
+			_teOutput.Text = "G A M E  O V E R !\n\n" +
+			                 "Valid Input:\n\n" +
+			                 "Whole numbers like 123 or 45933\n" +
+			                 "Decimal numbers like 1.125 or 456.7\n\n" +
+			                 "Architectural feet and inches:\n" +
+			                 "10'-4 3/4\" or 125'-0\" etc.\n\n" +
+			                 "Press Reset to continue.";
+			
 		}
-		SaveManager.Instance.SaveConfig();
+		//SaveManager.Instance.SaveConfig();
+	}
+
+	private void CheckForNewLevel(int score)
+	{
+		switch (score)
+		{
+			case < 500:
+				SignalHub.EmitOnLevelChanged("Rookie");
+				break;
+			case < 1000:
+				SignalHub.EmitOnLevelChanged("Apprentice");
+				break;
+			case < 5000:
+				SignalHub.EmitOnLevelChanged("Challenger");
+				break;
+			case < 10000:
+				SignalHub.EmitOnLevelChanged("Warrior");
+				break;
+			case < 50000:
+				SignalHub.EmitOnLevelChanged("Veteran");
+				break;
+			case < 75000:
+				SignalHub.EmitOnLevelChanged("Master");
+				break;
+			case < 100000:
+				SignalHub.EmitOnLevelChanged("Grandmaster");
+				break;
+			case < 250000:
+				SignalHub.EmitOnLevelChanged("Legend");
+				break;
+			case < 500000:
+				SignalHub.EmitOnLevelChanged("Immortal");
+				break;
+			default:
+				SignalHub.EmitOnLevelChanged("Deity");
+				break;
+		}
 	}
 	
 	private void OnTabBarClicked(long tab)
@@ -259,4 +328,29 @@ public partial class UserInterface : Control
 	{
 		OnClearButtonPressed();
 	}
+
+	// Disable Buttons after User Input is Entered
+	// Enable Button on Reset for next Conversion
+	private void DisEnAbleConvUiButton(bool toggle)
+	{
+		var nodesInGroup = GetTree().GetNodesInGroup("ConvUiButtons");
+		{
+			foreach (var node in nodesInGroup)
+			{
+				if (node is BaseButton button)
+				{
+					button.Disabled = toggle;
+				}
+			}
+		}
+	}
+
+	private void ResetGlobals()
+	{
+		GlobalValues.Instance.SelectedUnits = string.Empty;
+		GlobalValues.Instance.UserInput = string.Empty;
+		GlobalValues.Instance.HasError = false;
+		GlobalValues.Instance.ValidDouble = 0;
+	}
+	
 }

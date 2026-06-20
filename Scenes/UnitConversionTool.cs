@@ -38,8 +38,19 @@ public partial class UnitConversionTool : Control
 		SignalHub.Instance.OnThemeOptionSelected += OnThemeOptionSelected;
 		
 		SoundController.Instance.SetupButtonAudio(this);
+		
+		ThemeManager.Instance.SetThemeByIndex((int)GlobalValues.Instance.ThemeOption);
 	}
 
+	public override void _ExitTree()
+	{
+		SignalHub.Instance.OnMainButtonPressed -= OnMainButtonPressed;
+		SignalHub.Instance.OnSettingsButtonPressed -= OnSettingsButtonPressed;
+		SignalHub.Instance.OnAboutButtonPressed -= OnAboutButtonPressed;
+		SignalHub.Instance.OnChangelogButtonPressed -= OnChangelogButtonPressed;
+		SignalHub.Instance.OnThemeOptionSelected -= OnThemeOptionSelected;
+	}
+	
 	private void OnThemeOptionSelected(long index)
 	{
 		ThemeManager.Instance.SetThemeByIndex((int)index);
@@ -49,7 +60,7 @@ public partial class UnitConversionTool : Control
 	{
 		ShowUserInterface(true);
 		
-		SaveManager.Instance.SaveFile();
+		//SaveManager.Instance.SaveFile();
 		SaveManager.Instance.SaveConfig();
 	}
 	

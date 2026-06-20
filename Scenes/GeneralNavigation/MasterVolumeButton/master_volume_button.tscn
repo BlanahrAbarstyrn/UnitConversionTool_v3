@@ -7,7 +7,7 @@
 
 [node name="MasterVolumeButton" unique_id=1247644541 instance=ExtResource("1_7h83y")]
 toggle_mode = true
-texture_normal = ExtResource("2_coivb")
-texture_pressed = ExtResource("3_tk404")
+texture_normal = ExtResource("3_tk404")
+texture_pressed = ExtResource("2_coivb")
 texture_hover = ExtResource("4_w6f1o")
 ignore_texture_size = true

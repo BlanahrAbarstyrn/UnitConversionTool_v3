@@ -4,6 +4,8 @@ using UnitConversionTool.Globals;
 namespace UnitConversionTool.Scenes.ScreenScenes.SettingsScreen.SettingsNavigation;
 public partial class SaveSettingsButton : Button
 {
+    
+    /*
     [Export] private Button _saveSettingsButton;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -15,5 +17,8 @@ public partial class SaveSettingsButton : Button
     {
         SignalHub.EmitOnSaveSettingsButtonPressed();
     }
+    */
+    
+    
 }
 

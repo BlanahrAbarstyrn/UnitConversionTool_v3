@@ -9,25 +9,28 @@ public partial class SettingsUi : Control
     [Export] public OptionButton ThemeOptions;
     [Export] public OptionButton BgmOptions;
     [Export] public HSlider HSliderEffects;
+    [Export] public HSlider HSliderUi;
     [Export] public HSlider HSliderBgm;
     
     
     public override void _Ready()
     {
      
-        var saveManager = GetNode<SaveManager>("/root/SaveManager");
-        var loadedData = saveManager.CurrentData;
+       // var saveManager = GetNode<SaveManager>("/root/SaveManager");
+        //var loadedData = saveManager.CurrentData;
         
         AudioServer.SetBusVolumeLinear(1, 0.2f);
         HSliderBgm.Value = 0.2;
+        AudioServer.SetBusVolumeLinear(3, 1.0f);
+        HSliderUi.Value = 1.0;
         AudioServer.SetBusVolumeLinear(2, 0.7f);
         HSliderEffects.Value = 0.7;
 
-        if (loadedData == null) return;
+        //if (loadedData == null) return;
 
-        ThemeOptions.Selected = (int)loadedData.ThemeOption;
+        //ThemeOptions.Selected = (int)loadedData.ThemeOption;
         
-        BgmOptions.Selected = (int)loadedData.BgmOption;
+        //BgmOptions.Selected = (int)loadedData.BgmOption;
         
         
 
@@ -38,12 +41,16 @@ public partial class SettingsUi : Control
         //AudioServer.SetBusVolumeLinear(2, (float)HSliderEffects.Value);
  
         HSliderBgm.ValueChanged += OnHSliderBgmValueChanged;
+        HSliderUi.ValueChanged += OnHSliderUiValueChanged;
         HSliderEffects.ValueChanged += OnHSliderEffectsValueChanged;
-        
-
-        
     }
-    
+
+    public override void _ExitTree()
+    {
+        HSliderBgm.ValueChanged -= OnHSliderBgmValueChanged;
+        HSliderUi.ValueChanged -= OnHSliderUiValueChanged;
+        HSliderEffects.ValueChanged -= OnHSliderEffectsValueChanged;
+    }
 
     
     // OnHSliders do adjust volumes in addition to updating visual
@@ -52,10 +59,16 @@ public partial class SettingsUi : Control
         AudioServer.SetBusVolumeLinear(1, (float)value);
     }
 
+    private void OnHSliderUiValueChanged(double value)
+    {
+        AudioServer.SetBusVolumeLinear(3, (float)value);
+        SoundController.Instance.UiSelect();
+    }
+
     private void OnHSliderEffectsValueChanged(double value)
     {
         AudioServer.SetBusVolumeLinear(2, (float)value);
-        SoundController.Instance.UiSelect();
+        SoundController.Instance.UiSuccess();
     }
     
 }

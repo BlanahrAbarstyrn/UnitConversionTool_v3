@@ -8,54 +8,38 @@ public partial class SaveManager : Node
 {
     public static SaveManager Instance { get; private set; }
     
-    [Export] private AudioStreamPlayer2D _music;
-    
-    private const string SaveFilePath = "user://unitconversiontool.tres";
     private const string ConfigFilePath = "user://unitconversiontool_config.cfg";
     
-    public UserSaveData CurrentData { get; private set; }
     
     public void LogInfo(string message)
     {
         GD.Print($"[SaveManager] {message}");
     }
     
-    public override async void _Ready()
+    public override void _Ready()
     {
-        LoadSaveFile();
-        GD.Print("Save file loaded!");
         LoadConfig();
         GD.Print("Config file loaded!");
-        await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-        ApplySettingsToEngine();
 
         Instance = this;
-    }
-
-    public void LoadSaveFile()
-    {
-        if (ResourceLoader.Exists(SaveFilePath))
-        {
-            // load existing file
-            CurrentData = ResourceLoader.Load<UserSaveData>(SaveFilePath);
-        }
-        else
-        {
-            // create new instance with defaults if file doesn't exist
-            CurrentData = new UserSaveData();
-            SaveFile();
-        }
     }
 
     public void SaveConfig()
     {
         var config = new ConfigFile();
-  
-        config.SetValue("App Stats", "Score", GlobalValues.Instance.Score);
-        config.SetValue("App Stats", "Health", GlobalValues.Instance.Health);
         
+        config.SetValue("Audio", "Master", AudioServer.GetBusVolumeLinear(0));
         config.SetValue("Audio", "HSliderBgm", AudioServer.GetBusVolumeLinear(1));
         config.SetValue("Audio", "HSliderEffects", AudioServer.GetBusVolumeLinear(2));
+        config.SetValue("Audio", "HSliderUi", AudioServer.GetBusVolumeLinear(3));
+        config.SetValue("Audio", "MasterVolumeToggle", GlobalValues.Instance.MasterVolumeToggle);
+        
+        config.SetValue("App Theme", "ThemeOption", GlobalValues.Instance.ThemeOption);
+        config.SetValue("Bgm Selection", "BgmOption", GlobalValues.Instance.BgmOption);
+        
+        //config.SetValue("App Stats", "Score", GlobalValues.Instance.Score);
+        //config.SetValue("App Stats", "Health", GlobalValues.Instance.Health);
+        
         
         LogInfo("Saving config file...");
         Error err = config.Save(ConfigFilePath);
@@ -77,58 +61,32 @@ public partial class SaveManager : Node
         if (err == Error.Ok)
         {
             LogInfo("Config file loaded!");
+            AudioServer.SetBusVolumeLinear(0, (float)config.GetValue("Audio", "Master", 1.0f));
             AudioServer.SetBusVolumeLinear(1, (float)config.GetValue("Audio", "HSliderBgm", 0.2f));
             AudioServer.SetBusVolumeLinear(2, (float)config.GetValue("Audio", "HSliderEffects", 0.2f));
+            AudioServer.SetBusVolumeLinear(3, (float)config.GetValue("Audio", "HSliderUi", 0.5f));
+            GlobalValues.Instance.MasterVolumeToggle = (bool)config.GetValue("Audio", "MasterVolumeToggle", false);
+            
+            GlobalValues.Instance.ThemeOption = (long)config.GetValue("App Theme", "ThemeOption", 0);
+            GlobalValues.Instance.BgmOption = (long)config.GetValue("Bgm Selection", "BgmOption", 0);
+            
+            //GlobalValues.Instance.Score = (int)config.GetValue("App Stats", "Score", 0);
+            //GlobalValues.Instance.Health = (int)config.GetValue("App Stats", "Health", 3);
         }
         else
         {
             LogInfo("Config failed - load default values!");
-            AudioServer.SetBusVolumeLinear(1, 0.5f);
-            AudioServer.SetBusVolumeLinear(2, 0.5f);
-        }
-        
-    }
-    
-    public void SaveFile()
-    {
-        LogInfo("Saving save file...");
-        Error err = ResourceSaver.Save(CurrentData, SaveFilePath);
-
-        if (err == Error.Ok)
-        {
-            LogInfo("Save file saved!");
-        }
-        else
-        {
-            LogInfo("Save file failed!");
-        }
-    }
-
-    public void ApplySettingsToEngine()
-    {
-        if (CurrentData == null) return;
-        
-        if (CurrentData.ThemeOption > -1 && CurrentData.ThemeOption < ThemeManager.Instance.Themes.Length)
-        {
-            ThemeManager.Instance.SetThemeByIndex((int)CurrentData.ThemeOption);
-        }
-        else
-        {
-            ThemeManager.Instance.SetThemeByIndex(0);
-        }
-
-        if (CurrentData.BgmOption >= 0 && CurrentData.BgmOption < SoundController.Instance.AudioStreams.Length)
-        {
-            SoundController.Instance.BackgroundMusicPlayer.Stream = SoundController.Instance.AudioStreams[(int)CurrentData.BgmOption];
+            AudioServer.SetBusVolumeLinear(0, 1.0f);
+            AudioServer.SetBusVolumeLinear(1, 0.2f);
+            AudioServer.SetBusVolumeLinear(2, 0.2f);
+            AudioServer.SetBusVolumeLinear(3, 0.5f);
+            GlobalValues.Instance.MasterVolumeToggle = false;
             
-            int bgmBusIndex = AudioServer.GetBusIndex("BGM");
-            //AudioServer.SetBusVolumeDb(bgmBusIndex, (float)CurrentData.HSliderBgm);
-                
-            SoundController.Instance.BackgroundMusicPlayer.Play();
+            GlobalValues.Instance.ThemeOption = 0;
+            GlobalValues.Instance.BgmOption = 0;
             
+            //GlobalValues.Instance.Score = 0;
+            //GlobalValues.Instance.Health = 3;
         }
-        
-        //int sfxBusIndex = AudioServer.GetBusIndex("SFX");
-        //AudioServer.SetBusVolumeLinear(sfxBusIndex, (float)CurrentData.HSliderEffects);
     }
 }
