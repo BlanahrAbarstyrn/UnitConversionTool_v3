@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bavmaaja2xt2j" path="res://Assets/Sounds/UI/ui_woosh.wav" id="15_drfma"]
 [ext_resource type="AudioStream" uid="uid://6tslk2g1hf4l" path="res://Assets/Sounds/UI/ui_success_audio.wav" id="16_1bdlg"]
 [ext_resource type="AudioStream" uid="uid://cclq4rplewbgs" path="res://Assets/Sounds/UI/ui_error_audio.wav" id="17_p73lf"]
+[ext_resource type="AudioStream" uid="uid://bhasfakqlwqww" path="res://Assets/Sounds/SoundEffects/game_over.wav" id="17_vdplw"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_vdplw"]
 polyphony = 8
@@ -30,6 +31,7 @@ _uiSelectAudio = ExtResource("2_h0m1r")
 _uiCancelAudio = ExtResource("15_drfma")
 _uiSuccessAudio = ExtResource("16_1bdlg")
 _uiErrorAudio = ExtResource("17_p73lf")
+_uiGameOverAudio = ExtResource("17_vdplw")
 _uiPlayer = NodePath("UiPlayer")
 _effectsPlayer = NodePath("EffectsPlayer")
 

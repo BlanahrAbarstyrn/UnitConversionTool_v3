@@ -5,6 +5,8 @@ using UnitConversionTool.Globals;
 namespace UnitConversionTool.Scenes.ScreenScenes.UserHud;
 public partial class UserHud : CanvasLayer
 {
+    private SaveManager _saveManager;
+    
     [Export] private MarginContainer _mC_HealthBar;
     [Export] private TextureProgressBar _hP_TPBar;
 
@@ -17,6 +19,11 @@ public partial class UserHud : CanvasLayer
         SignalHub.Instance.OnUserHealthChanged += OnUserHealthChanged;
         SignalHub.Instance.OnHighScoreChanged += OnHighScoreChanged;
         SignalHub.Instance.OnLevelChanged += OnLevelChanged;
+        
+        _saveManager = GetNode<SaveManager>("/root/SaveManager");
+        OnUserHealthChanged(_saveManager.SaveProfile.Health, 3);
+        OnHighScoreChanged(_saveManager.SaveProfile.HighScore);
+        OnLevelChanged(_saveManager.SaveProfile.Level);
     }
 
     private void OnUserHealthChanged(float currentHealth, float maxHealth)
@@ -32,11 +39,22 @@ public partial class UserHud : CanvasLayer
 
     private void OnHighScoreChanged(int highScore)
     {
-        _highScore.Text = highScore.ToString("D6");
+        if (_highScore.Text != highScore.ToString())
+        {
+            _highScore.Text = highScore.ToString("D6");
+        }
     }
 
     private void OnLevelChanged(string level)
     {
-        _level.Text = level;
+        if (_level.Text != level)
+        {
+            _level.Text = level;
+            if (_saveManager != null)
+            {
+                _saveManager.SaveProfile.Level = level;
+                _saveManager.SaveConfig();
+            }
+        }
     }
 }

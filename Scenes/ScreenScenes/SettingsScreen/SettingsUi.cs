@@ -5,6 +5,8 @@ namespace UnitConversionTool.Scenes.ScreenScenes.SettingsScreen;
 
 public partial class SettingsUi : Control
 {
+    private SaveManager _saveManager;
+    
     [Export] public OptionButton ThemeOptions;
     [Export] public OptionButton BgmOptions;
     [Export] public HSlider HSliderEffects;
@@ -14,16 +16,22 @@ public partial class SettingsUi : Control
     
     public override void _Ready()
     {
-        AudioServer.SetBusVolumeLinear(1, 0.2f);
-        HSliderBgm.Value = 0.2;
-        AudioServer.SetBusVolumeLinear(3, 1.0f);
-        HSliderUi.Value = 1.0;
-        AudioServer.SetBusVolumeLinear(2, 0.7f);
-        HSliderEffects.Value = 0.7;
+        _saveManager = GetNode<SaveManager>("/root/SaveManager");
+        
+        HSliderBgm.Value = _saveManager.SaveProfile.BgmVolume;
+        HSliderUi.Value = _saveManager.SaveProfile.UiVolume;
+        HSliderEffects.Value = _saveManager.SaveProfile.SfxVolume;
+        
+        ThemeOptions.Selected = _saveManager.SaveProfile.ThemeIndex;
+        BgmOptions.Selected = _saveManager.SaveProfile.BgmIndex;
         
         HSliderBgm.ValueChanged += OnHSliderBgmValueChanged;
         HSliderUi.ValueChanged += OnHSliderUiValueChanged;
         HSliderEffects.ValueChanged += OnHSliderEffectsValueChanged;
+
+        HSliderBgm.DragEnded += (_) => _saveManager.SaveConfig();
+        HSliderEffects.DragEnded += (_) => _saveManager.SaveConfig();
+        HSliderUi.DragEnded += (_) => _saveManager.SaveConfig();
     }
 
     public override void _ExitTree()
@@ -38,6 +46,7 @@ public partial class SettingsUi : Control
     {
         SignalHub.EmitRequestToggleState(true);
         AudioServer.SetBusVolumeLinear(1, (float)value);
+        _saveManager.SaveProfile.BgmVolume = (float)value;
     }
 
     private void OnHSliderUiValueChanged(double value)
@@ -45,6 +54,7 @@ public partial class SettingsUi : Control
         SignalHub.EmitRequestToggleState(true);
         AudioServer.SetBusVolumeLinear(3, (float)value);
         SoundController.Instance.UiSelect();
+        _saveManager.SaveProfile.UiVolume = (float)value;
     }
 
     private void OnHSliderEffectsValueChanged(double value)
@@ -52,7 +62,7 @@ public partial class SettingsUi : Control
         SignalHub.EmitRequestToggleState(true);
         AudioServer.SetBusVolumeLinear(2, (float)value);
         SoundController.Instance.UiSuccess();
+        _saveManager.SaveProfile.SfxVolume = (float)value;
     }
-    
 }
 

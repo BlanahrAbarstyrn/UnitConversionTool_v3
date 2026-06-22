@@ -1,91 +1,86 @@
 using Godot;
-
+using UnitConversionTool.Classes;
 
 namespace UnitConversionTool.Globals;
 
 public partial class SaveManager : Node
 {
-    public static SaveManager Instance { get; private set; }
+    private const string ConfigFilePath = "user://appdata.cfg";
     
-    private const string ConfigFilePath = "user://unitconversiontool_config.cfg";
+    // Holds data temporarily after disk read, or packages data before disk write
+    public AppData SaveProfile { get; private set; } = new AppData();
     
-    
-    public void LogInfo(string message)
-    {
-        GD.Print($"[SaveManager] {message}");
-    }
+    // References specialized controller nodes
+    private ThemeManager _themeManager;
+    private SoundController _soundController;
     
     public override void _Ready()
     {
+        _themeManager = GetNode<ThemeManager>("/root/ThemeManager");
+        _soundController = GetNode<SoundController>("/root/SoundController");
+        
         LoadConfig();
-        GD.Print("Config file loaded!");
-
-        Instance = this;
     }
 
     public void SaveConfig()
     {
         var config = new ConfigFile();
         
-        config.SetValue("Audio", "Master", AudioServer.GetBusVolumeLinear(0));
-        config.SetValue("Audio", "HSliderBgm", AudioServer.GetBusVolumeLinear(1));
-        config.SetValue("Audio", "HSliderEffects", AudioServer.GetBusVolumeLinear(2));
-        config.SetValue("Audio", "HSliderUi", AudioServer.GetBusVolumeLinear(3));
-        //config.SetValue("Audio", "MasterVolumeToggle", GlobalValues.Instance.MasterVolumeToggle);
+        // Audio
+        config.SetValue("Audio", "MasterVolume", SaveProfile.MasterVolume);
+        config.SetValue("Audio", "BgmVolume", SaveProfile.BgmVolume);
+        config.SetValue("Audio", "SfxVolume", SaveProfile.SfxVolume);
+        config.SetValue("Audio", "UiVolume", SaveProfile.UiVolume);
+        config.SetValue("Audio", "MasterEnabled", SaveProfile.MasterEnabled);
         
-        config.SetValue("App Theme", "ThemeOption", GlobalValues.Instance.ThemeOption);
-        config.SetValue("Bgm Selection", "BgmOption", GlobalValues.Instance.BgmOption);
+        // Cosmetics
+        config.SetValue("Cosmetics", "ThemeIndex", SaveProfile.ThemeIndex);
+        config.SetValue("Cosmetics", "BgmIndex", SaveProfile.BgmIndex);
         
-        //config.SetValue("App Stats", "Score", GlobalValues.Instance.Score);
-        //config.SetValue("App Stats", "Health", GlobalValues.Instance.Health);
+        // Progression
+        config.SetValue("Progression", "HighScore", SaveProfile.HighScore);
+        config.SetValue("Progression", "Health", SaveProfile.Health);
+        config.SetValue("Progression", "Level", SaveProfile.Level);
         
-        
-        LogInfo("Saving config file...");
-        Error err = config.Save(ConfigFilePath);
-
-        if (err == Error.Ok)
-        {
-            LogInfo("Config saved!");
-        }
-        else
-        {
-            LogInfo("Config failed!");
-        }
+        config.Save(ConfigFilePath);
     }
 
     public void LoadConfig()
     {
         var config = new ConfigFile();
         var err = config.Load(ConfigFilePath);
-        if (err == Error.Ok)
+        if (err != Error.Ok)
         {
-            LogInfo("Config file loaded!");
-            AudioServer.SetBusVolumeLinear(0, (float)config.GetValue("Audio", "Master", 1.0f));
-            AudioServer.SetBusVolumeLinear(1, (float)config.GetValue("Audio", "HSliderBgm", 0.2f));
-            AudioServer.SetBusVolumeLinear(2, (float)config.GetValue("Audio", "HSliderEffects", 0.2f));
-            AudioServer.SetBusVolumeLinear(3, (float)config.GetValue("Audio", "HSliderUi", 0.5f));
-           //GlobalValues.Instance.MasterVolumeToggle = (bool)config.GetValue("Audio", "MasterVolumeToggle", false);
-            
-            GlobalValues.Instance.ThemeOption = (long)config.GetValue("App Theme", "ThemeOption", 0);
-            GlobalValues.Instance.BgmOption = (long)config.GetValue("Bgm Selection", "BgmOption", 0);
-            
-            //GlobalValues.Instance.Score = (int)config.GetValue("App Stats", "Score", 0);
-            //GlobalValues.Instance.Health = (int)config.GetValue("App Stats", "Health", 3);
+            ApplySystemSettings();
+            return;
         }
-        else
-        {
-            LogInfo("Config failed - load default values!");
-            AudioServer.SetBusVolumeLinear(0, 1.0f);
-            AudioServer.SetBusVolumeLinear(1, 0.2f);
-            AudioServer.SetBusVolumeLinear(2, 0.2f);
-            AudioServer.SetBusVolumeLinear(3, 0.5f);
-            //GlobalValues.Instance.MasterVolumeToggle = false;
-            
-            GlobalValues.Instance.ThemeOption = 0;
-            GlobalValues.Instance.BgmOption = 0;
-            
-            //GlobalValues.Instance.Score = 0;
-            //GlobalValues.Instance.Health = 3;
-        }
+        
+        SaveProfile.MasterVolume = (float)config.GetValue("Audio", "MasterVolume", 1.0f);
+        SaveProfile.BgmVolume = (float)config.GetValue("Audio", "BgmVolume", 0.2f);
+        SaveProfile.SfxVolume = (float)config.GetValue("Audio", "SfxVolume", 0.5f);
+        SaveProfile.UiVolume = (float)config.GetValue("Audio", "UiVolume", 1.0f);
+        
+        SaveProfile.BgmIndex = (int)config.GetValue("Cosmetics", "BgmIndex", 0);
+        
+        // These values will wait for Hud or MasterVolumeButton to call for them
+        SaveProfile.MasterEnabled = (bool)config.GetValue("Audio", "MasterEnabled", false);
+        SaveProfile.ThemeIndex = (int)config.GetValue("Cosmetics", "ThemeIndex", 0);
+        SaveProfile.HighScore = (int)config.GetValue("Progression", "HighScore", 0);
+        SaveProfile.Health = (int)config.GetValue("Progression", "Health", 3);
+        SaveProfile.Level = (string)config.GetValue("Progression", "Level", "Rookie");
+
+        ApplySystemSettings();
+    }
+
+    private void ApplySystemSettings()
+    {
+        // Audio Bus
+        AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex("Master"), SaveProfile.MasterVolume);
+        AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex("BGM"), SaveProfile.BgmVolume);
+        AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex("SFX"), SaveProfile.SfxVolume);
+        AudioServer.SetBusVolumeLinear(AudioServer.GetBusIndex("UI"), SaveProfile.UiVolume);
+        
+        _themeManager?.SetThemeByIndex(SaveProfile.ThemeIndex);
+        _soundController?.ApplyMusicByIndex(SaveProfile.BgmIndex);
     }
 }

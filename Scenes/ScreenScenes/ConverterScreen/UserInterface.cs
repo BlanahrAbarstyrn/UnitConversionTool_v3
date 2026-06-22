@@ -7,6 +7,8 @@ using System;
 namespace UnitConversionTool.Scenes.ScreenScenes.ConverterScreen;
 public partial class UserInterface : Control
 {
+	private SaveManager _saveManager;
+	
 	[Export] private TabBar _tabBar;
 	[Export] private OptionButton _lengthOptionSelection;
 	[Export] private OptionButton _weightOptionSelection;
@@ -26,6 +28,12 @@ public partial class UserInterface : Control
 		{
 			_highScore = value;
 			SignalHub.EmitOnHighScoreChanged(_highScore);
+
+			if (_saveManager != null)
+			{
+				_saveManager.SaveProfile.HighScore = _highScore;
+				_saveManager.SaveConfig();
+			}
 		}
 	}
 
@@ -42,15 +50,23 @@ public partial class UserInterface : Control
 			
 			// emit signal
 			SignalHub.EmitOnUserHealthChanged(_health, MaxHealth);
+
+			if (_saveManager != null)
+			{
+				_saveManager.SaveProfile.Health = (int)_health;
+				_saveManager.SaveConfig();
+			}
 		}
 	}
 	
+	
 	public override void _Ready()
 	{
-		_baseUnit = new BaseUnit();
+		_saveManager = GetNode<SaveManager>("/root/SaveManager");
+		Health = _saveManager.SaveProfile.Health;
+		HighScore = _saveManager.SaveProfile.HighScore;
 		
-		_health = MaxHealth;
-		_highScore = 0;
+		_baseUnit = new BaseUnit();
 		
 		_tabBar.TabClicked += OnTabBarClicked;
 		_lineEditUserInput.GrabFocus();
@@ -67,9 +83,6 @@ public partial class UserInterface : Control
 		_submitButton.Pressed += OnUserInputPressed;
 		
 		ResetGlobals();
-		CheckForNewLevel(HighScore);
-
-		SetMasterVolume();
 	}
 	
 	
@@ -237,7 +250,6 @@ public partial class UserInterface : Control
 	{
 		SoundController.Instance.UiError();
 		Health -= 1;
-		GD.Print($"Number of health: {Health}");
 		if (Health <= 0)
 		{
 			SignalHub.EmitOnGameOver(true);
@@ -257,13 +269,13 @@ public partial class UserInterface : Control
 	{
 		switch (score)
 		{
-			case < 500:
+			case < 1:
 				SignalHub.EmitOnLevelChanged("Rookie");
 				break;
-			case < 1000:
+			case < 5:
 				SignalHub.EmitOnLevelChanged("Apprentice");
 				break;
-			case < 5000:
+			case < 10:
 				SignalHub.EmitOnLevelChanged("Challenger");
 				break;
 			case < 10000:
@@ -352,10 +364,5 @@ public partial class UserInterface : Control
 		GlobalValues.Instance.UserInput = string.Empty;
 		GlobalValues.Instance.HasError = false;
 		GlobalValues.Instance.ValidDouble = 0;
-	}
-
-	private void SetMasterVolume()
-	{
-		SignalHub.EmitRequestToggleState(false);
 	}
 }

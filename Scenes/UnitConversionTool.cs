@@ -6,6 +6,8 @@ namespace UnitConversionTool.Scenes;
 
 public partial class UnitConversionTool : Control
 {
+	private SaveManager _saveManager;
+	
 	[Export] private Control _userInterface;
 	[Export] private Control _settingsUi;
 	[Export] private Control _aboutUi;
@@ -37,10 +39,11 @@ public partial class UnitConversionTool : Control
 		SignalHub.Instance.OnChangelogButtonPressed += OnChangelogButtonPressed;
 		SignalHub.Instance.OnThemeOptionSelected += OnThemeOptionSelected;
 		
+		// Hooks up all buttons to UI effects sounds
 		SoundController.Instance.SetupButtonAudio(this);
 		
-		ThemeManager.Instance.SetThemeByIndex((int)GlobalValues.Instance.ThemeOption);
-		
+		_saveManager = GetNode<SaveManager>("/root/SaveManager");
+		ThemeManager.Instance.SetThemeByIndex(_saveManager.SaveProfile.ThemeIndex);
 	}
 
 	public override void _ExitTree()

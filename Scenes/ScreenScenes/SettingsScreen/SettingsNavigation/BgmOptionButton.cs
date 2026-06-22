@@ -6,24 +6,22 @@ namespace UnitConversionTool.Scenes.ScreenScenes.SettingsScreen.SettingsNavigati
 public partial class BgmOptionButton : OptionButton
 {
 	[Export] private OptionButton _bgmOptionButton;
+	
+	private SaveManager _saveManager;
 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		_saveManager = GetNode<SaveManager>("/root/SaveManager");
 		// Connect Signal
 		_bgmOptionButton.ItemSelected += OnBgmOptionItemSelected;
-		
-		// RESTORE State: Set the button to the saved index
-		_bgmOptionButton.Select((int)SignalHub.Instance.SelectedBgmIndex);
 	}
 
 	private void OnBgmOptionItemSelected(long index)
 	{
-		//var saveManager = (SaveManager)GetNode("/root/SaveManager");
-		SignalHub.Instance.SelectedBgmIndex = index;
 		SignalHub.EmitOnBgmOptionSelected(index);
-		//saveManager.CurrentData.BgmOption = index;
-		//saveManager.CurrentData.BgmOn = true;
+		_saveManager.SaveProfile.BgmIndex = (int)index;
+		_saveManager.SaveConfig();
 	}
 }

@@ -5,9 +5,9 @@ public partial class GlobalValues : Node
 {
     public static GlobalValues Instance { get; private set; }
     
-    public long ThemeOption { get; set; }
+    //public long ThemeOption { get; set; }
     
-    public long BgmOption { get; set; }
+    //public long BgmOption { get; set; }
     
     public string SelectedUnits { get; set; } = "";
     

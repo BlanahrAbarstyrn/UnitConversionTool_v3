@@ -13,8 +13,6 @@ public partial class ThemeOptionButton : OptionButton
 
 	private void OnThemeOptionItemSelected(long index)
 	{
-		//var saveManager = GetNode<SaveManager>("/root/SaveManager");
 		SignalHub.EmitOnThemeOptionSelected(index);
-		//saveManager.CurrentData.ThemeOption = index;
 	}
 }

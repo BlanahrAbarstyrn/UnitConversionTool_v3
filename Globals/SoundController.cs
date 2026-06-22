@@ -5,6 +5,8 @@ namespace UnitConversionTool.Globals;
 
 public partial class SoundController : Node
 {
+	private SaveManager _saveManager;
+	
 	public static SoundController Instance { get; private set; }
 	
 	[Export] public AudioStream[] AudioStreams;
@@ -28,6 +30,9 @@ public partial class SoundController : Node
 	public override void _Ready()
 	{
 		Instance = this;
+		
+		_saveManager = GetNode<SaveManager>("/root/SaveManager");
+		CallDeferred(MethodName.InitializeBackgroundMusic);
 		
 		SignalHub.Instance.OnBgmOptionSelected += OnBgmOptionSelected;
 	
@@ -118,5 +123,40 @@ public partial class SoundController : Node
 
 		BackgroundMusicPlayer.Play();
 		SignalHub.EmitRequestToggleState(true);
+	}
+
+	public void ApplyMusicByIndex(int index)
+	{
+		if (AudioStreams[index] == null || BackgroundMusicPlayer == null) return;
+		if (index < 0 || index >= AudioStreams.Length) return;
+		AudioStream selectedTrack = AudioStreams[index];
+		if (selectedTrack != null)
+		{
+			BackgroundMusicPlayer.Stream = selectedTrack;
+		}
+	}
+	
+	private void InitializeBackgroundMusic()
+	{
+		if (_saveManager == null || AudioStreams == null || BackgroundMusicPlayer == null) return;
+
+		bool isSoundOn = _saveManager.SaveProfile.MasterEnabled;
+
+		int savedBgmIndex = _saveManager.SaveProfile.BgmIndex;
+
+		if (savedBgmIndex >= 0 && savedBgmIndex < AudioStreams.Length)
+		{
+			AudioStream startupTrack = AudioStreams[savedBgmIndex];
+
+			if (startupTrack != null)
+			{
+				BackgroundMusicPlayer.Stream = startupTrack;
+				BackgroundMusicPlayer.Play();
+				if (!isSoundOn)
+				{
+					AudioServer.SetBusVolumeLinear(0, 0f);
+				}
+			}
+		}
 	}
 }
