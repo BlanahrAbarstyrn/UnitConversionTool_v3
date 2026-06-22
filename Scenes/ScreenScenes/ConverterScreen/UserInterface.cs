@@ -269,13 +269,13 @@ public partial class UserInterface : Control
 	{
 		switch (score)
 		{
-			case < 1:
+			case < 20:
 				SignalHub.EmitOnLevelChanged("Rookie");
 				break;
-			case < 5:
+			case < 50:
 				SignalHub.EmitOnLevelChanged("Apprentice");
 				break;
-			case < 10:
+			case < 100:
 				SignalHub.EmitOnLevelChanged("Challenger");
 				break;
 			case < 10000:
