@@ -23,14 +23,13 @@ public partial class MasterVolumeButton : TextureButton
             AudioServer.SetBusVolumeLinear(0, 1);
             MasterVolume.ButtonPressed = true;
             _saveManager.SaveProfile.MasterEnabled = true;
-            _saveManager.SaveConfig();
         }
         else
         {
             AudioServer.SetBusVolumeLinear(0, 0);
             MasterVolume.ButtonPressed = false;
             _saveManager.SaveProfile.MasterEnabled = false;
-            _saveManager.SaveConfig();
         }
+        _saveManager.SaveConfig();
     }
 }
