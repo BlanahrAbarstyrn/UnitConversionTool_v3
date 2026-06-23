@@ -12,7 +12,7 @@
     <li><b>Experience & Levels:</b> Earn "XP" for successful conversions.</li>
     <li><b>High Score:</b> Persistent tracking of total conversions performed over the lifetime of the app.</li>
   </ul>
-  <li>Advanced Audio & Visuals:</li>
+  <li><b>Advanced Audio & Visuals:</b></li>
   <ul>
     <li><b>Theme Engine:</b> Toggle between different visual "skins" to match your workspace.</li>
     <li><b>Dynamic Audio:</b> A selection of background music and separate volume sliders for Music, UI clicks, and Special Effects.</li>
