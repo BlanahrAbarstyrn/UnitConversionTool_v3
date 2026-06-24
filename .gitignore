@@ -24,8 +24,6 @@ mono_crash.*.json
 # .NET / MSBuild compilation artifacts (CRITICAL FOR C#)
 bin/
 obj/
-*.sln
-*.csproj
 
 # Temporary and system files
 *.tmp
