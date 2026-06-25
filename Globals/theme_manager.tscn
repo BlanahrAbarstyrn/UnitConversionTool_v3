@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://h7tvnb7k0uqr"]
+
+[ext_resource type="Script" uid="uid://btan31yrucmmq" path="res://Globals/ThemeManager.cs" id="1_hp107"]
+[ext_resource type="Theme" uid="uid://vrb8t8tcj57i" path="res://Resources/base_theme.tres" id="2_0bv77"]
+[ext_resource type="Theme" uid="uid://dxjqn3ak1ujs7" path="res://Resources/coffee_theme.tres" id="3_i4fdy"]
+[ext_resource type="Theme" uid="uid://b56x1l0aqfs1r" path="res://Resources/dark_theme.tres" id="4_cyebw"]
+[ext_resource type="Theme" uid="uid://bd8ijvuhkewrb" path="res://Resources/happy_theme.tres" id="5_cymt8"]
+[ext_resource type="Theme" uid="uid://d6gahkl5aae4" path="res://Resources/nature_theme.tres" id="6_kcptd"]
+
+[node name="ThemeManager" type="Node" unique_id=605097836 node_paths=PackedStringArray("_themeManager")]
+script = ExtResource("1_hp107")
+_themeManager = NodePath(".")
+Themes = Array[Theme]([ExtResource("2_0bv77"), ExtResource("3_i4fdy"), ExtResource("4_cyebw"), ExtResource("5_cymt8"), ExtResource("6_kcptd")])

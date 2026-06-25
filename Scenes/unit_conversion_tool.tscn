@@ -1,20 +1,12 @@
 [gd_scene format=3 uid="uid://p6v5djy2jde4"]
 
-[ext_resource type="Theme" uid="uid://vrb8t8tcj57i" path="res://Resources/base_theme.tres" id="1_0dcoo"]
 [ext_resource type="PackedScene" uid="uid://ckg1etrgugk5n" path="res://Scenes/ScreenScenes/UserHud/user_hud.tscn" id="2_ubyft"]
 [ext_resource type="Script" uid="uid://coqy3ytm1kfw" path="res://Scenes/UnitConversionTool.cs" id="2_wf4fr"]
 [ext_resource type="PackedScene" uid="uid://dm35rnntf46bh" path="res://Scenes/ScreenScenes/ConverterScreen/user_interface.tscn" id="3_vj7g4"]
 [ext_resource type="PackedScene" uid="uid://dhpbodfq877l5" path="res://Scenes/ScreenScenes/SettingsScreen/settings_ui.tscn" id="4_p0ybj"]
 [ext_resource type="PackedScene" uid="uid://pg4uqg7sl5i8" path="res://Scenes/ScreenScenes/AboutScreen/about_ui.tscn" id="5_l4tpj"]
 [ext_resource type="PackedScene" uid="uid://fwmew5fb1t08" path="res://Scenes/ScreenScenes/ChangelogScreen/changelog_ui.tscn" id="6_gqhlc"]
-[ext_resource type="PackedScene" uid="uid://c6geu27g30qo2" path="res://Globals/sound_controller.tscn" id="7_0dcoo"]
-[ext_resource type="Script" uid="uid://btan31yrucmmq" path="res://Globals/ThemeManager.cs" id="8_nl4op"]
-[ext_resource type="Theme" uid="uid://dxjqn3ak1ujs7" path="res://Resources/coffee_theme.tres" id="9_lne8i"]
-[ext_resource type="Theme" uid="uid://b56x1l0aqfs1r" path="res://Resources/dark_theme.tres" id="10_7kfnb"]
-[ext_resource type="Theme" uid="uid://bd8ijvuhkewrb" path="res://Resources/happy_theme.tres" id="11_ubyft"]
-[ext_resource type="Theme" uid="uid://d6gahkl5aae4" path="res://Resources/nature_theme.tres" id="12_m3k8q"]
 [ext_resource type="Script" uid="uid://cupu6jjh3o0ir" path="res://Scenes/GameOverCamera.cs" id="13_7kfnb"]
-[ext_resource type="Script" uid="uid://bq55ey24oumu" path="res://Globals/SaveManager.cs" id="15_m3k8q"]
 
 [node name="UnitConversionTool" type="Control" unique_id=696273116 node_paths=PackedStringArray("_userInterface", "_settingsUi", "_aboutUi", "_changelogUi")]
 layout_mode = 3
@@ -28,9 +20,6 @@ _userInterface = NodePath("UserInterface")
 _settingsUi = NodePath("SettingsUI")
 _aboutUi = NodePath("AboutUI")
 _changelogUi = NodePath("ChangelogUI")
-
-[node name="SaveManager" type="Node" parent="." unique_id=1143426569]
-script = ExtResource("15_m3k8q")
 
 [node name="UserHud" parent="." unique_id=936876022 instance=ExtResource("2_ubyft")]
 
@@ -52,9 +41,3 @@ layout_mode = 1
 [node name="GameOverCamera" type="Camera2D" parent="." unique_id=1191825587]
 anchor_mode = 0
 script = ExtResource("13_7kfnb")
-
-[node name="ThemeManager" type="Node" parent="." unique_id=1951548430]
-script = ExtResource("8_nl4op")
-Themes = Array[Theme]([ExtResource("1_0dcoo"), ExtResource("9_lne8i"), ExtResource("10_7kfnb"), ExtResource("11_ubyft"), ExtResource("12_m3k8q")])
-
-[node name="SoundController" parent="." unique_id=1601632186 instance=ExtResource("7_0dcoo")]

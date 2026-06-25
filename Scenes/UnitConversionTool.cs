@@ -55,10 +55,12 @@ public partial class UnitConversionTool : Control
 		SignalHub.Instance.OnThemeOptionSelected -= OnThemeOptionSelected;
 	}
 	
+	
 	private void OnThemeOptionSelected(long index)
 	{
 		ThemeManager.Instance.SetThemeByIndex((int)index);
 	}
+	
 	
 	private void OnMainButtonPressed()
 	{
