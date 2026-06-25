@@ -34,3 +34,28 @@
   <li><b>Force & Linear Density:</b> Adding Newtons per meter and lbs per foot for structural analysis.</li>
   <li><b>Expanded Gamification:</b> More "sassy" messages and visual rewards for power users.</li>
 </ul>
+
+<section id="how-to-run">
+<h2>How to Run</h2>
+<p>To run this project from source, you will need the <strong>Godot Engine - .NET Edition</strong> and the <strong>.NET SDK</strong>.</p>
+
+<h3>1. Prerequisites</h3>
+<ul>
+<li><strong>Godot 4.6 (Standard + .NET):</strong> Ensure you download the .NET version of Godot from the <a href="https://godotengine.org/download" target="_blank">official site</a>.</li>
+<li><strong>.NET SDK:</strong> You must have the .NET SDK (8.0 or newer recommended) installed on your system for the C# code to compile.</li>
+</ul>
+
+<h3>2. Installation</h3>
+<ol>
+<li>Clone the repository:<br>
+<code>git clone https://github.com/YourUsername/YourRepoName.git</code></li>
+<li>Open the Godot Engine launcher.</li>
+<li>Click <strong>Import</strong>, navigate to the cloned folder, and select the <code>project.godot</code> file.</li>
+</ol>
+
+<h3>3. Building and Running</h3>
+<ol>
+<li>Once the project is open in the editor, click the <strong>Build</strong> button (the hammer icon in the top-right corner). This compiles the <code>.sln</code> and <code>.csproj</code> files.</li>
+<li>After the build completes, press <strong>F5</strong> or the <strong>Play</strong> button to launch the application.</li>
+</ol>
+</section>
