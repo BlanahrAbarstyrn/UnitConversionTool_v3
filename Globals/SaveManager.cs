@@ -67,7 +67,7 @@ public partial class SaveManager : Node
         SaveProfile.ThemeIndex = (int)config.GetValue("Cosmetics", "ThemeIndex", 0);
         SaveProfile.HighScore = (int)config.GetValue("Progression", "HighScore", 0);
         SaveProfile.Health = (int)config.GetValue("Progression", "Health", 3);
-        SaveProfile.Level = (string)config.GetValue("Progression", "Level", "Rookie");
+        SaveProfile.Level = (string)config.GetValue("Progression", "Level", "Untrained");
 
         ApplySystemSettings();
     }

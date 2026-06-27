@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using UnitConversionTool.Globals;
+using System.Threading.Tasks;
 
 namespace UnitConversionTool.Scenes.ScreenScenes.UserHud;
 public partial class UserHud : CanvasLayer
@@ -44,6 +45,7 @@ public partial class UserHud : CanvasLayer
             _highScore.Text = highScore.ToString("D6");
         }
     }
+    
 
     private void OnLevelChanged(string level)
     {

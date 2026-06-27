@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://6tslk2g1hf4l" path="res://Assets/Sounds/UI/ui_success_audio.wav" id="16_1bdlg"]
 [ext_resource type="AudioStream" uid="uid://cclq4rplewbgs" path="res://Assets/Sounds/UI/ui_error_audio.wav" id="17_p73lf"]
 [ext_resource type="AudioStream" uid="uid://bhasfakqlwqww" path="res://Assets/Sounds/SoundEffects/game_over.wav" id="17_vdplw"]
+[ext_resource type="AudioStream" uid="uid://bwh2than7i3pf" path="res://Assets/Sounds/SoundEffects/fireworks.mp3" id="18_gthpp"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_vdplw"]
 polyphony = 8
@@ -32,6 +33,7 @@ _uiCancelAudio = ExtResource("15_drfma")
 _uiSuccessAudio = ExtResource("16_1bdlg")
 _uiErrorAudio = ExtResource("17_p73lf")
 _uiGameOverAudio = ExtResource("17_vdplw")
+_levelUpAudio = ExtResource("18_gthpp")
 _uiPlayer = NodePath("UiPlayer")
 _effectsPlayer = NodePath("EffectsPlayer")
 

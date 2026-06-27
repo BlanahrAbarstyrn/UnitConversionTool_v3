@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brpeougj84vjo" path="res://Scenes/ScreenScenes/UserHud/UserHud.cs" id="1_jasxh"]
 [ext_resource type="Texture2D" uid="uid://c2tsetcplrrf6" path="res://Assets/Icons/health_bar_frame.png" id="1_uhwga"]
+[ext_resource type="PackedScene" uid="uid://c3q0y4hatg3is" path="res://Scenes/Fireworks/fireworks.tscn" id="2_ayq1w"]
 
 [sub_resource type="Gradient" id="Gradient_jasxh"]
 offsets = PackedFloat32Array(0, 0.0015479876, 0.998452)
@@ -20,6 +21,7 @@ gradient = SubResource("Gradient_whtkq")
 [node name="UserHud" type="CanvasLayer" unique_id=936876022 node_paths=PackedStringArray("_mC_HealthBar", "_hP_TPBar", "_highScore", "_level")]
 process_mode = 3
 script = ExtResource("1_jasxh")
+Fireworks = ExtResource("2_ayq1w")
 _mC_HealthBar = NodePath("Control/MC_HealthBar")
 _hP_TPBar = NodePath("Control/MC_HealthBar/NinePatchRect/HP_TPBar")
 _highScore = NodePath("Control/MC_Hud/HB_Hud/HighScore")

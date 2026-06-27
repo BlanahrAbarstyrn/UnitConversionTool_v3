@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dm35rnntf46bh"]
 
+[ext_resource type="PackedScene" uid="uid://c3q0y4hatg3is" path="res://Scenes/Fireworks/fireworks.tscn" id="2_41qup"]
 [ext_resource type="Script" uid="uid://pik63edp3ri0" path="res://Scenes/ScreenScenes/ConverterScreen/UserInterface.cs" id="2_d1gft"]
 [ext_resource type="Texture2D" uid="uid://ce8pp4w5w0jel" path="res://Assets/Icons/arrow_diagonal.svg" id="2_j30b4"]
 [ext_resource type="Texture2D" uid="uid://bdxms4bs3asav" path="res://Assets/Icons/resource_planks.svg" id="3_pjpl6"]
@@ -25,6 +26,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_d1gft")
+Fireworks = ExtResource("2_41qup")
 _tabBar = NodePath("Panel/MCscreen/VBscreen/MCtabBar/TabBar")
 _lengthOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LengthOptions")
 _weightOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/WeightOptions")

@@ -9,6 +9,8 @@ public partial class UserInterface : Control
 {
 	private SaveManager _saveManager;
 	
+	[Export] public PackedScene Fireworks;
+	
 	[Export] private TabBar _tabBar;
 	[Export] private OptionButton _lengthOptionSelection;
 	[Export] private OptionButton _weightOptionSelection;
@@ -265,42 +267,71 @@ public partial class UserInterface : Control
 		}
 	}
 
+	private const int Untrained = 15;
+	private const int Novice = 16;
+	private const int Apprentice = 17;
+	private const int Journeyman = 18;
+	private const int Artisan = 19;
+	private const int Expert = 20;
+	private const int Master = 21;
+	private const int Grandmaster = 22;
+	
+	
 	private void CheckForNewLevel(int score)
 	{
 		switch (score)
 		{
-			case < 20:
-				SignalHub.EmitOnLevelChanged("Rookie");
+			case < Untrained:
+				SignalHub.EmitOnLevelChanged("Untrained");
 				break;
-			case < 50:
+			case < Novice:
+				SignalHub.EmitOnLevelChanged("Novice");
+				break;
+			case < Apprentice:
 				SignalHub.EmitOnLevelChanged("Apprentice");
 				break;
-			case < 100:
-				SignalHub.EmitOnLevelChanged("Challenger");
+			case < Journeyman:
+				SignalHub.EmitOnLevelChanged("Journeyman");
 				break;
-			case < 10000:
-				SignalHub.EmitOnLevelChanged("Warrior");
+			case < Artisan:
+				SignalHub.EmitOnLevelChanged("Artisan");
 				break;
-			case < 50000:
-				SignalHub.EmitOnLevelChanged("Veteran");
+			case < Expert:
+				SignalHub.EmitOnLevelChanged("Expert");
 				break;
-			case < 75000:
+			case < Master:
 				SignalHub.EmitOnLevelChanged("Master");
 				break;
-			case < 100000:
+			case >= Grandmaster:
 				SignalHub.EmitOnLevelChanged("Grandmaster");
 				break;
-			case < 250000:
-				SignalHub.EmitOnLevelChanged("Legend");
-				break;
-			case < 500000:
-				SignalHub.EmitOnLevelChanged("Immortal");
-				break;
-			default:
-				SignalHub.EmitOnLevelChanged("Deity");
-				break;
+		}
+
+		if (score == Untrained || score == Novice || score == Apprentice || score == Journeyman
+		    || score == Artisan || score == Expert || score == Master || score == Grandmaster)
+		{
+			SoundController.Instance.LevelUpAudio();
+			SpawnFireworksScene(Fireworks, 37.0f);
 		}
 	}
+	
+	public async void SpawnFireworksScene(PackedScene scene, float duration)
+	{
+		if (scene != null)
+		{
+			var instance = scene.Instantiate<Node2D>();
+			GetTree().CurrentScene.AddChild(instance);
+            
+			await ToSignal(GetTree().CreateTimer(duration), "timeout");
+
+			if (instance != null && IsInstanceValid(instance))
+			{
+				instance.QueueFree();
+			}
+		}
+	}
+	
+	
 	
 	private void OnTabBarClicked(long tab)
 	{

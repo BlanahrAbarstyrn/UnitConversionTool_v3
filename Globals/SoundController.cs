@@ -18,6 +18,7 @@ public partial class SoundController : Node
 	[Export] private AudioStream _uiSuccessAudio;
 	[Export] private AudioStream _uiErrorAudio;
 	[Export] private AudioStream _uiGameOverAudio;
+	[Export] private AudioStream _levelUpAudio;
 	
 	private AudioStreamPlaybackPolyphonic _uiAudioPlayer;
 	private AudioStreamPlaybackPolyphonic _effectsAudioPlayer;
@@ -100,6 +101,12 @@ public partial class SoundController : Node
 	{
 		await Task.Delay(300);
 		PlaySfxAudio(_uiSuccessAudio);
+	}
+
+	public async void LevelUpAudio()
+	{
+		await Task.Delay(300);
+		PlaySfxAudio(_levelUpAudio);
 	}
 	
 	public async void UiError()

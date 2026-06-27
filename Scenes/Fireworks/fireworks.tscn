@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c3q0y4hatg3is"]
+
+[ext_resource type="Shader" uid="uid://peloovhol6yn" path="res://Scenes/Fireworks/fireworks.gdshader" id="1_witxb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2esif"]
+shader = ExtResource("1_witxb")
+shader_parameter/resolution = Vector2(720, 960)
+shader_parameter/firework_count = 7.0
+shader_parameter/particle_count = 50.0
+shader_parameter/size = 1.70000001043084
+shader_parameter/sharpen = 1.5
+shader_parameter/speed = 1.5000000074506001
+shader_parameter/gravity = 1.20000001788144
+shader_parameter/lifetime = 7.0
+
+[node name="Fireworks" type="Node2D" unique_id=1551584106]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=548813304]
+material = SubResource("ShaderMaterial_2esif")
+offset_right = 720.0
+offset_bottom = 960.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
