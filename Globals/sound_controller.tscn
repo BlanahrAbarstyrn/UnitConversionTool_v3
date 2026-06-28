@@ -1,23 +1,23 @@
 [gd_scene format=3 uid="uid://c6geu27g30qo2"]
 
 [ext_resource type="Script" uid="uid://bdg5oooji6blk" path="res://Globals/SoundController.cs" id="1_jlypu"]
-[ext_resource type="AudioStream" uid="uid://ktg5bau8jh5a" path="res://Assets/Sounds/SoundEffects/button_click.ogg" id="2_h0m1r"]
-[ext_resource type="AudioStream" uid="uid://bwx1trv0cxopa" path="res://Assets/Sounds/BackgroundMusic/Bloodrat Sewers.ogg" id="2_xje4t"]
-[ext_resource type="AudioStream" uid="uid://truudvslg5t3" path="res://Assets/Sounds/BackgroundMusic/Cosmic Star.ogg" id="4_r08qg"]
-[ext_resource type="AudioStream" uid="uid://dhbrnw8wkhv3h" path="res://Assets/Sounds/BackgroundMusic/Dark Dark Woods.ogg" id="5_nwvdj"]
-[ext_resource type="AudioStream" uid="uid://coo2fh12i4lc8" path="res://Assets/Sounds/BackgroundMusic/Desert Sirocco.ogg" id="6_wf22l"]
-[ext_resource type="AudioStream" uid="uid://223sufrqoj33" path="res://Assets/Sounds/BackgroundMusic/Frost Mountain Aura.ogg" id="7_l2l4x"]
-[ext_resource type="AudioStream" uid="uid://dt1k1ma1p7m8b" path="res://Assets/Sounds/BackgroundMusic/Junction Jazz.ogg" id="8_7uvjy"]
-[ext_resource type="AudioStream" uid="uid://clsrscukip80d" path="res://Assets/Sounds/BackgroundMusic/Swamp of Digeridoos.ogg" id="9_vdplw"]
-[ext_resource type="AudioStream" uid="uid://dq5ucktb6146u" path="res://Assets/Sounds/BackgroundMusic/The Blackpenny Pub.ogg" id="10_gthpp"]
-[ext_resource type="AudioStream" uid="uid://kejbq8j30cev" path="res://Assets/Sounds/BackgroundMusic/Tiger Temple Trial.ogg" id="11_drfma"]
-[ext_resource type="AudioStream" uid="uid://kkdl054mxggi" path="res://Assets/Sounds/BackgroundMusic/Underwater City.ogg" id="12_1bdlg"]
-[ext_resource type="AudioStream" uid="uid://4i70ckvudlox" path="res://Assets/Sounds/UI/ui_bloop_audio.wav" id="13_vdplw"]
-[ext_resource type="AudioStream" uid="uid://bavmaaja2xt2j" path="res://Assets/Sounds/UI/ui_woosh.wav" id="15_drfma"]
-[ext_resource type="AudioStream" uid="uid://6tslk2g1hf4l" path="res://Assets/Sounds/UI/ui_success_audio.wav" id="16_1bdlg"]
-[ext_resource type="AudioStream" uid="uid://cclq4rplewbgs" path="res://Assets/Sounds/UI/ui_error_audio.wav" id="17_p73lf"]
-[ext_resource type="AudioStream" uid="uid://bhasfakqlwqww" path="res://Assets/Sounds/SoundEffects/game_over.wav" id="17_vdplw"]
-[ext_resource type="AudioStream" uid="uid://bwh2than7i3pf" path="res://Assets/Sounds/SoundEffects/fireworks.mp3" id="18_gthpp"]
+[ext_resource type="AudioStream" uid="uid://du0x6xf4vmprd" path="res://Assets/Sounds/BackgroundMusic/Bloodrat Sewers.ogg" id="2_xje4t"]
+[ext_resource type="AudioStream" uid="uid://d1m5u2kdsd6ph" path="res://Assets/Sounds/BackgroundMusic/Cosmic Star.ogg" id="4_r08qg"]
+[ext_resource type="AudioStream" uid="uid://spw6b2ilqu1t" path="res://Assets/Sounds/BackgroundMusic/Dark Dark Woods.ogg" id="5_nwvdj"]
+[ext_resource type="AudioStream" uid="uid://cih2cm8f1fkhn" path="res://Assets/Sounds/BackgroundMusic/Desert Sirocco.ogg" id="6_wf22l"]
+[ext_resource type="AudioStream" uid="uid://2jcd0tmxd3jy" path="res://Assets/Sounds/BackgroundMusic/Frost Mountain Aura.ogg" id="7_l2l4x"]
+[ext_resource type="AudioStream" uid="uid://hqmdt1xx0vb8" path="res://Assets/Sounds/BackgroundMusic/Junction Jazz.ogg" id="8_7uvjy"]
+[ext_resource type="AudioStream" uid="uid://xavs2tlldqho" path="res://Assets/Sounds/BackgroundMusic/Swamp of Digeridoos.ogg" id="9_vdplw"]
+[ext_resource type="AudioStream" uid="uid://bu0uqqyqptmb1" path="res://Assets/Sounds/BackgroundMusic/The Blackpenny Pub.ogg" id="10_gthpp"]
+[ext_resource type="AudioStream" uid="uid://dot04dkxkfndl" path="res://Assets/Sounds/BackgroundMusic/Tiger Temple Trial.ogg" id="11_drfma"]
+[ext_resource type="AudioStream" uid="uid://dajvxlsjw23qh" path="res://Assets/Sounds/BackgroundMusic/Underwater City.ogg" id="12_1bdlg"]
+[ext_resource type="AudioStream" uid="uid://dsa7v7pkbd458" path="res://Assets/Sounds/UI/ui_bloop_audio.ogg" id="12_gthpp"]
+[ext_resource type="AudioStream" uid="uid://ddv0ligne4u26" path="res://Assets/Sounds/UI/button_click.ogg" id="13_gthpp"]
+[ext_resource type="AudioStream" uid="uid://b8rkv44tt1xqm" path="res://Assets/Sounds/UI/ui_woosh.ogg" id="14_1bdlg"]
+[ext_resource type="AudioStream" uid="uid://bhtxxnx5afb6p" path="res://Assets/Sounds/UI/ui_success_audio.ogg" id="15_p73lf"]
+[ext_resource type="AudioStream" uid="uid://7ntl7fcbqd66" path="res://Assets/Sounds/UI/ui_error_audio.ogg" id="16_lc70q"]
+[ext_resource type="AudioStream" uid="uid://cyuocn7gmuhqw" path="res://Assets/Sounds/SoundEffects/game_over.ogg" id="17_tfkl2"]
+[ext_resource type="AudioStream" uid="uid://dkctk2fxjuusa" path="res://Assets/Sounds/SoundEffects/fireworks.ogg" id="18_1v817"]
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_vdplw"]
 polyphony = 8
@@ -27,13 +27,13 @@ process_mode = 3
 script = ExtResource("1_jlypu")
 AudioStreams = Array[AudioStream]([ExtResource("2_xje4t"), ExtResource("4_r08qg"), ExtResource("5_nwvdj"), ExtResource("6_wf22l"), ExtResource("7_l2l4x"), ExtResource("8_7uvjy"), ExtResource("9_vdplw"), ExtResource("10_gthpp"), ExtResource("11_drfma"), ExtResource("12_1bdlg")])
 BackgroundMusicPlayer = NodePath("BackgroundMusicPlayer")
-_uiFocusAudio = ExtResource("13_vdplw")
-_uiSelectAudio = ExtResource("2_h0m1r")
-_uiCancelAudio = ExtResource("15_drfma")
-_uiSuccessAudio = ExtResource("16_1bdlg")
-_uiErrorAudio = ExtResource("17_p73lf")
-_uiGameOverAudio = ExtResource("17_vdplw")
-_levelUpAudio = ExtResource("18_gthpp")
+_uiFocusAudio = ExtResource("12_gthpp")
+_uiSelectAudio = ExtResource("13_gthpp")
+_uiCancelAudio = ExtResource("14_1bdlg")
+_uiSuccessAudio = ExtResource("15_p73lf")
+_uiErrorAudio = ExtResource("16_lc70q")
+_uiGameOverAudio = ExtResource("17_tfkl2")
+_levelUpAudio = ExtResource("18_1v817")
 _uiPlayer = NodePath("UiPlayer")
 _effectsPlayer = NodePath("EffectsPlayer")
 
