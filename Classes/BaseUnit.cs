@@ -99,6 +99,18 @@ public class BaseUnit
                 //base units cubic meters per hour
                 { "barrels per hour", 6.2898107438466 },
                 { "cubic meters per hour", 1.0 }
+            },
+            ["Pound per foot"] = new Dictionary<string, double>
+            {
+                // base units pound per foot
+                { "pound per foot" , 1.0 },
+                { "newton per meter", 14.593902887139143 }
+            },
+            ["Newton per meter"] = new Dictionary<string, double>
+            {
+                // base units newton per meter
+                { "pound per foot" , 0.068521766091869 },
+                { "newton per meter", 1.0 }
             }
         };
     }

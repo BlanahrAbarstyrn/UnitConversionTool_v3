@@ -31,13 +31,6 @@
   <li><b>Persistence:</b> Settings, high scores, and theme preferences are saved locally between sessions.</li>
 </ul>
 
-<h2>Future Roadmap</h2>
-<ul>
-  <li><b>Temperature Module:</b> Integration of offset-based scales (Celsius, Fahrenheit, Kelvin).</li>
-  <li><b>Force & Linear Density:</b> Adding Newtons per meter and lbs per foot for structural analysis.</li>
-  <li><b>Expanded Gamification:</b> More "sassy" messages and visual rewards for power users.</li>
-</ul>
-
 <section id="how-to-run">
 <h2>How to Run</h2>
 <p>To run this project from source, you will need the <strong>Godot Engine - .NET Edition</strong> and the <strong>.NET SDK</strong>.</p>

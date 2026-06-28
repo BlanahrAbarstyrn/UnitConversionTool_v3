@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://btkxwtwoqdfnx" path="res://Assets/Icons/card_outline_place.svg" id="4_d1gft"]
 [ext_resource type="Texture2D" uid="uid://bxs7hsx1n5h2q" path="res://Assets/Icons/cards_shuffle.svg" id="5_6jcqy"]
 [ext_resource type="PackedScene" uid="uid://d4mwknhkwd6pa" path="res://Scenes/ScreenScenes/ConverterScreen/ConverterNavigation/TabScenes/length_options.tscn" id="7_6jcqy"]
+[ext_resource type="Texture2D" uid="uid://d24mgfb0fhofd" path="res://Assets/Icons/cards_flip.svg" id="7_kyfg7"]
 [ext_resource type="PackedScene" uid="uid://cva1gee4mxosq" path="res://Scenes/ScreenScenes/ConverterScreen/ConverterNavigation/TabScenes/weight_options.tscn" id="7_yq5uo"]
 [ext_resource type="PackedScene" uid="uid://bqsegkpcn4ml6" path="res://Scenes/ScreenScenes/ConverterScreen/ConverterNavigation/TabScenes/pressure_options.tscn" id="8_yq5uo"]
 [ext_resource type="PackedScene" uid="uid://7x1d0w1q3ahc" path="res://Scenes/ScreenScenes/ConverterScreen/ConverterNavigation/TabScenes/flow_options.tscn" id="9_c8lgr"]
@@ -15,10 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://cxxfoi3uslpdn" path="res://Scenes/ScreenScenes/ConverterScreen/ConverterNavigation/ButtonScenes/submit_button.tscn" id="11_r4yx8"]
 [ext_resource type="PackedScene" uid="uid://cfgdjcmuv0ejb" path="res://Scenes/GeneralNavigation/SettingsButton/settings_button.tscn" id="11_yq1rd"]
 [ext_resource type="PackedScene" uid="uid://c66jmavyb6kng" path="res://Scenes/GeneralNavigation/AboutButton/about_button.tscn" id="12_fl8jr"]
+[ext_resource type="PackedScene" uid="uid://utumg4nnuput" path="res://Scenes/ScreenScenes/ConverterScreen/ConverterNavigation/TabScenes/force_linear.tscn" id="13_t8nd5"]
 [ext_resource type="PackedScene" uid="uid://5glnc2l67v44" path="res://Scenes/GeneralNavigation/MasterVolumeButton/master_volume_button.tscn" id="15_gb73c"]
 [ext_resource type="Script" uid="uid://ctrbed8x62r3h" path="res://Scenes/GeneralNavigation/MasterVolumeButton/MasterVolumeButton.cs" id="16_f4634"]
 
-[node name="UserInterface" type="Control" unique_id=2107891430 node_paths=PackedStringArray("_tabBar", "_lengthOptionSelection", "_weightOptionSelection", "_pressureOptionSelection", "_flowOptionSelection", "_lineEditUserInput", "_teOutput", "_submitButton")]
+[node name="UserInterface" type="Control" unique_id=2107891430 node_paths=PackedStringArray("_tabBar", "_lengthOptionSelection", "_weightOptionSelection", "_pressureOptionSelection", "_flowOptionSelection", "_forceOptionSelection", "_lineEditUserInput", "_teOutput", "_submitButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,6 +34,7 @@ _lengthOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/Le
 _weightOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/WeightOptions")
 _pressureOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/PressureOptions")
 _flowOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/FlowOptions")
+_forceOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/ForceLinearButton")
 _lineEditUserInput = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LineEditUserInput")
 _teOutput = NodePath("Panel/MCscreen/VBscreen/MCoutput/TEoutput")
 _submitButton = NodePath("Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons/SubmitButton")
@@ -75,9 +78,12 @@ theme_override_constants/margin_bottom = 0
 
 [node name="TabBar" type="TabBar" parent="Panel/MCscreen/VBscreen/MCtabBar" unique_id=834253968]
 layout_mode = 2
+theme_override_font_sizes/font_size = 15
 current_tab = 0
 tab_alignment = 1
-tab_count = 4
+close_with_middle_mouse = false
+scroll_to_selected = false
+tab_count = 5
 tab_0/title = "LENGTH"
 tab_0/tooltip = "feet, meters, etc"
 tab_0/icon = ExtResource("2_j30b4")
@@ -90,6 +96,9 @@ tab_2/icon = ExtResource("4_d1gft")
 tab_3/title = "FLOW RATE"
 tab_3/tooltip = "bbl/hr, m cubed/hr"
 tab_3/icon = ExtResource("5_6jcqy")
+tab_4/title = "FORCE LINEAR"
+tab_4/tooltip = "lb/ft, N/m"
+tab_4/icon = ExtResource("7_kyfg7")
 
 [node name="MClabels" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=262860075]
 layout_mode = 2
@@ -160,6 +169,10 @@ size_flags_horizontal = 3
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="ForceLinearButton" parent="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs" unique_id=958959153 groups=["ConvUiButtons"] instance=ExtResource("13_t8nd5")]
+visible = false
+layout_mode = 2
 
 [node name="MCinputButtons" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=226323225]
 layout_mode = 2

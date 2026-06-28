@@ -16,6 +16,7 @@ public partial class UserInterface : Control
 	[Export] private OptionButton _weightOptionSelection;
 	[Export] private OptionButton _pressureOptionSelection;
 	[Export] private OptionButton _flowOptionSelection;
+	[Export] private OptionButton _forceOptionSelection;
 	[Export] private LineEdit _lineEditUserInput;
 	[Export] private TextEdit _teOutput;
 	[Export] private Button _submitButton;
@@ -80,13 +81,19 @@ public partial class UserInterface : Control
 		_weightOptionSelection.ItemSelected += OnWeightOptionSelection;
 		_pressureOptionSelection.ItemSelected += OnPressureOptionSelection;
 		_flowOptionSelection.ItemSelected += OnFlowOptionSelection;
+		_forceOptionSelection.ItemSelected += OnForceOptionSelection;
 		
 		_lineEditUserInput.TextSubmitted += OnUserInputSubmitted;
 		_submitButton.Pressed += OnUserInputPressed;
 		
 		ResetGlobals();
 	}
-	
+
+	private void OnForceOptionSelection(long index)
+	{
+		string selectedText = _forceOptionSelection.GetItemText((int) index);
+		GlobalValues.Instance.SelectedUnits = selectedText;
+	}
 	
 	private void OnFlowOptionSelection(long index)
 	{
@@ -115,6 +122,19 @@ public partial class UserInterface : Control
 	private void OnUserInputPressed()
 	{
 		OnUserInputSubmitted(_lineEditUserInput.Text);
+	}
+
+	private void CheckForZero(double value)
+	{
+		if (value == 0)
+		{
+			_teOutput.Text = "C O N G R A T U L A T I O N S !\n\n" +
+			                 "Zero converted to any other unit is still zero!\n\n" +
+			                 "You truly are a math wizard.\n\n\n" +
+			                 "Press Reset to continue.";
+			
+			SpawnFireworksScene(Fireworks, 5.0f);
+		}
 	}
 	
 	private void OnUserInputSubmitted(string input)
@@ -149,6 +169,7 @@ public partial class UserInterface : Control
 						double convertedValue = unitValue * GlobalValues.Instance.ValidDouble;
 						_teOutput.Text += $"{unitName}: {Math.Round(convertedValue, 4)}\n";
 					}
+					CheckForZero(GlobalValues.Instance.ValidDouble);
 					
 					ScorePoint();
 				}
@@ -186,7 +207,7 @@ public partial class UserInterface : Control
 						double convertedValue = unitValue * GlobalValues.Instance.ValidDouble;
 						_teOutput.Text += $"{unitName}: {Math.Round(convertedValue, 4)}\n";
 					}
-
+					CheckForZero(GlobalValues.Instance.ValidDouble);
 					ScorePoint();
 				}
 				
@@ -339,6 +360,7 @@ public partial class UserInterface : Control
 		_weightOptionSelection.Visible = false;
 		_pressureOptionSelection.Visible = false;
 		_flowOptionSelection.Visible = false;
+		_forceOptionSelection.Visible = false;
 		_lineEditUserInput.Clear();
 		
 		switch (tab)
@@ -358,6 +380,10 @@ public partial class UserInterface : Control
 			case 3:
 				_flowOptionSelection.Visible = true;
 				_flowOptionSelection.Selected = -1;
+				break;
+			case 4:
+				_forceOptionSelection.Visible = true;
+				_forceOptionSelection.Selected = -1;
 				break;
 			default:
 				_tabBar.SetCurrentTab(0);
