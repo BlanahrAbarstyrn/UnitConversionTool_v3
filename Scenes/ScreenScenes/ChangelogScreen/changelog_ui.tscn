@@ -61,7 +61,13 @@ theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
-text = "[u]Beta Version 1.0-b.3[/u]
+text = "[u]Beta Version 2.0-b.1[/u]
+[ul]
+2026-06-27
+Bug fixes, audio normalized, level up effects added
+[/ul]
+
+[u]Beta Version 1.0-b.3[/u]
 [ul]
 2026-06-21
 Gamification features added, Save and Load system refined, code refactoring

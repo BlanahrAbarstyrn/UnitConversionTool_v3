@@ -97,11 +97,11 @@ j1game_over_mono.wav by jivatma07 @ https://freesound.org/s/173859/
 Metroidvania Forge Assets by Michael Games @ https://michaelgames.itch.io
 UI SFX Set by Kenney Vleugels @ https://www.kenney.nl
 [/ul]
+Shaders:
+[ul]
+2D Fireworks Shader by FencerDevLog @ https://godotshaders.com/shader/2d-fireworks/
 [/ul]
-
-
-
-"
+[/ul]"
 
 [node name="MCnavigation" type="MarginContainer" parent="Panel/MarginContainer/VBscreen" unique_id=629472859]
 layout_mode = 2
