@@ -2,8 +2,8 @@
 
 <p>A cross-platform unit conversion application built with C# and the Godot Engine. Originally intended as an AutoCAD plugin for CAD work, this version adds a layer of gamification and high-fidelity UI to make repetitive engineering tasks more engaging.</p>
 
-<img width="360" height="480" alt="mainscreendefault" src="https://github.com/user-attachments/assets/d9ab7e3b-3c64-4677-9bdd-41bb66fb3b81" />
-<img width="360" height="480" alt="settingscreendefault" src="https://github.com/user-attachments/assets/f824e72a-1ed1-4d12-b3e4-add715d85d42" />
+<img width="360" height="480" alt="mainscreendefault" src="https://github.com/user-attachments/assets/42e10028-3ee1-4e04-9717-0d35ab19aaf7" />
+<img width="360" height="480" alt="settingscreendefault" src="https://github.com/user-attachments/assets/6b5880d3-ddd9-4dda-929e-eb8903f817a4" />
 
 <h2>Key Features</h2>
 
