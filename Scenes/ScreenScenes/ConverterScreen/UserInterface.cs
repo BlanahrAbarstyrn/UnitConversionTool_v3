@@ -167,7 +167,6 @@ public partial class UserInterface : Control
 			if (double.TryParse(rawInput, out double parsedInput))
 			{
 				// success
-				SoundController.Instance.UiSuccess();
 				GlobalValues.Instance.ValidDouble = parsedInput;
 				_teOutput.Clear();
 				
@@ -267,14 +266,14 @@ public partial class UserInterface : Control
 		}
 	}
 
-	private const int Untrained = 15;
-	private const int Novice = 16;
-	private const int Apprentice = 17;
-	private const int Journeyman = 18;
-	private const int Artisan = 19;
-	private const int Expert = 20;
-	private const int Master = 21;
-	private const int Grandmaster = 22;
+	private const int Untrained = 10;
+	private const int Novice = 512;
+	private const int Apprentice = 1024;
+	private const int Journeyman = 2048;
+	private const int Artisan = 4096;
+	private const int Expert = 8192;
+	private const int Master = 16384;
+	private const int Grandmaster = 32768;
 	
 	
 	private void CheckForNewLevel(int score)
