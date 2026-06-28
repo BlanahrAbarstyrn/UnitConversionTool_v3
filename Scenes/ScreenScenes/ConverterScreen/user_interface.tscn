@@ -97,7 +97,7 @@ tab_3/title = "FLOW RATE"
 tab_3/tooltip = "bbl/hr, m cubed/hr"
 tab_3/icon = ExtResource("5_6jcqy")
 tab_4/title = "FORCE LINEAR"
-tab_4/tooltip = "lb/ft, N/m"
+tab_4/tooltip = "ft-lbf, N-m"
 tab_4/icon = ExtResource("7_kyfg7")
 
 [node name="MClabels" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=262860075]
@@ -173,6 +173,8 @@ size_flags_horizontal = 3
 [node name="ForceLinearButton" parent="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs" unique_id=958959153 groups=["ConvUiButtons"] instance=ExtResource("13_t8nd5")]
 visible = false
 layout_mode = 2
+popup/item_0/text = "Foot-pound"
+popup/item_1/text = "Newton meter"
 
 [node name="MCinputButtons" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=226323225]
 layout_mode = 2
