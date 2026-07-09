@@ -55,6 +55,7 @@ theme_override_constants/separation = 40
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBscreen/MCoutput/VBoxContainer" unique_id=1207340020]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../RichTextLabel2")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 20
@@ -104,6 +105,8 @@ Development of Godot version of this program began 2026-05-22
 [node name="RichTextLabel2" type="RichTextLabel" parent="Panel/MarginContainer/VBscreen/MCoutput/VBoxContainer" unique_id=620950672]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../RichTextLabel")
+focus_neighbor_bottom = NodePath("../../../MCnavigation/HBnavigation/AboutButton")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 20
@@ -133,3 +136,4 @@ alignment = 1
 
 [node name="AboutButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=1851123545 instance=ExtResource("3_c3jnt")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../../MCoutput/VBoxContainer/RichTextLabel2")
