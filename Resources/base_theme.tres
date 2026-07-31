@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://r84yye210qrr" path="res://Assets/Fonts/LuckiestGuy-Regular.ttf" id="1_bfvqa"]
 [ext_resource type="FontFile" uid="uid://dy2ug5b7awxgo" path="res://Assets/Fonts/FuturaHand.ttf" id="1_y3e1p"]
 [ext_resource type="Texture2D" uid="uid://b3fbpx7pghlyv" path="res://Assets/Buttons/ButtonPanel.png" id="2_1mjp0"]
-[ext_resource type="Texture2D" uid="uid://4fmeobc8ybx2" path="res://Assets/Buttons/Btn_V08.png" id="3_bymbt"]
+[ext_resource type="Texture2D" uid="uid://umr1wam05jdq" path="res://Assets/Buttons/Window03_Btn.png" id="3_r2dxm"]
 [ext_resource type="Texture2D" uid="uid://ctqdj27m0abui" path="res://Assets/Buttons/Btn_V04.png" id="4_7fgdx"]
 [ext_resource type="Texture2D" uid="uid://i2h4v3wkv2ta" path="res://Assets/Buttons/Btn_V03.png" id="5_66cnv"]
 [ext_resource type="Texture2D" uid="uid://lucv22c5e4sb" path="res://Assets/Buttons/Btn_V15.png" id="6_i1rdr"]
@@ -28,7 +28,7 @@ content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
 content_margin_bottom = 5.0
-texture = ExtResource("3_bymbt")
+texture = ExtResource("3_r2dxm")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l1plk"]
 content_margin_left = 15.0
@@ -2004,7 +2004,7 @@ LineEdit/colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
 LineEdit/colors/font_selected_color = Color(1, 1, 1, 1)
 LineEdit/colors/font_uneditable_color = Color(0.875, 0.875, 0.875, 0.5)
 LineEdit/colors/selection_color = Color(0.5, 0.5, 0.5, 1)
-LineEdit/constants/caret_width = 1
+LineEdit/constants/caret_width = 2
 LineEdit/constants/minimum_character_width = 4
 LineEdit/constants/outline_size = 0
 LineEdit/font_sizes/font_size = 20

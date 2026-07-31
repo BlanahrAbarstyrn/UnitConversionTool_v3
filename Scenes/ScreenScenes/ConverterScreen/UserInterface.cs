@@ -229,8 +229,10 @@ public partial class UserInterface : Control
 	
 	private void OnClearButtonPressed()
 	{
-		OnTabBarClicked(0);
-		_tabBar.SetCurrentTab(0);
+		// change behavior so same category and units can be used repeatedly until
+		// new category or units selected
+		//OnTabBarClicked(0);
+		//_tabBar.SetCurrentTab(0);
 		_teOutput.Text = "Converted units will appear here.\n\n" +
 		                 "HOW TO USE CONVERTER:\n" +
 		                 "Select category tab.\n" +
@@ -361,7 +363,9 @@ public partial class UserInterface : Control
 		_pressureOptionSelection.Visible = false;
 		_flowOptionSelection.Visible = false;
 		_forceOptionSelection.Visible = false;
-		_lineEditUserInput.Clear();
+		
+		// change behavior so that entry doesn't clear if typed in before choosing category
+		//_lineEditUserInput.Clear();
 		
 		switch (tab)
 		{

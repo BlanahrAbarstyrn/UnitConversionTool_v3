@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://r84yye210qrr" path="res://Assets/Fonts/LuckiestGuy-Regular.ttf" id="1_vdaw6"]
 [ext_resource type="Texture2D" uid="uid://b3fbpx7pghlyv" path="res://Assets/Buttons/ButtonPanel.png" id="2_8a40c"]
+[ext_resource type="Texture2D" uid="uid://umr1wam05jdq" path="res://Assets/Buttons/Window03_Btn.png" id="3_1lhk8"]
 [ext_resource type="Texture2D" uid="uid://bngbbt8qvvqr1" path="res://Assets/Buttons/Btn_V20.png" id="3_mhot6"]
 [ext_resource type="Texture2D" uid="uid://cn64w7gkwhxex" path="res://Assets/Buttons/Btn_V19.png" id="4_d30rq"]
 [ext_resource type="Texture2D" uid="uid://bflv45uwuhdm6" path="res://Assets/Buttons/Btn_V01.png" id="5_ubu1p"]
@@ -27,7 +28,7 @@ content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
 content_margin_bottom = 5.0
-texture = ExtResource("3_mhot6")
+texture = ExtResource("3_1lhk8")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l1plk"]
 content_margin_left = 15.0
@@ -1162,7 +1163,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[sub_resource type="Image" id="Image_j3f0w"]
+[sub_resource type="Image" id="Image_1lhk8"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -1172,7 +1173,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_qtegf"]
-image = SubResource("Image_j3f0w")
+image = SubResource("Image_1lhk8")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gq4g"]
 content_margin_left = 0.0

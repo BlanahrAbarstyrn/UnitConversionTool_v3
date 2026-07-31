@@ -34,7 +34,6 @@ ThemeManager="*uid://h7tvnb7k0uqr"
 window/size/viewport_width=720
 window/size/viewport_height=960
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
 window/handheld/orientation=1
 
 [dotnet]

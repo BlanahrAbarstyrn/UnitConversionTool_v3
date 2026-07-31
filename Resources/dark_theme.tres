@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://r84yye210qrr" path="res://Assets/Fonts/LuckiestGuy-Regular.ttf" id="1_4t747"]
 [ext_resource type="Texture2D" uid="uid://b3fbpx7pghlyv" path="res://Assets/Buttons/ButtonPanel.png" id="2_3tdbf"]
-[ext_resource type="Texture2D" uid="uid://bngbbt8qvvqr1" path="res://Assets/Buttons/Btn_V20.png" id="3_7xjk3"]
+[ext_resource type="Texture2D" uid="uid://umr1wam05jdq" path="res://Assets/Buttons/Window03_Btn.png" id="3_7a77x"]
 [ext_resource type="Texture2D" uid="uid://bmje3xqvctutp" path="res://Assets/Buttons/Btn_V18.png" id="4_50hg7"]
 [ext_resource type="Texture2D" uid="uid://dc71wjuvq5qsj" path="res://Assets/Buttons/Btn_V13.png" id="5_1hune"]
 [ext_resource type="Texture2D" uid="uid://lucv22c5e4sb" path="res://Assets/Buttons/Btn_V15.png" id="6_uhi1u"]
@@ -28,7 +28,7 @@ content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
 content_margin_bottom = 5.0
-texture = ExtResource("3_7xjk3")
+texture = ExtResource("3_7a77x")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l1plk"]
 content_margin_left = 15.0
