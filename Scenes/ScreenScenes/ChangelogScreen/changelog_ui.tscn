@@ -55,14 +55,21 @@ theme_override_constants/separation = 40
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBscreen/MCoutput/VBoxContainer" unique_id=1207340020]
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_bottom = NodePath("../RichTextLabel2")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
-text = "[u]Beta Version 3.0-b.1[/u]
+text = "[u]Beta Version 3.0-b.2[/u]
+[ul]
+2026-07-31
+Update UI by allowing input entry before selecting category
+Update UI by leaving previous category and units selected after reset for rapid reuse
+Experimenting with making UI completely navigatable via keyboard - high contrast focus color added to themes
+[/ul]
+
+[u]Beta Version 3.0-b.1[/u]
 [ul]
 2026-06-28
 Easter egg added, force and linear density added, ready for final beta testing
@@ -105,8 +112,6 @@ Development of Godot version of this program began 2026-05-22
 [node name="RichTextLabel2" type="RichTextLabel" parent="Panel/MarginContainer/VBscreen/MCoutput/VBoxContainer" unique_id=620950672]
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_top = NodePath("../RichTextLabel")
-focus_neighbor_bottom = NodePath("../../../MCnavigation/HBnavigation/AboutButton")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 20
@@ -136,4 +141,9 @@ alignment = 1
 
 [node name="AboutButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=1851123545 instance=ExtResource("3_c3jnt")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../../../MCoutput/VBoxContainer/RichTextLabel2")
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")

@@ -12,6 +12,10 @@ public partial class UnitConversionTool : Control
 	[Export] private Control _settingsUi;
 	[Export] private Control _aboutUi;
 	[Export] private Control _changelogUi;
+	[Export] private Button _mainButton;
+	[Export] private Button _aboutButton;
+	[Export] private LineEdit _lineEditUserInput;
+	[Export] private Button _changelogButton;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override async void _Ready()
@@ -88,6 +92,7 @@ public partial class UnitConversionTool : Control
 		_settingsUi.Visible = !show;
 		_aboutUi.Visible = !show;
 		_changelogUi.Visible = !show;
+		_lineEditUserInput.GrabFocus();
 	}
 	
 	private void ShowSettings(bool show)
@@ -95,16 +100,20 @@ public partial class UnitConversionTool : Control
 		_settingsUi.Visible = show;
 		_aboutUi.Visible = !show;
 		_changelogUi.Visible = !show;
+		_mainButton.GrabFocus();
 	}
 
 	private void ShowAboutUi(bool show)
 	{
 		_aboutUi.Visible = show;
 		_changelogUi.Visible = !show;
+		_changelogButton.GrabFocus();
+
 	}
 
 	private void ShowChangelogUi(bool show)
 	{
 		_changelogUi.Visible = show;
+		_aboutButton.GrabFocus();
 	}
 }

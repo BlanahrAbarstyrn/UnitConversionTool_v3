@@ -12,11 +12,14 @@ public partial class SettingsUi : Control
     [Export] public HSlider HSliderEffects;
     [Export] public HSlider HSliderUi;
     [Export] public HSlider HSliderBgm;
+    [Export] private Button _mainButton;
     
     
     public override void _Ready()
     {
         _saveManager = GetNode<SaveManager>("/root/SaveManager");
+        
+        _mainButton.GrabFocus();
         
         HSliderBgm.Value = _saveManager.SaveProfile.BgmVolume;
         HSliderUi.Value = _saveManager.SaveProfile.UiVolume;

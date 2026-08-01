@@ -116,6 +116,18 @@ alignment = 1
 
 [node name="MainButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=568713739 instance=ExtResource("1_q5126")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../ChangelogButton")
+focus_neighbor_top = NodePath("../ChangelogButton")
+focus_neighbor_right = NodePath("../ChangelogButton")
+focus_neighbor_bottom = NodePath("../ChangelogButton")
+focus_next = NodePath("../ChangelogButton")
+focus_previous = NodePath("../ChangelogButton")
 
 [node name="ChangelogButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=1039977809 instance=ExtResource("3_uom8l")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../MainButton")
+focus_neighbor_top = NodePath("../MainButton")
+focus_neighbor_right = NodePath("../MainButton")
+focus_neighbor_bottom = NodePath("../MainButton")
+focus_next = NodePath("../MainButton")
+focus_previous = NodePath("../MainButton")

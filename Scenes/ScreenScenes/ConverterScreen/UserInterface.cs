@@ -72,7 +72,8 @@ public partial class UserInterface : Control
 		_baseUnit = new BaseUnit();
 		
 		_tabBar.TabClicked += OnTabBarClicked;
-		_lineEditUserInput.GrabFocus();
+		// set from main game loop instead
+		//_lineEditUserInput.GrabFocus();
 
 		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
 		SignalHub.Instance.OnMainButtonPressed += OnMainButtonPressed;

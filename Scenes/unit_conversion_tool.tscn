@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://fwmew5fb1t08" path="res://Scenes/ScreenScenes/ChangelogScreen/changelog_ui.tscn" id="6_gqhlc"]
 [ext_resource type="Script" uid="uid://cupu6jjh3o0ir" path="res://Scenes/GameOverCamera.cs" id="13_7kfnb"]
 
-[node name="UnitConversionTool" type="Control" unique_id=696273116 node_paths=PackedStringArray("_userInterface", "_settingsUi", "_aboutUi", "_changelogUi")]
+[node name="UnitConversionTool" type="Control" unique_id=696273116 node_paths=PackedStringArray("_userInterface", "_settingsUi", "_aboutUi", "_changelogUi", "_mainButton", "_aboutButton", "_lineEditUserInput", "_changelogButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +20,10 @@ _userInterface = NodePath("UserInterface")
 _settingsUi = NodePath("SettingsUI")
 _aboutUi = NodePath("AboutUI")
 _changelogUi = NodePath("ChangelogUI")
+_mainButton = NodePath("SettingsUI/Panel/MCscreen/VBscreen/MCnavigation/HBnavigation/MainButton")
+_aboutButton = NodePath("ChangelogUI/Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation/AboutButton")
+_lineEditUserInput = NodePath("UserInterface/Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LineEditUserInput")
+_changelogButton = NodePath("AboutUI/Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation/ChangelogButton")
 
 [node name="UserHud" parent="." unique_id=936876022 instance=ExtResource("2_ubyft")]
 
@@ -41,3 +45,13 @@ layout_mode = 1
 [node name="GameOverCamera" type="Camera2D" parent="." unique_id=1191825587]
 anchor_mode = 0
 script = ExtResource("13_7kfnb")
+
+[editable path="UserInterface"]
+[editable path="UserInterface/Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LengthOptions"]
+[editable path="UserInterface/Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/WeightOptions"]
+[editable path="UserInterface/Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/PressureOptions"]
+[editable path="UserInterface/Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/FlowOptions"]
+[editable path="UserInterface/Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/UnitsOption"]
+[editable path="SettingsUI"]
+[editable path="AboutUI"]
+[editable path="ChangelogUI"]
