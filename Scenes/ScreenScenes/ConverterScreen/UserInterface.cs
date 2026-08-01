@@ -72,7 +72,7 @@ public partial class UserInterface : Control
 		_baseUnit = new BaseUnit();
 		
 		_tabBar.TabClicked += OnTabBarClicked;
-		// set from main game loop instead
+		// attempting to remove possible conflicting focus signals
 		//_lineEditUserInput.GrabFocus();
 
 		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
@@ -251,10 +251,12 @@ public partial class UserInterface : Control
 			}
 		}
 		
-		_lineEditUserInput.ReleaseFocus();
+		// attempting to remove possible conflicting focus signals
+		//_lineEditUserInput.ReleaseFocus();
 		_teOutput.Editable = true;
 		_teOutput.MouseFilter = MouseFilterEnum.Stop;
 		_teOutput.ShortcutKeysEnabled = true;
+		// attempting to remove possible conflicting focus signals
 		//_teOutput.GrabFocus();
 		
 	}
@@ -281,7 +283,8 @@ public partial class UserInterface : Control
 		DisEnAbleConvUiButton(false);
 		_teOutput.Editable = false;
 		_teOutput.MouseFilter = MouseFilterEnum.Ignore;
-		_teOutput.ReleaseFocus();
+		// attempting to remove possible conflicting focus signals
+		//_teOutput.ReleaseFocus();
 		_teOutput.ShortcutKeysEnabled = false;
 
 		if (Health <= 0)
@@ -460,7 +463,8 @@ public partial class UserInterface : Control
 
 	private void ResetGlobals()
 	{
-		GlobalValues.Instance.SelectedUnits = string.Empty;
+		// allow previous setting to persist for rapid reuse
+		//GlobalValues.Instance.SelectedUnits = string.Empty;
 		GlobalValues.Instance.UserInput = string.Empty;
 		GlobalValues.Instance.HasError = false;
 		GlobalValues.Instance.ValidDouble = 0;
