@@ -14,7 +14,8 @@ public partial class UnitConversionTool : Control
 	[Export] private Control _changelogUi;
 	[Export] private Button _mainButton;
 	[Export] private Button _aboutButton;
-	[Export] private LineEdit _lineEditUserInput;
+	//[Export] private LineEdit _lineEditUserInput;
+	[Export] private TabBar _tabBar;
 	[Export] private Button _changelogButton;
 	
 	// Called when the node enters the scene tree for the first time.
@@ -92,7 +93,7 @@ public partial class UnitConversionTool : Control
 		_settingsUi.Visible = !show;
 		_aboutUi.Visible = !show;
 		_changelogUi.Visible = !show;
-		_lineEditUserInput.GrabFocus();
+		_tabBar.GrabFocus();
 	}
 	
 	private void ShowSettings(bool show)

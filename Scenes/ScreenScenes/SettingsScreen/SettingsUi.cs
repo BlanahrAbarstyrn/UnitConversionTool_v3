@@ -19,8 +19,6 @@ public partial class SettingsUi : Control
     {
         _saveManager = GetNode<SaveManager>("/root/SaveManager");
         
-        _mainButton.GrabFocus();
-        
         HSliderBgm.Value = _saveManager.SaveProfile.BgmVolume;
         HSliderUi.Value = _saveManager.SaveProfile.UiVolume;
         HSliderEffects.Value = _saveManager.SaveProfile.SfxVolume;

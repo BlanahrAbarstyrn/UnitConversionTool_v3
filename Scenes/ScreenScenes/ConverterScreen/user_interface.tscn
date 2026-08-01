@@ -111,19 +111,19 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 alignment = 1
 
-[node name="LabelInput" type="Label" parent="Panel/MCscreen/VBscreen/MClabels/HB_Labels" unique_id=593534563]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 28
-text = "Input"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="LabelUnits" type="Label" parent="Panel/MCscreen/VBscreen/MClabels/HB_Labels" unique_id=1789970438]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 28
 text = "Select Input Units"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelInput" type="Label" parent="Panel/MCscreen/VBscreen/MClabels/HB_Labels" unique_id=593534563]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Input"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -139,12 +139,6 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 30
 alignment = 1
-
-[node name="LineEditUserInput" type="LineEdit" parent="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs" unique_id=587052224]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
-alignment = 2
 
 [node name="LengthOptions" parent="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs" unique_id=1227267523 groups=["ConvUiButtons"] instance=ExtResource("7_6jcqy")]
 layout_mode = 2
@@ -176,6 +170,12 @@ layout_mode = 2
 popup/item_0/text = "Foot-pound"
 popup/item_1/text = "Newton meter"
 
+[node name="LineEditUserInput" type="LineEdit" parent="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs" unique_id=587052224]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+alignment = 2
+
 [node name="MCinputButtons" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=226323225]
 layout_mode = 2
 theme_override_constants/margin_left = 0
@@ -189,10 +189,10 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 30
 
-[node name="ClearButton" parent="Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons" unique_id=568713739 instance=ExtResource("10_fl8jr")]
+[node name="SubmitButton" parent="Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons" unique_id=1876276507 groups=["ConvUiButtons"] instance=ExtResource("11_r4yx8")]
 layout_mode = 2
 
-[node name="SubmitButton" parent="Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons" unique_id=1876276507 groups=["ConvUiButtons"] instance=ExtResource("11_r4yx8")]
+[node name="ClearButton" parent="Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons" unique_id=568713739 instance=ExtResource("10_fl8jr")]
 layout_mode = 2
 
 [node name="MCoutput" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1857436182]

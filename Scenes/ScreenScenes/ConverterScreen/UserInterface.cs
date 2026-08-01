@@ -77,6 +77,8 @@ public partial class UserInterface : Control
 
 		SignalHub.Instance.OnClearButtonPressed += OnClearButtonPressed;
 		SignalHub.Instance.OnMainButtonPressed += OnMainButtonPressed;
+
+		_tabBar.TabChanged += OnTabChanged;
 		
 		_lengthOptionSelection.ItemSelected += OnLengthOptionSelection;
 		_weightOptionSelection.ItemSelected += OnWeightOptionSelection;
@@ -88,6 +90,35 @@ public partial class UserInterface : Control
 		_submitButton.Pressed += OnUserInputPressed;
 		
 		ResetGlobals();
+	}
+
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		var focusOwner = GetViewport().GuiGetFocusOwner();
+
+		if (focusOwner != null &&
+		    (focusOwner is LineEdit ||
+		     focusOwner is Button ||
+		     focusOwner is TextEdit))
+		{
+			return;
+		}
+		
+		if (@event is InputEventKey key &&
+		    key.Pressed &&
+		    !key.Echo &&
+		    key.Keycode == Key.Enter)
+		{
+			if (GetViewport().GuiGetFocusOwner() is OptionButton)
+			{
+				return;
+			}
+			
+			var idx = _tabBar.GetCurrentTab();
+			CallDeferred(nameof(ActivateTab), idx);
+			ActivateTab(idx);
+			GetViewport().SetInputAsHandled();
+		}
 	}
 
 	private void OnForceOptionSelection(long index)
@@ -224,7 +255,7 @@ public partial class UserInterface : Control
 		_teOutput.Editable = true;
 		_teOutput.MouseFilter = MouseFilterEnum.Stop;
 		_teOutput.ShortcutKeysEnabled = true;
-		_teOutput.GrabFocus();
+		//_teOutput.GrabFocus();
 		
 	}
 	
@@ -353,10 +384,18 @@ public partial class UserInterface : Control
 			}
 		}
 	}
-	
-	
-	
+
+	private void OnTabChanged(long tab)
+	{
+		ActivateTab(tab);
+	}
+
 	private void OnTabBarClicked(long tab)
+	{
+		ActivateTab(tab);
+	}
+	
+	private void ActivateTab(long tab)
 	{
 		SoundController.Instance.UiSelect();
 		_lengthOptionSelection.Visible = false;
