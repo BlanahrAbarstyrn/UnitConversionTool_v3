@@ -19,8 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://utumg4nnuput" path="res://Scenes/ScreenScenes/ConverterScreen/ConverterNavigation/TabScenes/force_linear.tscn" id="13_t8nd5"]
 [ext_resource type="PackedScene" uid="uid://5glnc2l67v44" path="res://Scenes/GeneralNavigation/MasterVolumeButton/master_volume_button.tscn" id="15_gb73c"]
 [ext_resource type="Script" uid="uid://ctrbed8x62r3h" path="res://Scenes/GeneralNavigation/MasterVolumeButton/MasterVolumeButton.cs" id="16_f4634"]
+[ext_resource type="Texture2D" uid="uid://0m8xum0lkne4" path="res://Assets/Icons/ic_volume_on_fill_focus.png" id="19_mmk27"]
 
-[node name="UserInterface" type="Control" unique_id=2107891430 node_paths=PackedStringArray("_tabBar", "_lengthOptionSelection", "_weightOptionSelection", "_pressureOptionSelection", "_flowOptionSelection", "_forceOptionSelection", "_lineEditUserInput", "_teOutput", "_submitButton")]
+[node name="UserInterface" type="Control" unique_id=2107891430 node_paths=PackedStringArray("_tabBar", "_lengthOptionSelection", "_weightOptionSelection", "_pressureOptionSelection", "_flowOptionSelection", "_forceOptionSelection", "_lineEditUserInput", "_teOutput", "_submitButton", "_labelUnits")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,6 +39,7 @@ _forceOptionSelection = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/For
 _lineEditUserInput = NodePath("Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LineEditUserInput")
 _teOutput = NodePath("Panel/MCscreen/VBscreen/MCoutput/TEoutput")
 _submitButton = NodePath("Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons/SubmitButton")
+_labelUnits = NodePath("Panel/MCscreen/VBscreen/MClabels/HB_Labels/LabelUnits")
 
 [node name="Panel" type="Panel" parent="." unique_id=1538374626]
 layout_mode = 1
@@ -189,10 +191,10 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 30
 
-[node name="SubmitButton" parent="Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons" unique_id=1876276507 groups=["ConvUiButtons"] instance=ExtResource("11_r4yx8")]
+[node name="ClearButton" parent="Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons" unique_id=568713739 instance=ExtResource("10_fl8jr")]
 layout_mode = 2
 
-[node name="ClearButton" parent="Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons" unique_id=568713739 instance=ExtResource("10_fl8jr")]
+[node name="SubmitButton" parent="Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons" unique_id=1876276507 groups=["ConvUiButtons"] instance=ExtResource("11_r4yx8")]
 layout_mode = 2
 
 [node name="MCoutput" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1857436182]
@@ -249,6 +251,7 @@ size_flags_horizontal = 6
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+texture_focused = ExtResource("19_mmk27")
 stretch_mode = 5
 script = ExtResource("16_f4634")
 MasterVolume = NodePath(".")

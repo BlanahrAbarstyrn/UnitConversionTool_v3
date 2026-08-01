@@ -948,8 +948,11 @@ corner_detail = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3e1p"]
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
+bg_color = Color(0.85490197, 0.81960785, 0.26666668, 0.5019608)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -1008,6 +1011,13 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2dxm"]
+bg_color = Color(0.85490197, 0.81960785, 0.26666668, 0.5019608)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8vlo"]
 content_margin_top = 4.0
@@ -2065,7 +2075,7 @@ OptionButton/font_sizes/font_size = 24
 OptionButton/icons/arrow = SubResource("DPITexture_lu2fo")
 OptionButton/styles/disabled = SubResource("StyleBoxFlat_tikvw")
 OptionButton/styles/disabled_mirrored = SubResource("StyleBoxFlat_nx1yj")
-OptionButton/styles/focus = SubResource("StyleBoxFlat_y3e1p")
+OptionButton/styles/focus = SubResource("StyleBoxFlat_r2dxm")
 OptionButton/styles/hover = SubResource("StyleBoxFlat_k8vlo")
 OptionButton/styles/hover_mirrored = SubResource("StyleBoxFlat_2upw6")
 OptionButton/styles/normal = SubResource("StyleBoxFlat_2vi4x")

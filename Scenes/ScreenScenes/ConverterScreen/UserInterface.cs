@@ -20,6 +20,7 @@ public partial class UserInterface : Control
 	[Export] private LineEdit _lineEditUserInput;
 	[Export] private TextEdit _teOutput;
 	[Export] private Button _submitButton;
+	[Export] private Label _labelUnits;
 	
 	private BaseUnit _baseUnit;
 	
@@ -115,7 +116,6 @@ public partial class UserInterface : Control
 			}
 			
 			var idx = _tabBar.GetCurrentTab();
-			CallDeferred(nameof(ActivateTab), idx);
 			ActivateTab(idx);
 			GetViewport().SetInputAsHandled();
 		}
@@ -414,27 +414,33 @@ public partial class UserInterface : Control
 		{
 			case 0:
 				_lengthOptionSelection.Visible = true;
+				_labelUnits.Text = "Length Units Menu";
 				_lengthOptionSelection.Selected = -1;
 				break;
 			case 1:
 				_weightOptionSelection.Visible = true;
+				_labelUnits.Text = "Weight Units Menu";
 				_weightOptionSelection.Selected = -1;
 				break;
 			case 2:
 				_pressureOptionSelection.Visible = true;
+				_labelUnits.Text = "Pressure Units Menu";
 				_pressureOptionSelection.Selected = -1;
 				break;
 			case 3:
 				_flowOptionSelection.Visible = true;
+				_labelUnits.Text = "Flow Units Menu";
 				_flowOptionSelection.Selected = -1;
 				break;
 			case 4:
 				_forceOptionSelection.Visible = true;
+				_labelUnits.Text = "Force Units Menu";
 				_forceOptionSelection.Selected = -1;
 				break;
 			default:
 				_tabBar.SetCurrentTab(0);
 				_lengthOptionSelection.Visible = true;
+				_labelUnits.Text = "Select Input Units";
 				_lengthOptionSelection.Selected = -1;
 				break;
 		}
