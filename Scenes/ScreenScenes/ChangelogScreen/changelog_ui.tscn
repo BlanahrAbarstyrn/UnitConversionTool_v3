@@ -61,7 +61,15 @@ theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
-text = "[u]Beta Version 3.0-b.2[/u]
+text = "[u]Release Candidate 1.0-r.1[/u]
+[ul]
+2026-08-01
+Rearrange UI elements for better keyboard navigation work flow
+Debug input / category / units losing settings between resets
+Color coordinate and debug focus elements by theme
+[/ul]
+
+[u]Beta Version 3.0-b.2[/u]
 [ul]
 2026-07-31
 Update UI by allowing input entry before selecting category

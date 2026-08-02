@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://7mgk8vijyyja"]
 
-[ext_resource type="Texture2D" uid="uid://wj0kebovqg4b" path="res://Assets/Icons/ic_music_on.png" id="1_sqqj3"]
-[ext_resource type="Texture2D" uid="uid://c1nelmt6afcfd" path="res://Assets/Icons/ic_music_on_fill.png" id="2_vlhfv"]
-[ext_resource type="Texture2D" uid="uid://b8auvuvtccc6t" path="res://Assets/Icons/ic_music_on_lines.png" id="3_8nsq5"]
+[ext_resource type="Texture2D" uid="uid://dqmnsw6m7rri5" path="res://Assets/Icons/ic_volume_off.png" id="1_4uhh3"]
+[ext_resource type="Texture2D" uid="uid://iwcurn8oodea" path="res://Assets/Icons/ic_volume_on.png" id="2_femns"]
+[ext_resource type="Texture2D" uid="uid://ri5aftq4vvhf" path="res://Assets/Icons/ic_volume_on_lines.png" id="3_hqm6w"]
+[ext_resource type="Texture2D" uid="uid://ccgxbwrd7t73x" path="res://Assets/Icons/ic_volume_on_lines_focus.png" id="4_0n6fu"]
 
 [node name="BaseTextureButton" type="TextureButton" unique_id=1247644541]
 anchors_preset = 8
@@ -18,6 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("1_sqqj3")
-texture_pressed = ExtResource("2_vlhfv")
-texture_hover = ExtResource("3_8nsq5")
+texture_normal = ExtResource("1_4uhh3")
+texture_pressed = ExtResource("2_femns")
+texture_hover = ExtResource("3_hqm6w")
+texture_focused = ExtResource("4_0n6fu")
