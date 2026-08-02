@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bratsj8oitfv7"
-path="res://.godot/imported/ic_music_off_lines.png-05299b2417f4805a309ad88b97ccfeca.ctex"
+uid="uid://c4h1coj5o1a1m"
+path="res://.godot/imported/Btn_Focus_Pink.png-9d5f4b62642e12b60ce1a5edec8b09c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/ic_music_off_lines.png"
-dest_files=["res://.godot/imported/ic_music_off_lines.png-05299b2417f4805a309ad88b97ccfeca.ctex"]
+source_file="res://Assets/Buttons/Btn_Focus_Pink.png"
+dest_files=["res://.godot/imported/Btn_Focus_Pink.png-9d5f4b62642e12b60ce1a5edec8b09c2.ctex"]
 
 [params]
 

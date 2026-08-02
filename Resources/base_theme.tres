@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://r84yye210qrr" path="res://Assets/Fonts/LuckiestGuy-Regular.ttf" id="1_bfvqa"]
 [ext_resource type="FontFile" uid="uid://dy2ug5b7awxgo" path="res://Assets/Fonts/FuturaHand.ttf" id="1_y3e1p"]
 [ext_resource type="Texture2D" uid="uid://b3fbpx7pghlyv" path="res://Assets/Buttons/ButtonPanel.png" id="2_1mjp0"]
-[ext_resource type="Texture2D" uid="uid://umr1wam05jdq" path="res://Assets/Buttons/Window03_Btn.png" id="3_r2dxm"]
+[ext_resource type="Texture2D" uid="uid://bflv45uwuhdm6" path="res://Assets/Buttons/Btn_V01.png" id="3_r2dxm"]
 [ext_resource type="Texture2D" uid="uid://ctqdj27m0abui" path="res://Assets/Buttons/Btn_V04.png" id="4_7fgdx"]
 [ext_resource type="Texture2D" uid="uid://i2h4v3wkv2ta" path="res://Assets/Buttons/Btn_V03.png" id="5_66cnv"]
 [ext_resource type="Texture2D" uid="uid://lucv22c5e4sb" path="res://Assets/Buttons/Btn_V15.png" id="6_i1rdr"]
@@ -948,7 +948,7 @@ corner_detail = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3e1p"]
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.85490197, 0.81960785, 0.26666668, 0.5019608)
+bg_color = Color(0.85490197, 0.4117647, 0.26666668, 0.11764706)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -1013,7 +1013,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2dxm"]
-bg_color = Color(0.85490197, 0.81960785, 0.26666668, 0.5019608)
+bg_color = Color(0.85490197, 0.4117647, 0.26666668, 0.11764706)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -1173,7 +1173,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[sub_resource type="Image" id="Image_r2dxm"]
+[sub_resource type="Image" id="Image_1ax4d"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -1183,7 +1183,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_qtegf"]
-image = SubResource("Image_r2dxm")
+image = SubResource("Image_1ax4d")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gq4g"]
 content_margin_left = 0.0
