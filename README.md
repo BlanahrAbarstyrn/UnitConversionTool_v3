@@ -2,8 +2,8 @@
 
 <p>A cross-platform unit conversion application built with C# and the Godot Engine. Originally intended as an AutoCAD plugin for CAD work, this version adds a layer of gamification and high-fidelity UI to make repetitive engineering tasks more engaging.</p>
 
-<img width="360" height="480" alt="mainscreendefault" src="https://github.com/user-attachments/assets/42e10028-3ee1-4e04-9717-0d35ab19aaf7" />
-<img width="360" height="480" alt="settingscreendefault" src="https://github.com/user-attachments/assets/6b5880d3-ddd9-4dda-929e-eb8903f817a4" />
+<img width="360" height="480" alt="mainscreendefault" src="https://github.com/user-attachments/assets/05bf44fd-a922-4c46-ab11-aed49ab33d44" />
+<img width="360" height="480" alt="settingscreendefault" src="https://github.com/user-attachments/assets/21ee0408-c07b-4bcb-a097-12fd439157ae" />
 
 <h2>Key Features</h2>
 
@@ -20,6 +20,10 @@
     <li><b>Theme Engine:</b> Toggle between different visual "skins" to match your workspace.</li>
     <li><b>Dynamic Audio:</b> A selection of background music and separate volume sliders for Music, UI clicks, and Special Effects.</li>
     <li><b>Easter Eggs:</b> Keep an eye out for unique responses to "special" input values.</li>
+  </ul>
+  <li><b>UI Navigation:</b></li>
+  <ul>
+    <li>Keyboard and mouse navigation supported.</li>
   </ul>
 </ul>
 
@@ -54,4 +58,7 @@
 <li>Once the project is open in the editor, click the <strong>Build</strong> button (the hammer icon in the top-right corner). This compiles the <code>.sln</code> and <code>.csproj</code> files.</li>
 <li>After the build completes, press <strong>F5</strong> or the <strong>Play</strong> button to launch the application.</li>
 </ol>
+
+<h2>Windows and Linux Builds Available</h2>
+<p>Linux and Windows builds are available. You can download them directly without needing to clone or install from the repository. Just grab the build for your platform from <a href="https://github.com/BlanahrAbarstyrn/UnitConversionTool_v3/tree/main/Dist">the repo Dist folder</a>. If you run into any issues, let us know what OS/version you’re using.</p>
 </section>
