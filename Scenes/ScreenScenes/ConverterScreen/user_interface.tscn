@@ -79,6 +79,12 @@ theme_override_constants/margin_bottom = 0
 
 [node name="TabBar" type="TabBar" parent="Panel/MCscreen/VBscreen/MCtabBar" unique_id=834253968]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../MCnavigation/HBnavigation/MasterVolumeButton")
+focus_neighbor_top = NodePath("../../MCnavigation/HBnavigation/MasterVolumeButton")
+focus_neighbor_right = NodePath("../../MCinputs/HB_Inputs")
+focus_neighbor_bottom = NodePath("../../MCinputs/HB_Inputs")
+focus_next = NodePath("../../MCinputs/HB_Inputs")
+focus_previous = NodePath("../../MCnavigation/HBnavigation/MasterVolumeButton")
 theme_override_font_sizes/font_size = 15
 current_tab = 0
 tab_alignment = 1
@@ -144,6 +150,12 @@ alignment = 1
 [node name="LengthOptions" parent="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs" unique_id=1227267523 groups=["ConvUiButtons"] instance=ExtResource("7_6jcqy")]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../../../MCtabBar/TabBar")
+focus_neighbor_top = NodePath("../../../MCtabBar/TabBar")
+focus_neighbor_right = NodePath("../LineEditUserInput")
+focus_neighbor_bottom = NodePath("../../../MCinputButtons/HB_Buttons/ClearButton")
+focus_next = NodePath("../LineEditUserInput")
+focus_previous = NodePath("../../../MCtabBar/TabBar")
 
 [node name="WeightOptions" parent="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs" unique_id=766687899 groups=["ConvUiButtons"] instance=ExtResource("7_yq5uo")]
 visible = false
@@ -174,6 +186,12 @@ popup/item_1/text = "Newton meter"
 [node name="LineEditUserInput" type="LineEdit" parent="Panel/MCscreen/VBscreen/MCinputs/HB_Inputs" unique_id=587052224]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../LengthOptions")
+focus_neighbor_top = NodePath("../../../MCtabBar/TabBar")
+focus_neighbor_right = NodePath("../LengthOptions")
+focus_neighbor_bottom = NodePath("../../../MCinputButtons/HB_Buttons/SubmitButton")
+focus_next = NodePath("../../../MCinputButtons/HB_Buttons/SubmitButton")
+focus_previous = NodePath("../LengthOptions")
 theme_override_font_sizes/font_size = 24
 alignment = 2
 
@@ -192,9 +210,21 @@ theme_override_constants/separation = 30
 
 [node name="ClearButton" parent="Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons" unique_id=568713739 instance=ExtResource("10_fl8jr")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../MCinputs/HB_Inputs/LineEditUserInput")
+focus_neighbor_top = NodePath("../../../MCinputs/HB_Inputs/LineEditUserInput")
+focus_neighbor_right = NodePath("../SubmitButton")
+focus_neighbor_bottom = NodePath("../../../MCoutput/TEoutput")
+focus_next = NodePath("../SubmitButton")
+focus_previous = NodePath("../../../MCinputs/HB_Inputs/LineEditUserInput")
 
 [node name="SubmitButton" parent="Panel/MCscreen/VBscreen/MCinputButtons/HB_Buttons" unique_id=1876276507 groups=["ConvUiButtons"] instance=ExtResource("11_r4yx8")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../ClearButton")
+focus_neighbor_top = NodePath("../../../MCinputs/HB_Inputs/LineEditUserInput")
+focus_neighbor_right = NodePath("../../../MCoutput/TEoutput")
+focus_neighbor_bottom = NodePath("../../../MCoutput/TEoutput")
+focus_next = NodePath("../../../MCoutput/TEoutput")
+focus_previous = NodePath("../ClearButton")
 
 [node name="MCoutput" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=1857436182]
 layout_mode = 2
@@ -207,8 +237,14 @@ theme_override_constants/margin_bottom = 20
 [node name="TEoutput" type="TextEdit" parent="Panel/MCscreen/VBscreen/MCoutput" unique_id=2000243892]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../MCinputButtons/HB_Buttons/ClearButton")
+focus_neighbor_top = NodePath("../../MCinputButtons/HB_Buttons/ClearButton")
+focus_neighbor_right = NodePath("../../MCnavigation/HBnavigation/AboutButton")
+focus_neighbor_bottom = NodePath("../../MCnavigation/HBnavigation/AboutButton")
+focus_next = NodePath("../../MCnavigation/HBnavigation/AboutButton")
+focus_previous = NodePath("../../MCinputButtons/HB_Buttons/ClearButton")
 mouse_filter = 2
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 27
 placeholder_text = "Converted units will appear here.
 
 HOW TO USE CONVERTER:
@@ -241,15 +277,33 @@ alignment = 1
 [node name="AboutButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1579125042 instance=ExtResource("12_fl8jr")]
 layout_mode = 2
 size_flags_horizontal = 6
+focus_neighbor_left = NodePath("../../../MCoutput/TEoutput")
+focus_neighbor_top = NodePath("../../../MCoutput/TEoutput")
+focus_neighbor_right = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../../../MCtabBar/TabBar")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath("../../../MCoutput/TEoutput")
 
 [node name="SettingsButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1703535439 instance=ExtResource("11_yq1rd")]
 layout_mode = 2
 size_flags_horizontal = 6
+focus_neighbor_left = NodePath("../AboutButton")
+focus_neighbor_top = NodePath("../../../MCoutput/TEoutput")
+focus_neighbor_right = NodePath("../MasterVolumeButton")
+focus_neighbor_bottom = NodePath("../../../MCtabBar/TabBar")
+focus_next = NodePath("../MasterVolumeButton")
+focus_previous = NodePath("../AboutButton")
 
 [node name="MasterVolumeButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1247644541 node_paths=PackedStringArray("MasterVolume") instance=ExtResource("15_gb73c")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+focus_neighbor_left = NodePath("../SettingsButton")
+focus_neighbor_top = NodePath("../../../MCoutput/TEoutput")
+focus_neighbor_right = NodePath("../../../MCtabBar/TabBar")
+focus_neighbor_bottom = NodePath("../../../MCtabBar/TabBar")
+focus_next = NodePath("../../../MCtabBar/TabBar")
+focus_previous = NodePath("../SettingsButton")
 stretch_mode = 5
 script = ExtResource("16_f4634")
 MasterVolume = NodePath(".")

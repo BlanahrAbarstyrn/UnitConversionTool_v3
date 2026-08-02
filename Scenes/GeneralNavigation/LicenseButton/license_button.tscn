@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d1ajy8uorx604"]
+
+[ext_resource type="PackedScene" uid="uid://bikdyka3yayso" path="res://Scenes/ParentScenes/base_button.tscn" id="1_vjbjr"]
+[ext_resource type="Script" uid="uid://cg3gyyg6yrpjn" path="res://Scenes/GeneralNavigation/LicenseButton/LicenseButton.cs" id="2_13tcd"]
+
+[node name="LicenseButton" unique_id=568713739 node_paths=PackedStringArray("_licenseButton") instance=ExtResource("1_vjbjr")]
+text = "License"
+script = ExtResource("2_13tcd")
+_licenseButton = NodePath(".")

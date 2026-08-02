@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dhpbodfq877l5" path="res://Scenes/ScreenScenes/SettingsScreen/settings_ui.tscn" id="4_p0ybj"]
 [ext_resource type="PackedScene" uid="uid://pg4uqg7sl5i8" path="res://Scenes/ScreenScenes/AboutScreen/about_ui.tscn" id="5_l4tpj"]
 [ext_resource type="PackedScene" uid="uid://fwmew5fb1t08" path="res://Scenes/ScreenScenes/ChangelogScreen/changelog_ui.tscn" id="6_gqhlc"]
+[ext_resource type="PackedScene" uid="uid://dx8evwamgnquu" path="res://Scenes/ScreenScenes/LicenseScreen/license_ui.tscn" id="7_nl4op"]
 [ext_resource type="Script" uid="uid://cupu6jjh3o0ir" path="res://Scenes/GameOverCamera.cs" id="13_7kfnb"]
 
-[node name="UnitConversionTool" type="Control" unique_id=696273116 node_paths=PackedStringArray("_userInterface", "_settingsUi", "_aboutUi", "_changelogUi", "_mainButton", "_aboutButton", "_tabBar", "_changelogButton")]
+[node name="UnitConversionTool" type="Control" unique_id=696273116 node_paths=PackedStringArray("_userInterface", "_settingsUi", "_aboutUi", "_changelogUi", "_licenseUi", "_mainButton", "_aboutOnChangelogSceneButton", "_aboutOnLicenseSceneButton", "_lineEditUserInput", "_tabBar", "_changelogButton", "_licenseButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,10 +21,14 @@ _userInterface = NodePath("UserInterface")
 _settingsUi = NodePath("SettingsUI")
 _aboutUi = NodePath("AboutUI")
 _changelogUi = NodePath("ChangelogUI")
+_licenseUi = NodePath("LicenseUI")
 _mainButton = NodePath("SettingsUI/Panel/MCscreen/VBscreen/MCnavigation/HBnavigation/MainButton")
-_aboutButton = NodePath("ChangelogUI/Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation/AboutButton")
+_aboutOnChangelogSceneButton = NodePath("ChangelogUI/Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation/AboutButton")
+_aboutOnLicenseSceneButton = NodePath("LicenseUI/Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation/AboutButton")
+_lineEditUserInput = NodePath("UserInterface/Panel/MCscreen/VBscreen/MCinputs/HB_Inputs/LineEditUserInput")
 _tabBar = NodePath("UserInterface/Panel/MCscreen/VBscreen/MCtabBar/TabBar")
 _changelogButton = NodePath("AboutUI/Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation/ChangelogButton")
+_licenseButton = NodePath("AboutUI/Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation/LicenseButton")
 
 [node name="UserHud" parent="." unique_id=936876022 instance=ExtResource("2_ubyft")]
 
@@ -42,6 +47,10 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="LicenseUI" parent="." unique_id=1725201564 instance=ExtResource("7_nl4op")]
+visible = false
+layout_mode = 1
+
 [node name="GameOverCamera" type="Camera2D" parent="." unique_id=1191825587]
 anchor_mode = 0
 script = ExtResource("13_7kfnb")
@@ -55,3 +64,4 @@ script = ExtResource("13_7kfnb")
 [editable path="SettingsUI"]
 [editable path="AboutUI"]
 [editable path="ChangelogUI"]
+[editable path="LicenseUI"]

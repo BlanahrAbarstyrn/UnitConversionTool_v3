@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://fwmew5fb1t08"]
+[gd_scene format=3 uid="uid://dx8evwamgnquu"]
 
-[ext_resource type="PackedScene" uid="uid://c66jmavyb6kng" path="res://Scenes/GeneralNavigation/AboutButton/about_button.tscn" id="3_c3jnt"]
+[ext_resource type="PackedScene" uid="uid://c66jmavyb6kng" path="res://Scenes/GeneralNavigation/AboutButton/about_button.tscn" id="1_sts3t"]
 
-[node name="ChangelogUI" type="Control" unique_id=2086764371]
+[node name="LicenseUI" type="Control" unique_id=2086764371]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +36,7 @@ layout_mode = 2
 [node name="LabelTitle" type="Label" parent="Panel/MarginContainer/VBscreen" unique_id=1542646279]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "CHANGELOG"
+text = "MIT LICENSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -52,7 +52,7 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBscreen/MCoutput/VBoxContainer" unique_id=1207340020]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/MarginContainer/VBscreen/MCoutput/VBoxContainer" unique_id=620950672]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 20
@@ -61,32 +61,16 @@ theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
-text = "[u]Release Candidate 2.0-r.1[/u]
-[ul]
-2026-08-02
-Adjust next / previous focus settings for tab and arrow navigation
-Break Changelog and License into separate screens
-Update text on About screen so no scrolling required to read
-[/ul]
+text = "MIT License
 
-[u]Release Candidate 1.0-r.1[/u]
-[ul]
-2026-08-01
-Rearrange UI elements for better keyboard navigation work flow
-Debug input / category / units losing settings between resets
-Color coordinate and debug focus elements by theme
-[/ul]
+Copyright (c) 2026 Lori Stalter
 
-[u]Beta Version 3.0-b.2[/u]
-[ul]
-2026-07-31
-Update UI by allowing input entry before selecting category
-Update UI by leaving previous category and units selected after reset for rapid reuse
-Experimenting with making UI completely navigatable via keyboard - high contrast focus color added to themes
-[/ul]
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-"
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
 
 [node name="MCnavigation" type="MarginContainer" parent="Panel/MarginContainer/VBscreen" unique_id=629472859]
 layout_mode = 2
@@ -98,7 +82,7 @@ layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="AboutButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=1851123545 instance=ExtResource("3_c3jnt")]
+[node name="AboutButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=1851123545 instance=ExtResource("1_sts3t")]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")

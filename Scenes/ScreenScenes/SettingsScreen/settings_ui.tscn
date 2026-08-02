@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dg8oaq6anfgkd" path="res://Scenes/GeneralNavigation/MainButton/main_button.tscn" id="2_gqiv8"]
 [ext_resource type="PackedScene" uid="uid://gcwpmjn214qj" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsNavigation/bgm_options.tscn" id="7_wl25h"]
 
-[node name="SettingsUI" type="Control" unique_id=2029752945 node_paths=PackedStringArray("ThemeOptions", "BgmOptions", "HSliderEffects", "HSliderUi", "HSliderBgm", "_mainButton")]
+[node name="SettingsUI" type="Control" unique_id=2029752945 node_paths=PackedStringArray("ThemeOptions", "BgmOptions", "HSliderEffects", "HSliderUi", "HSliderBgm")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,6 @@ BgmOptions = NodePath("Panel/MCscreen/VBscreen/MCbgmSelection/HBbgmSelection/Bgm
 HSliderEffects = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
 HSliderUi = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons3/VBoxContainer/HBoxUIButtons/HSliderUi")
 HSliderBgm = NodePath("Panel/MCscreen/VBscreen/MCthemeButton4/VBoxContainer/HBsoundButtons/HSliderBgm")
-_mainButton = NodePath("Panel/MCscreen/VBscreen/MCnavigation/HBnavigation/MainButton")
 
 [node name="Panel" type="Panel" parent="." unique_id=457652825]
 layout_mode = 1
@@ -71,6 +70,12 @@ vertical_alignment = 1
 [node name="ThemeOptions" parent="Panel/MCscreen/VBscreen/MCthemeButtons2/HBoxContainer" unique_id=1227267523 instance=ExtResource("2_ghya7")]
 layout_mode = 2
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../../MCnavigation/HBnavigation/MainButton")
+focus_neighbor_top = NodePath("../../../MCnavigation/HBnavigation/MainButton")
+focus_neighbor_right = NodePath("../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
+focus_neighbor_bottom = NodePath("../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
+focus_next = NodePath("../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
+focus_previous = NodePath("../../../MCnavigation/HBnavigation/MainButton")
 
 [node name="MCthemeButtons" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=981917312]
 layout_mode = 2
@@ -81,6 +86,16 @@ theme_override_constants/margin_right = 125
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons" unique_id=1558285060]
 layout_mode = 2
 
+[node name="BorderMC" type="MarginContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer" unique_id=1854679276]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="BorderCR" type="ColorRect" parent="Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/BorderMC" unique_id=1419550645]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
 [node name="HBoxEffectsButtons" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer" unique_id=1815418528]
 layout_mode = 2
 size_flags_vertical = 3
@@ -90,6 +105,12 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+focus_neighbor_left = NodePath("../../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
+focus_neighbor_top = NodePath("../../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
+focus_neighbor_right = NodePath("../../../../MCthemeButtons3/VBoxContainer/HBoxUIButtons/HSliderUi")
+focus_neighbor_bottom = NodePath("../../../../MCthemeButtons3/VBoxContainer/HBoxUIButtons/HSliderUi")
+focus_next = NodePath("../../../../MCthemeButtons3/VBoxContainer/HBoxUIButtons/HSliderUi")
+focus_previous = NodePath("../../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
 max_value = 1.0
 step = 0.01
 
@@ -125,6 +146,12 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+focus_neighbor_left = NodePath("../../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
+focus_neighbor_top = NodePath("../../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
+focus_neighbor_right = NodePath("../../../../MCthemeButton4/VBoxContainer/HBsoundButtons/HSliderBgm")
+focus_neighbor_bottom = NodePath("../../../../MCthemeButton4/VBoxContainer/HBsoundButtons/HSliderBgm")
+focus_next = NodePath("../../../../MCthemeButton4/VBoxContainer/HBsoundButtons/HSliderBgm")
+focus_previous = NodePath("../../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
 max_value = 1.0
 step = 0.01
 
@@ -160,6 +187,12 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+focus_neighbor_left = NodePath("../../../../MCthemeButtons3/VBoxContainer/HBoxUIButtons/HSliderUi")
+focus_neighbor_top = NodePath("../../../../MCthemeButtons3/VBoxContainer/HBoxUIButtons/HSliderUi")
+focus_neighbor_right = NodePath("../../../../MCbgmSelection/HBbgmSelection/BgmOptions")
+focus_neighbor_bottom = NodePath("../../../../MCbgmSelection/HBbgmSelection/BgmOptions")
+focus_next = NodePath("../../../../MCbgmSelection/HBbgmSelection/BgmOptions")
+focus_previous = NodePath("../../../../MCthemeButtons3/VBoxContainer/HBoxUIButtons/HSliderUi")
 max_value = 1.0
 step = 0.01
 
@@ -197,6 +230,12 @@ vertical_alignment = 1
 [node name="BgmOptions" parent="Panel/MCscreen/VBscreen/MCbgmSelection/HBbgmSelection" unique_id=564184743 instance=ExtResource("7_wl25h")]
 layout_mode = 2
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../../MCthemeButton4/VBoxContainer/HBsoundButtons/HSliderBgm")
+focus_neighbor_top = NodePath("../../../MCthemeButton4/VBoxContainer/HBsoundButtons/HSliderBgm")
+focus_neighbor_right = NodePath("../../../MCnavigation/HBnavigation/MainButton")
+focus_neighbor_bottom = NodePath("../../../MCnavigation/HBnavigation/MainButton")
+focus_next = NodePath("../../../MCnavigation/HBnavigation/MainButton")
+focus_previous = NodePath("../../../MCthemeButton4/VBoxContainer/HBsoundButtons/HSliderBgm")
 
 [node name="MCnavigation" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=132401349]
 layout_mode = 2
@@ -212,8 +251,8 @@ alignment = 1
 [node name="MainButton" parent="Panel/MCscreen/VBscreen/MCnavigation/HBnavigation" unique_id=1706418474 instance=ExtResource("2_gqiv8")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../../MCbgmSelection/HBbgmSelection/BgmOptions")
-focus_neighbor_top = NodePath("../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
-focus_neighbor_right = NodePath("../../../MCbgmSelection/HBbgmSelection/BgmOptions")
-focus_neighbor_bottom = NodePath(".")
+focus_neighbor_top = NodePath("../../../MCbgmSelection/HBbgmSelection/BgmOptions")
+focus_neighbor_right = NodePath("../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
+focus_neighbor_bottom = NodePath("../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
 focus_next = NodePath("../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
-focus_previous = NodePath("../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
+focus_previous = NodePath("../../../MCbgmSelection/HBbgmSelection/BgmOptions")

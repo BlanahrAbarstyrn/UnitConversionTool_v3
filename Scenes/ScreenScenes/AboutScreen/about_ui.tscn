@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://pg4uqg7sl5i8"]
 
 [ext_resource type="PackedScene" uid="uid://dg8oaq6anfgkd" path="res://Scenes/GeneralNavigation/MainButton/main_button.tscn" id="1_q5126"]
+[ext_resource type="PackedScene" uid="uid://d1ajy8uorx604" path="res://Scenes/GeneralNavigation/LicenseButton/license_button.tscn" id="3_qg4cv"]
 [ext_resource type="PackedScene" uid="uid://bptemveomyooe" path="res://Scenes/GeneralNavigation/ChangelogButton/changelog_button.tscn" id="3_uom8l"]
 
 [node name="AboutUI" type="Control" unique_id=2086764371]
@@ -51,31 +52,16 @@ theme_override_constants/margin_bottom = 20
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBscreen/MCoutput" unique_id=1207340020]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 20
-theme_override_font_sizes/bold_font_size = 20
-theme_override_font_sizes/bold_italics_font_size = 20
-theme_override_font_sizes/italics_font_size = 20
-theme_override_font_sizes/mono_font_size = 20
+theme_override_font_sizes/normal_font_size = 19
+theme_override_font_sizes/bold_font_size = 19
+theme_override_font_sizes/bold_italics_font_size = 19
+theme_override_font_sizes/italics_font_size = 19
+theme_override_font_sizes/mono_font_size = 19
 bbcode_enabled = true
 text = "[u]Developed By:[/u] Lori Stalter
 
 For more information, visit:
 https://github.com/BlanahrAbarstyrn/UnitConversionTool_v3
-
-[u]Key Features[/u]
-[ul]
-Multi-Output Results: Enter one value (like Fractional Feet/Inches) and instantly see the equivalent in Decimal Feet, Millimeters, Meters, and more.
-Robust Error Handling: Sophisticated validation loops ensure that only properly formatted data reaches the calculation engine.
-[/ul]
-
-[u]Supported Categories[/u]
-[ul]
-Distance: Fractional/Decimal Feet & Inches, Metric (mm, cm, m)
-Mass: Pounds, Kilograms
-Pressure: PSI, Mbar
-Flow Rate: Barrels per hour, Cubic Meters per hour
-Force & Linear Density: Pound per foot, Newton per meter
-[/ul]
 
 [u]Asset Contributors[/u]
 [ul]
@@ -116,18 +102,27 @@ alignment = 1
 
 [node name="MainButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=568713739 instance=ExtResource("1_q5126")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../ChangelogButton")
-focus_neighbor_top = NodePath("../ChangelogButton")
+focus_neighbor_left = NodePath("../LicenseButton")
+focus_neighbor_top = NodePath("../LicenseButton")
 focus_neighbor_right = NodePath("../ChangelogButton")
 focus_neighbor_bottom = NodePath("../ChangelogButton")
 focus_next = NodePath("../ChangelogButton")
-focus_previous = NodePath("../ChangelogButton")
+focus_previous = NodePath("../LicenseButton")
 
 [node name="ChangelogButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=1039977809 instance=ExtResource("3_uom8l")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../MainButton")
 focus_neighbor_top = NodePath("../MainButton")
+focus_neighbor_right = NodePath("../LicenseButton")
+focus_neighbor_bottom = NodePath("../LicenseButton")
+focus_next = NodePath("../LicenseButton")
+focus_previous = NodePath("../MainButton")
+
+[node name="LicenseButton" parent="Panel/MarginContainer/VBscreen/MCnavigation/HBnavigation" unique_id=360623798 instance=ExtResource("3_qg4cv")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../ChangelogButton")
+focus_neighbor_top = NodePath("../ChangelogButton")
 focus_neighbor_right = NodePath("../MainButton")
 focus_neighbor_bottom = NodePath("../MainButton")
 focus_next = NodePath("../MainButton")
-focus_previous = NodePath("../MainButton")
+focus_previous = NodePath("../ChangelogButton")

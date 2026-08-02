@@ -70,6 +70,13 @@ public partial class SignalHub : Node
 		Instance.EmitSignal(SignalName.OnLevelChanged, level);
 	}
 	
+	[Signal]
+	public delegate void OnLicenseButtonPressedEventHandler();
+	
+	public static void EmitOnLicenseButtonPressed()
+	{
+		Instance.EmitSignal(SignalName.OnLicenseButtonPressed);
+	}
 	
 	[Signal]
 	public delegate void OnMainButtonPressedEventHandler();

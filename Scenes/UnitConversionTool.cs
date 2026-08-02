@@ -12,11 +12,15 @@ public partial class UnitConversionTool : Control
 	[Export] private Control _settingsUi;
 	[Export] private Control _aboutUi;
 	[Export] private Control _changelogUi;
+	[Export] private Control _licenseUi;
 	[Export] private Button _mainButton;
-	[Export] private Button _aboutButton;
-	//[Export] private LineEdit _lineEditUserInput;
+	[Export] private Button _aboutOnChangelogSceneButton;
+	[Export] private Button _aboutOnLicenseSceneButton;
+	[Export] private LineEdit _lineEditUserInput;
 	[Export] private TabBar _tabBar;
 	[Export] private Button _changelogButton;
+	[Export] private Button _licenseButton;
+
 	
 	// Called when the node enters the scene tree for the first time.
 	public override async void _Ready()
@@ -43,6 +47,7 @@ public partial class UnitConversionTool : Control
 		SignalHub.Instance.OnAboutButtonPressed += OnAboutButtonPressed;
 		SignalHub.Instance.OnChangelogButtonPressed += OnChangelogButtonPressed;
 		SignalHub.Instance.OnThemeOptionSelected += OnThemeOptionSelected;
+		SignalHub.Instance.OnLicenseButtonPressed += OnLicenseButtonPressed;
 		
 		// Hooks up all buttons to UI effects sounds
 		SoundController.Instance.SetupButtonAudio(this);
@@ -58,6 +63,7 @@ public partial class UnitConversionTool : Control
 		SignalHub.Instance.OnAboutButtonPressed -= OnAboutButtonPressed;
 		SignalHub.Instance.OnChangelogButtonPressed -= OnChangelogButtonPressed;
 		SignalHub.Instance.OnThemeOptionSelected -= OnThemeOptionSelected;
+		SignalHub.Instance.OnLicenseButtonPressed -= OnLicenseButtonPressed;
 	}
 	
 	
@@ -86,6 +92,11 @@ public partial class UnitConversionTool : Control
 	{
 		ShowChangelogUi(true);
 	}
+	
+	private void OnLicenseButtonPressed()
+	{
+		ShowLicenseUi(true);
+	}
 
 	private void ShowUserInterface(bool show)
 	{
@@ -93,6 +104,7 @@ public partial class UnitConversionTool : Control
 		_settingsUi.Visible = !show;
 		_aboutUi.Visible = !show;
 		_changelogUi.Visible = !show;
+		_licenseUi.Visible = !show;
 		_tabBar.GrabFocus();
 	}
 	
@@ -101,6 +113,7 @@ public partial class UnitConversionTool : Control
 		_settingsUi.Visible = show;
 		_aboutUi.Visible = !show;
 		_changelogUi.Visible = !show;
+		_licenseUi.Visible = !show;
 		_mainButton.GrabFocus();
 	}
 
@@ -108,6 +121,7 @@ public partial class UnitConversionTool : Control
 	{
 		_aboutUi.Visible = show;
 		_changelogUi.Visible = !show;
+		_licenseUi.Visible = !show;
 		_changelogButton.GrabFocus();
 
 	}
@@ -115,6 +129,13 @@ public partial class UnitConversionTool : Control
 	private void ShowChangelogUi(bool show)
 	{
 		_changelogUi.Visible = show;
-		_aboutButton.GrabFocus();
+		_licenseUi.Visible = !show;
+		_aboutOnChangelogSceneButton.GrabFocus();
+	}
+	
+	private void ShowLicenseUi(bool show)
+	{
+		_licenseUi.Visible = show;
+		_aboutOnLicenseSceneButton.GrabFocus();
 	}
 }

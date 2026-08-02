@@ -12,7 +12,7 @@ public partial class SettingsUi : Control
     [Export] public HSlider HSliderEffects;
     [Export] public HSlider HSliderUi;
     [Export] public HSlider HSliderBgm;
-    [Export] private Button _mainButton;
+    //[Export] private Button _mainButton;
     
     
     public override void _Ready()
