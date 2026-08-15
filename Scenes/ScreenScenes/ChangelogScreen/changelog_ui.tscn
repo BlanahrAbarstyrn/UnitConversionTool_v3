@@ -61,7 +61,13 @@ theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
-text = "[u]Release Candidate 2.0-r.1[/u]
+text = "[u]General Availability 1.0-r.1[/u]
+[ul]
+2026-08-15
+App considered reliable enough for long-term adoption.
+[/ul]
+
+[u]Release Candidate 2.0-r.1[/u]
 [ul]
 2026-08-02
 Adjust next / previous focus settings for tab and arrow navigation
