@@ -15,7 +15,6 @@ public partial class SaveManager : Node
     // References specialized controller nodes
     private ThemeManager _themeManager;
     private SoundController _soundController;
-    //private AppSizeOptions _appSizeOptions;
     private SettingsUi _settingsUi;
     
     
@@ -23,7 +22,6 @@ public partial class SaveManager : Node
     {
         _themeManager = GetNode<ThemeManager>("/root/ThemeManager");
         _soundController = GetNode<SoundController>("/root/SoundController");
-        //_appSizeOptions = GetNode<AppSizeOptions>("/root/AppSizeOptions");
         _settingsUi = GetNode<SettingsUi>("/root/SettingsUi");
         
         LoadConfig();
