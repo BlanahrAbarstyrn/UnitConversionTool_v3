@@ -74,9 +74,9 @@ layout_mode = 2
 size_flags_vertical = 4
 focus_neighbor_left = NodePath("../../../MCnavigation/HBnavigation/MainButton")
 focus_neighbor_top = NodePath("../../../MCnavigation/HBnavigation/MainButton")
-focus_neighbor_right = NodePath("../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
-focus_neighbor_bottom = NodePath("../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
-focus_next = NodePath("../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
+focus_neighbor_right = NodePath("../../../MCthemeButtons4/HBoxContainer/AppSizeOptions")
+focus_neighbor_bottom = NodePath("../../../MCthemeButtons4/HBoxContainer/AppSizeOptions")
+focus_next = NodePath("../../../MCthemeButtons4/HBoxContainer/AppSizeOptions")
 focus_previous = NodePath("../../../MCnavigation/HBnavigation/MainButton")
 
 [node name="MCthemeButtons4" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=802791622]
@@ -99,6 +99,12 @@ vertical_alignment = 1
 
 [node name="AppSizeOptions" parent="Panel/MCscreen/VBscreen/MCthemeButtons4/HBoxContainer" unique_id=1381269785 instance=ExtResource("3_rwlyq")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
+focus_neighbor_top = NodePath("../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
+focus_neighbor_right = NodePath("../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
+focus_neighbor_bottom = NodePath("../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
+focus_next = NodePath("../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
+focus_previous = NodePath("../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
 
 [node name="MCthemeButtons" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=981917312]
 layout_mode = 2
@@ -128,12 +134,12 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-focus_neighbor_left = NodePath("../../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
-focus_neighbor_top = NodePath("../../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
+focus_neighbor_left = NodePath("../../../../MCthemeButtons4/HBoxContainer/AppSizeOptions")
+focus_neighbor_top = NodePath("../../../../MCthemeButtons4/HBoxContainer/AppSizeOptions")
 focus_neighbor_right = NodePath("../../../../MCthemeButtons3/VBoxContainer/HBoxUIButtons/HSliderUi")
 focus_neighbor_bottom = NodePath("../../../../MCthemeButtons3/VBoxContainer/HBoxUIButtons/HSliderUi")
 focus_next = NodePath("../../../../MCthemeButtons3/VBoxContainer/HBoxUIButtons/HSliderUi")
-focus_previous = NodePath("../../../../MCthemeButtons2/HBoxContainer/ThemeOptions")
+focus_previous = NodePath("../../../../MCthemeButtons4/HBoxContainer/AppSizeOptions")
 max_value = 1.0
 step = 0.01
 

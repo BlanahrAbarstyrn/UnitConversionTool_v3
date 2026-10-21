@@ -7,7 +7,6 @@ public partial class SignalHub : Node
 	public static SignalHub Instance { get; private set; }
 	public long SelectedBgmIndex { get; set; } = -1;
 	
-	
 	[Signal]
 	public delegate void OnAboutButtonPressedEventHandler();
 	
@@ -102,14 +101,6 @@ public partial class SignalHub : Node
 	public static void EmitOnSubmitButtonPressed()
 	{
 		Instance.EmitSignal(SignalName.OnSubmitButtonPressed);
-	}
-	
-	[Signal]
-	public delegate void OnAppSizeItemSelectedEventHandler(long index);
-
-	public static void EmitOnAppSizeItemSelected(long index)
-	{
-		Instance.EmitSignal(SignalName.OnAppSizeItemSelected, index);
 	}
 	
 	[Signal]

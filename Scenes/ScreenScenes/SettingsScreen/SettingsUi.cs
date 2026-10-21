@@ -14,7 +14,7 @@ public partial class SettingsUi : Control
     [Export] public HSlider HSliderEffects;
     [Export] public HSlider HSliderUi;
     [Export] public HSlider HSliderBgm;
-    //[Export] private Button _mainButton;
+
 
     private readonly List<Vector2I> _screenResolutions = new()
     {
@@ -22,7 +22,9 @@ public partial class SettingsUi : Control
         new Vector2I(900, 1200),
         new Vector2I(1080, 1440),
         new Vector2I(1440, 1920),
+        new Vector2I(2880, 3840),
         new Vector2I(540, 720),
+        new Vector2I(180, 240)
     };
     
     
@@ -31,7 +33,6 @@ public partial class SettingsUi : Control
         _saveManager = GetNode<SaveManager>("/root/SaveManager");
 
         SetupAppSizeOptions();
-        GetTree().Root.SizeChanged += OnRootSizeChanged;
         
         HSliderBgm.Value = _saveManager.SaveProfile.BgmVolume;
         HSliderUi.Value = _saveManager.SaveProfile.UiVolume;
@@ -67,21 +68,18 @@ public partial class SettingsUi : Control
         Vector2I currentSize = DisplayServer.WindowGetSize();
         int selected = _screenResolutions.IndexOf(currentSize);
 
+        if (selected >= 0)
+        {
+            AppSizeOptions.Select(selected);
+        }
+        
         AppSizeOptions.ItemSelected += OnResolutionSelected;
     }
-
-    private void OnRootSizeChanged()
-    {
-        GD.Print($"Root viewport resized: {GetTree().Root.Size}");
-    }
     
-    private void OnResolutionSelected(long selectedIndex)
+    
+    public void OnResolutionSelected(long selectedIndex)
     {
-        GD.Print($"Window: {DisplayServer.WindowGetSize()}");
-        GD.Print($"Root viewport: {GetTree().Root.Size}");
-        DisplayServer.WindowSetSize(_screenResolutions[(int) selectedIndex]);
-        GD.Print($"Window: {DisplayServer.WindowGetSize()}");
-        GD.Print($"Root viewport: {GetTree().Root.Size}");
+        GetWindow().Size = _screenResolutions[(int)selectedIndex];
     }
     
     // OnHSliders do adjust volumes in addition to updating visual

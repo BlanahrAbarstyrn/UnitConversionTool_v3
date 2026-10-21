@@ -61,7 +61,15 @@ theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
-text = "[u]General Availability 1.0-r.1[/u]
+text = "[u]General Availability 1.0-r.2[/u]
+[ul]
+2026-10-21
+Add App Size setting for user to control window size
+App Size setting persists on relaunch
+App Size setting integrated into keyboard navigation flow
+[/ul]
+
+[u]General Availability 1.0-r.1[/u]
 [ul]
 2026-08-15
 App considered reliable enough for long-term adoption.
@@ -81,14 +89,6 @@ Update text on About screen so no scrolling required to read
 Rearrange UI elements for better keyboard navigation work flow
 Debug input / category / units losing settings between resets
 Color coordinate and debug focus elements by theme
-[/ul]
-
-[u]Beta Version 3.0-b.2[/u]
-[ul]
-2026-07-31
-Update UI by allowing input entry before selecting category
-Update UI by leaving previous category and units selected after reset for rapid reuse
-Experimenting with making UI completely navigatable via keyboard - high contrast focus color added to themes
 [/ul]
 
 

@@ -1,14 +1,13 @@
-<h1>Unit Converter: Gamified Edition (Godot 4.6)</h1>
+<h1>Unit Converter: Gamified Edition (Godot 4.7.2)</h1>
 
 <p>A cross-platform unit conversion application built with C# and the Godot Engine. Originally intended as an AutoCAD plugin for CAD work, this version adds a layer of gamification and high-fidelity UI to make repetitive engineering tasks more engaging.</p>
 
 <img width="360" height="480" alt="mainscreendefault" src="https://github.com/user-attachments/assets/05bf44fd-a922-4c46-ab11-aed49ab33d44" />
-<img width="360" height="480" alt="settingscreendefault" src="https://github.com/user-attachments/assets/21ee0408-c07b-4bcb-a097-12fd439157ae" />
 
 <h2>Key Features</h2>
 
 <ul>
-  <li><b>Multi-Unit Engine:</b> Perform conversions across Distance (including fractional architectural formats), Weight, Pressure, and Flow Rates using a centralized base-unit architecture.</li>
+  <li><b>Multi-Unit Engine:</b> Perform conversions across Distance (including fractional architectural formats), Weight, Pressure, Flow Rate, and Force Linear using a centralized base-unit architecture.</li>
   <li><b>Gamified HUD:</b></li>
   <ul>
     <li><b>Health Bar:</b> Tracks input errors; don't let your "health" reach zero by entering invalid formats!</li>
@@ -29,7 +28,7 @@
 
 <h2>Technical Details</h2>
 <ul>
-  <li><b>Framework:</b> C# .NET integration within Godot 4.6.</li>
+  <li><b>Framework:</b> C# .NET integration within Godot 4.7.2</li>
   <li><b>Input Handling:</b> Custom re (Regex) patterns to parse complex architectural strings (e.g., 5'-2 1/2").</li>
   <li><b>Architecture:</b> Decoupled UI and Logic, allowing for easy expansion of the unit dictionaries.</li>
   <li><b>Persistence:</b> Settings, high scores, and theme preferences are saved locally between sessions.</li>
@@ -41,7 +40,7 @@
 
 <h3>1. Prerequisites</h3>
 <ul>
-<li><strong>Godot 4.6 (Standard + .NET):</strong> Ensure you download the .NET version of Godot from the <a href="https://godotengine.org/download" target="_blank">official site</a>.</li>
+<li><strong>Godot 4.7.2 (Standard + .NET):</strong> Ensure you download the .NET version of Godot from the <a href="https://godotengine.org/download" target="_blank">official site</a>.</li>
 <li><strong>.NET SDK:</strong> You must have the .NET SDK (8.0 or newer recommended) installed on your system for the C# code to compile.</li>
 </ul>
 

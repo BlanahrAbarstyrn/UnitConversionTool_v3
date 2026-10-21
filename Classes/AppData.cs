@@ -15,6 +15,7 @@ public class AppData
     // Cosmetics
     public int ThemeIndex { get; set; } = 0;
     public int BgmIndex { get; set; } = 0;
+    public int AppSizeIndex { get; set; } = 0;
     
     // User Progression
     public int HighScore { get; set; } = 0;

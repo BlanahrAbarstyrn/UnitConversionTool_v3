@@ -12,7 +12,7 @@ config_version=5
 
 config/name="UnitConversionTool"
 run/main_scene="uid://p6v5djy2jde4"
-config/features=PackedStringArray("4.6", "C#", "Mobile")
+config/features=PackedStringArray("4.7", "C#", "Mobile")
 run/max_fps=30
 run/low_processor_mode=true
 config/icon="uid://bput6s6p453b4"
@@ -28,13 +28,13 @@ GlobalValues="*uid://dhgabytulv2uy"
 SaveManager="*uid://bq55ey24oumu"
 SoundController="*uid://c6geu27g30qo2"
 ThemeManager="*uid://h7tvnb7k0uqr"
+SettingsUi="*uid://dhpbodfq877l5"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=960
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 window/handheld/orientation=1
 
 [dotnet]

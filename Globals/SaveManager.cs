@@ -1,5 +1,7 @@
 using Godot;
 using UnitConversionTool.Classes;
+using UnitConversionTool.Scenes.ScreenScenes.SettingsScreen;
+using UnitConversionTool.Scenes.ScreenScenes.SettingsScreen.SettingsNavigation;
 
 namespace UnitConversionTool.Globals;
 
@@ -13,11 +15,16 @@ public partial class SaveManager : Node
     // References specialized controller nodes
     private ThemeManager _themeManager;
     private SoundController _soundController;
+    //private AppSizeOptions _appSizeOptions;
+    private SettingsUi _settingsUi;
+    
     
     public override void _Ready()
     {
         _themeManager = GetNode<ThemeManager>("/root/ThemeManager");
         _soundController = GetNode<SoundController>("/root/SoundController");
+        //_appSizeOptions = GetNode<AppSizeOptions>("/root/AppSizeOptions");
+        _settingsUi = GetNode<SettingsUi>("/root/SettingsUi");
         
         LoadConfig();
     }
@@ -36,6 +43,7 @@ public partial class SaveManager : Node
         // Cosmetics
         config.SetValue("Cosmetics", "ThemeIndex", SaveProfile.ThemeIndex);
         config.SetValue("Cosmetics", "BgmIndex", SaveProfile.BgmIndex);
+        config.SetValue("Cosmetics", "AppSizeIndex", SaveProfile.AppSizeIndex);
         
         // Progression
         config.SetValue("Progression", "HighScore", SaveProfile.HighScore);
@@ -62,9 +70,11 @@ public partial class SaveManager : Node
         
         SaveProfile.BgmIndex = (int)config.GetValue("Cosmetics", "BgmIndex", 0);
         
+        
         // These values will wait for Hud or MasterVolumeButton to call for them
         SaveProfile.MasterEnabled = (bool)config.GetValue("Audio", "MasterEnabled", false);
         SaveProfile.ThemeIndex = (int)config.GetValue("Cosmetics", "ThemeIndex", 0);
+        SaveProfile.AppSizeIndex = (int)config.GetValue("Cosmetics", "AppSizeIndex", 0);
         SaveProfile.HighScore = (int)config.GetValue("Progression", "HighScore", 0);
         SaveProfile.Health = (int)config.GetValue("Progression", "Health", 3);
         SaveProfile.Level = (string)config.GetValue("Progression", "Level", "Untrained");
@@ -82,5 +92,6 @@ public partial class SaveManager : Node
         
         _themeManager?.SetThemeByIndex(SaveProfile.ThemeIndex);
         _soundController?.ApplyMusicByIndex(SaveProfile.BgmIndex);
+        _settingsUi?.OnResolutionSelected(SaveProfile.AppSizeIndex);
     }
 }

@@ -31,8 +31,8 @@ public partial class UnitConversionTool : Control
 			Window window = GetWindow();
 			if (window != null)
 			{
-				window.MinSize = new Vector2I(420, 560); // Minimum width and height
-				window.MaxSize = new Vector2I(1440, 1920); // Maximum and design width and height
+				window.MinSize = new Vector2I(180, 240); // Minimum width and height
+				window.MaxSize = new Vector2I(2880, 3840); // Maximum and design width and height
 			}
 		}
 		catch (Exception ex)
