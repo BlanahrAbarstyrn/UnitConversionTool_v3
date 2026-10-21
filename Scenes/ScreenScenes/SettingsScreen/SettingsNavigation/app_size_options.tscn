@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dufdepmrwsp5p"]
+
+[ext_resource type="Script" uid="uid://cgk06n21v3wmj" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsNavigation/AppSizeOptions.cs" id="1_vprbp"]
+
+[node name="AppSizeOptions" type="OptionButton" unique_id=1381269785 node_paths=PackedStringArray("_appSizeButton")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -10.0
+offset_right = 16.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("1_vprbp")
+_appSizeButton = NodePath(".")

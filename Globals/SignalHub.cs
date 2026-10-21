@@ -104,7 +104,14 @@ public partial class SignalHub : Node
 		Instance.EmitSignal(SignalName.OnSubmitButtonPressed);
 	}
 	
+	[Signal]
+	public delegate void OnAppSizeItemSelectedEventHandler(long index);
 
+	public static void EmitOnAppSizeItemSelected(long index)
+	{
+		Instance.EmitSignal(SignalName.OnAppSizeItemSelected, index);
+	}
+	
 	[Signal]
 	public delegate void OnThemeOptionSelectedEventHandler(long index);
 	

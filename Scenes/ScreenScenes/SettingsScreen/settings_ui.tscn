@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://ilpae54lod88" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsUi.cs" id="1_b1fle"]
 [ext_resource type="PackedScene" uid="uid://cvey5yes5riyr" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsNavigation/theme_options.tscn" id="2_ghya7"]
 [ext_resource type="PackedScene" uid="uid://dg8oaq6anfgkd" path="res://Scenes/GeneralNavigation/MainButton/main_button.tscn" id="2_gqiv8"]
+[ext_resource type="PackedScene" uid="uid://dufdepmrwsp5p" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsNavigation/app_size_options.tscn" id="3_rwlyq"]
 [ext_resource type="PackedScene" uid="uid://gcwpmjn214qj" path="res://Scenes/ScreenScenes/SettingsScreen/SettingsNavigation/bgm_options.tscn" id="7_wl25h"]
 
-[node name="SettingsUI" type="Control" unique_id=2029752945 node_paths=PackedStringArray("ThemeOptions", "BgmOptions", "HSliderEffects", "HSliderUi", "HSliderBgm")]
+[node name="SettingsUI" type="Control" unique_id=2029752945 node_paths=PackedStringArray("ThemeOptions", "AppSizeOptions", "BgmOptions", "HSliderEffects", "HSliderUi", "HSliderBgm")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b1fle")
 ThemeOptions = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons2/HBoxContainer/ThemeOptions")
+AppSizeOptions = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons4/HBoxContainer/AppSizeOptions")
 BgmOptions = NodePath("Panel/MCscreen/VBscreen/MCbgmSelection/HBbgmSelection/BgmOptions")
 HSliderEffects = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
 HSliderUi = NodePath("Panel/MCscreen/VBscreen/MCthemeButtons3/VBoxContainer/HBoxUIButtons/HSliderUi")
@@ -76,6 +78,27 @@ focus_neighbor_right = NodePath("../../../MCthemeButtons/VBoxContainer/HBoxEffec
 focus_neighbor_bottom = NodePath("../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
 focus_next = NodePath("../../../MCthemeButtons/VBoxContainer/HBoxEffectsButtons/HSliderEffects")
 focus_previous = NodePath("../../../MCnavigation/HBnavigation/MainButton")
+
+[node name="MCthemeButtons4" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=802791622]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MCscreen/VBscreen/MCthemeButtons4" unique_id=2139131074]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Panel/MCscreen/VBscreen/MCthemeButtons4/HBoxContainer" unique_id=1478810692]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "App Size"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AppSizeOptions" parent="Panel/MCscreen/VBscreen/MCthemeButtons4/HBoxContainer" unique_id=1381269785 instance=ExtResource("3_rwlyq")]
+layout_mode = 2
 
 [node name="MCthemeButtons" type="MarginContainer" parent="Panel/MCscreen/VBscreen" unique_id=981917312]
 layout_mode = 2

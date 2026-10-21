@@ -32,7 +32,7 @@ public partial class UnitConversionTool : Control
 			if (window != null)
 			{
 				window.MinSize = new Vector2I(420, 560); // Minimum width and height
-				window.MaxSize = new Vector2I(720, 960); // Maximum and design width and height
+				window.MaxSize = new Vector2I(1440, 1920); // Maximum and design width and height
 			}
 		}
 		catch (Exception ex)
